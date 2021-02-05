@@ -120,13 +120,16 @@
   <data name="&gt;&gt;EqualBtn.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ComputeTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;FiveBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;EraseBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ClearBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
   </data>
@@ -145,6 +148,9 @@
   <data name="ClearBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 158</value>
   </data>
+  <data name="SixBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;MinusBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -154,11 +160,8 @@
   <data name="&gt;&gt;MinusBtn.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;ComputeTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MultBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DivBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 50</value>
   </data>
   <data name="EraseBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
@@ -192,9 +195,6 @@
   </data>
   <data name="&gt;&gt;FiveBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MinusBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 270</value>
   </data>
   <data name="&gt;&gt;PlusBtn.ZOrder" xml:space="preserve">
     <value>17</value>
@@ -239,8 +239,8 @@
   <data name="&gt;&gt;FourBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SixBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 14.25pt, style=Bold</value>
+  <data name="ClearBtn.Text" xml:space="preserve">
+    <value>CE</value>
   </data>
   <data name="NineBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
@@ -248,17 +248,14 @@
   <data name="EqualBtn.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;TwoBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="SevenBtn.Text" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="EightBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
   </data>
-  <data name="EqualBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 50</value>
+  <data name="&gt;&gt;ZeroBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NegativeBtn.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -281,14 +278,14 @@
   <data name="&gt;&gt;DivBtn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ModuloBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 14.25pt, style=Bold</value>
-  </data>
   <data name="EraseBtn.Text" xml:space="preserve">
     <value>&lt;</value>
   </data>
   <data name="&gt;&gt;TwoBtn.Name" xml:space="preserve">
     <value>TwoBtn</value>
+  </data>
+  <data name="ComputeTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 146</value>
   </data>
   <data name="&gt;&gt;ZeroBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -296,14 +293,11 @@
   <data name="ModuloBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>175, 158</value>
   </data>
-  <data name="&gt;&gt;ClearBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;MultBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ThreeBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DivBtn.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="PlusBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
@@ -335,11 +329,11 @@
   <data name="OneBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 326</value>
   </data>
+  <data name="EightBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
   <data name="PlusBtn.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;FiveBtn.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="&gt;&gt;EightBtn.Name" xml:space="preserve">
     <value>EightBtn</value>
@@ -374,14 +368,8 @@
   <data name="NineBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>345, 438</value>
-  </data>
   <data name="&gt;&gt;MultBtn.Name" xml:space="preserve">
     <value>MultBtn</value>
-  </data>
-  <data name="OneBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 50</value>
   </data>
   <data name="&gt;&gt;EightBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -389,8 +377,8 @@
   <data name="&gt;&gt;EraseBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NegativeBtn.Name" xml:space="preserve">
-    <value>NegativeBtn</value>
+  <data name="&gt;&gt;FiveBtn.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;CommaBtn.Name" xml:space="preserve">
     <value>CommaBtn</value>
@@ -410,14 +398,20 @@
   <data name="EightBtn.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
+  <data name="NegativeBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
   <data name="FiveBtn.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="CommaBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;ClearBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="SevenBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 214</value>
+  <data name="&gt;&gt;OneBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NegativeBtn.Name" xml:space="preserve">
+    <value>NegativeBtn</value>
   </data>
   <data name="ZeroBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
@@ -437,14 +431,11 @@
   <data name="&gt;&gt;NegativeBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="ClearBtn.Text" xml:space="preserve">
-    <value>CE</value>
-  </data>
   <data name="&gt;&gt;TwoBtn.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
-  <data name="ZeroBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;FourBtn.Name" xml:space="preserve">
+    <value>FourBtn</value>
   </data>
   <data name="&gt;&gt;MinusBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -455,11 +446,11 @@
   <data name="&gt;&gt;ComputeTextBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="PlusBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
   <data name="TwoBtn.Text" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="TwoBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="DivBtn.Text" xml:space="preserve">
     <value>/</value>
@@ -478,6 +469,9 @@
   </data>
   <data name="&gt;&gt;CommaBtn.ZOrder" xml:space="preserve">
     <value>14</value>
+  </data>
+  <data name="NineBtn.Text" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="MultBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 214</value>
@@ -500,20 +494,17 @@
   <data name="&gt;&gt;MultBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;OneBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="OneBtn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="EraseBtn.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;ZeroBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="MultBtn.Text" xml:space="preserve">
     <value>x</value>
+  </data>
+  <data name="SixBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 270</value>
   </data>
   <data name="MinusBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
@@ -524,17 +515,17 @@
   <data name="ThreeBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;FiveBtn.Name" xml:space="preserve">
     <value>FiveBtn</value>
   </data>
   <data name="&gt;&gt;PlusBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="DivBtn.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="EqualBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
-  </data>
-  <data name="ModuloBtn.Text" xml:space="preserve">
-    <value>%</value>
   </data>
   <data name="&gt;&gt;ComputeTextBox.Name" xml:space="preserve">
     <value>ComputeTextBox</value>
@@ -548,11 +539,11 @@
   <data name="&gt;&gt;EqualBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ComputeTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 14.25pt, style=Bold</value>
+  <data name="&gt;&gt;TwoBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ComputeTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="EqualBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 382</value>
@@ -560,11 +551,14 @@
   <data name="&gt;&gt;ThreeBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;OneBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TwoBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="SevenBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;MinusBtn.Name" xml:space="preserve">
+    <value>MinusBtn</value>
   </data>
   <data name="ThreeBtn.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -572,8 +566,8 @@
   <data name="DivBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
   </data>
-  <data name="NegativeBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 14.25pt, style=Bold</value>
+  <data name="&gt;&gt;OneBtn.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="SevenBtn.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -581,14 +575,17 @@
   <data name="&gt;&gt;ModuloBtn.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="NineBtn.Text" xml:space="preserve">
-    <value>9</value>
+  <data name="ZeroBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;FourBtn.Name" xml:space="preserve">
-    <value>FourBtn</value>
-  </data>
-  <data name="EightBtn.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="ModuloBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;DivBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="NegativeBtn.Text" xml:space="preserve">
+    <value>+/-</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -596,8 +593,8 @@
   <data name="FourBtn.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="PlusBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 14.25pt, style=Bold</value>
+  <data name="ModuloBtn.Text" xml:space="preserve">
+    <value>%</value>
   </data>
   <data name="&gt;&gt;ComputeTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -608,8 +605,8 @@
   <data name="MultBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;EraseBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="EightBtn.Text" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;EightBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -644,8 +641,8 @@
   <data name="MultBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
   </data>
-  <data name="EightBtn.Text" xml:space="preserve">
-    <value>8</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>345, 438</value>
   </data>
   <data name="&gt;&gt;DivBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -674,6 +671,9 @@
   <data name="MinusBtn.Text" xml:space="preserve">
     <value>-</value>
   </data>
+  <data name="SevenBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 214</value>
+  </data>
   <data name="ComputeTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
@@ -683,17 +683,17 @@
   <data name="SixBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 50</value>
   </data>
-  <data name="&gt;&gt;MinusBtn.Name" xml:space="preserve">
-    <value>MinusBtn</value>
+  <data name="CommaBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="NegativeBtn.Text" xml:space="preserve">
-    <value>+/-</value>
+  <data name="MinusBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 270</value>
   </data>
-  <data name="SixBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 270</value>
+  <data name="OneBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 50</value>
   </data>
-  <data name="ComputeTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 146</value>
+  <data name="&gt;&gt;EraseBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;ClearBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
