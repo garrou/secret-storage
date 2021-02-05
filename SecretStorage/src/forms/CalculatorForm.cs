@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SecretStorage.src.utils;
+using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace SecretStorage
@@ -6,15 +8,27 @@ namespace SecretStorage
     /// <summary>
     /// Class with buttons events
     /// </summary>
-    public partial class MainForm : Form
+    public partial class CalculatorForm : Form
     {
+
+        #region Fields
+
+        private int position;
+
+        #endregion Fields
+
+        #region Constructor
+
         /// <summary>
         /// Application
         /// </summary>
-        public MainForm()
+        public CalculatorForm()
         {
             InitializeComponent();
+            position = -1;
         }
+
+        #endregion Constructor
 
         #region Numbers events
 
@@ -25,7 +39,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void ZeroBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 0;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "0");
         }
 
         /// <summary>
@@ -35,7 +49,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void OneBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 1;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "1");
         }
 
         /// <summary>
@@ -45,7 +59,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void TwoBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 2;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "2");
         }
 
         /// <summary>
@@ -55,7 +69,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void ThreeBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 3;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "3");
         }
 
         /// <summary>
@@ -65,7 +79,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void FourBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 4;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "4");
         }
 
         /// <summary>
@@ -75,7 +89,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void FiveBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 5;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "5");
         }
 
         /// <summary>
@@ -85,7 +99,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void SixBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 6;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "6");
         }
 
         /// <summary>
@@ -95,7 +109,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void SevenBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 7;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "7");
         }
 
         /// <summary>
@@ -105,7 +119,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void EightBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 8;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "8");
         }
 
         /// <summary>
@@ -115,7 +129,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void NineBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += 9;
+            ComputeTextBox.Text = TextBoxUtils.Put(ComputeTextBox.Text, ref position, "9");
         }
 
         #endregion Numbers events
@@ -129,7 +143,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void NegativeBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text = (-1 * Int64.Parse(this.ComputeTextBox.Text)).ToString();
+            ComputeTextBox.Text = (-1 * Int64.Parse(ComputeTextBox.Text)).ToString();
         }
 
         /// <summary>
@@ -139,17 +153,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void CommaBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += ".";
-        }
-
-        /// <summary>
-        /// When user click on the number "="
-        /// </summary>
-        /// <param name="sender">System.Windows.Forms.Button</param>
-        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void EqualBtn_Click(object sender, EventArgs e)
-        {
-
+            ComputeTextBox.Text += ".";
         }
 
         /// <summary>
@@ -159,7 +163,10 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void PlusBtn_Click(object sender, EventArgs e)
         {
-            
+            if (ComputeTextBox.TextLength > 0)
+            {
+                ComputeTextBox.Text += " + ";
+            }
         }
 
         /// <summary>
@@ -169,7 +176,10 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void MinusBtn_Click(object sender, EventArgs e)
         {
-            
+            if (ComputeTextBox.TextLength > 0)
+            {
+                ComputeTextBox.Text += " - ";
+            }
         }
 
         /// <summary>
@@ -179,7 +189,10 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void MultBtn_Click(object sender, EventArgs e)
         {
-
+            if (ComputeTextBox.TextLength > 0)
+            {
+                ComputeTextBox.Text += " x ";
+            }
         }
 
         /// <summary>
@@ -189,17 +202,10 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void DivBtn_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        /// <summary>
-        /// When user click on the number "CE"
-        /// </summary>
-        /// <param name="sender">System.Windows.Forms.Button</param>
-        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void ClearBtn_Click(object sender, EventArgs e)
-        {
-            this.ComputeTextBox.Text = "0";
+            if (ComputeTextBox.TextLength > 0)
+            {
+                ComputeTextBox.Text += " / ";
+            }
         }
 
         /// <summary>
@@ -209,7 +215,24 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void ModuloBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text += "%";
+            if (ComputeTextBox.TextLength > 0)
+            {
+                ComputeTextBox.Text += " % ";
+            }
+        }
+
+        #endregion Symbols regions
+
+        #region Actions buttons
+
+        /// <summary>
+        /// When user click on the number "CE"
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ComputeTextBox.Text = "0";
         }
 
         /// <summary>
@@ -219,10 +242,32 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void EraseBtn_Click(object sender, EventArgs e)
         {
-            this.ComputeTextBox.Text = this.ComputeTextBox.Text.Remove(this.ComputeTextBox.TextLength - 1);
+            if (ComputeTextBox.TextLength > 0 && position > 0 && position <= ComputeTextBox.TextLength)
+            { 
+                ComputeTextBox.Text = ComputeTextBox.Text.Remove(position - 1, 1);
+                position--;
+            } 
+            else if (ComputeTextBox.TextLength > 0)
+            {
+                ComputeTextBox.Text = ComputeTextBox.Text.Remove(ComputeTextBox.TextLength - 1);
+            }
+
         }
 
-        #endregion Symbols regions
+        /// <summary>
+        /// When user click on the number "="
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void EqualBtn_Click(object sender, EventArgs e)
+        {
+            string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
+            DataTable dt = new DataTable();
+            object result = dt.Compute(toCalculate, "");
+            ComputeTextBox.Text = result.ToString();
+        }
+
+        #endregion Actions buttons
 
         #region TextBox events
 
@@ -234,11 +279,20 @@ namespace SecretStorage
         /// <param name="e">System.EventArgs</param>
         private void ComputeTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (this.ComputeTextBox.TextLength == 2 && this.ComputeTextBox.Text[0] == '0')
+            if (ComputeTextBox.TextLength == 2 && ComputeTextBox.Text[0] == '0')
             {
-                Console.WriteLine(e.GetType());
-                this.ComputeTextBox.Text = this.ComputeTextBox.Text.Remove(0, 1);
+                ComputeTextBox.Text = ComputeTextBox.Text.Remove(0, 1);
             }
+        }
+
+        /// <summary>
+        /// When user click on the ComputedTextBox
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.TextBox</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void ComputeTextBox_Click(object sender, System.EventArgs e)
+        {
+            position = ComputeTextBox.SelectionStart;
         }
 
         #endregion TextBox events
