@@ -1,4 +1,6 @@
-﻿using SecretStorage.src.utils;
+﻿using SecretStorage.src.forms;
+using SecretStorage.src.models;
+using SecretStorage.src.utils;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -13,7 +15,15 @@ namespace SecretStorage
 
         #region Fields
 
+        /// <summary>
+        /// Cursor position
+        /// </summary>
         private int position;
+
+        /// <summary>
+        /// MySQL connection
+        /// </summary>
+        private Connection connection;
 
         #endregion Fields
 
@@ -25,6 +35,7 @@ namespace SecretStorage
         public CalculatorForm()
         {
             InitializeComponent();
+            connection = new Connection();
             position = -1;
         }
 
@@ -267,6 +278,14 @@ namespace SecretStorage
                 DataTable dt = new DataTable();
                 object result = dt.Compute(toCalculate, "");
                 ComputeTextBox.Text = result.ToString();
+
+                // If good authentification
+                if (connection.Authentification(toCalculate) != null)
+                {
+                    Hide();
+                    AdminForm adminForm = new AdminForm();
+                    adminForm.Show();
+                }
             } 
             catch (SyntaxErrorException ex)
             {
