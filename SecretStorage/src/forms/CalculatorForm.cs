@@ -261,10 +261,17 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void EqualBtn_Click(object sender, EventArgs e)
         {
-            string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
-            DataTable dt = new DataTable();
-            object result = dt.Compute(toCalculate, "");
-            ComputeTextBox.Text = result.ToString();
+            try
+            {
+                string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
+                DataTable dt = new DataTable();
+                object result = dt.Compute(toCalculate, "");
+                ComputeTextBox.Text = result.ToString();
+            } 
+            catch (SyntaxErrorException ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+            }
         }
 
         #endregion Actions buttons
