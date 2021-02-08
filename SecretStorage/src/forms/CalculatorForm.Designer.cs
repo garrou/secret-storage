@@ -51,28 +51,32 @@ namespace SecretStorage
             this.EraseBtn = new System.Windows.Forms.Button();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.ComputeTextBox = new System.Windows.Forms.TextBox();
+            this.OneOnBtn = new System.Windows.Forms.Button();
+            this.SquareBtn = new System.Windows.Forms.Button();
+            this.RightParenthese = new System.Windows.Forms.Button();
+            this.LeftParenthese = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OneBtn
             // 
-            resources.ApplyResources(this.OneBtn, "OneBtn");
             this.OneBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.OneBtn, "OneBtn");
             this.OneBtn.Name = "OneBtn";
             this.OneBtn.UseVisualStyleBackColor = false;
             this.OneBtn.Click += new System.EventHandler(this.OneBtn_Click);
             // 
             // TwoBtn
             // 
-            resources.ApplyResources(this.TwoBtn, "TwoBtn");
             this.TwoBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.TwoBtn, "TwoBtn");
             this.TwoBtn.Name = "TwoBtn";
             this.TwoBtn.UseVisualStyleBackColor = false;
             this.TwoBtn.Click += new System.EventHandler(this.TwoBtn_Click);
             // 
             // ThreeBtn
             // 
-            resources.ApplyResources(this.ThreeBtn, "ThreeBtn");
             this.ThreeBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.ThreeBtn, "ThreeBtn");
             this.ThreeBtn.Name = "ThreeBtn";
             this.ThreeBtn.UseVisualStyleBackColor = false;
             this.ThreeBtn.Click += new System.EventHandler(this.ThreeBtn_Click);
@@ -86,32 +90,32 @@ namespace SecretStorage
             // 
             // NegativeBtn
             // 
-            resources.ApplyResources(this.NegativeBtn, "NegativeBtn");
             this.NegativeBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.NegativeBtn, "NegativeBtn");
             this.NegativeBtn.Name = "NegativeBtn";
             this.NegativeBtn.UseVisualStyleBackColor = false;
             this.NegativeBtn.Click += new System.EventHandler(this.NegativeBtn_Click);
             // 
             // ZeroBtn
             // 
-            resources.ApplyResources(this.ZeroBtn, "ZeroBtn");
             this.ZeroBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.ZeroBtn, "ZeroBtn");
             this.ZeroBtn.Name = "ZeroBtn";
             this.ZeroBtn.UseVisualStyleBackColor = false;
             this.ZeroBtn.Click += new System.EventHandler(this.ZeroBtn_Click);
             // 
             // CommaBtn
             // 
-            resources.ApplyResources(this.CommaBtn, "CommaBtn");
             this.CommaBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.CommaBtn, "CommaBtn");
             this.CommaBtn.Name = "CommaBtn";
             this.CommaBtn.UseVisualStyleBackColor = false;
             this.CommaBtn.Click += new System.EventHandler(this.CommaBtn_Click);
             // 
             // EqualBtn
             // 
-            resources.ApplyResources(this.EqualBtn, "EqualBtn");
             this.EqualBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            resources.ApplyResources(this.EqualBtn, "EqualBtn");
             this.EqualBtn.Name = "EqualBtn";
             this.EqualBtn.UseVisualStyleBackColor = false;
             this.EqualBtn.Click += new System.EventHandler(this.EqualBtn_Click);
@@ -125,24 +129,24 @@ namespace SecretStorage
             // 
             // SixBtn
             // 
-            resources.ApplyResources(this.SixBtn, "SixBtn");
             this.SixBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.SixBtn, "SixBtn");
             this.SixBtn.Name = "SixBtn";
             this.SixBtn.UseVisualStyleBackColor = false;
             this.SixBtn.Click += new System.EventHandler(this.SixBtn_Click);
             // 
             // FiveBtn
             // 
-            resources.ApplyResources(this.FiveBtn, "FiveBtn");
             this.FiveBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.FiveBtn, "FiveBtn");
             this.FiveBtn.Name = "FiveBtn";
             this.FiveBtn.UseVisualStyleBackColor = false;
             this.FiveBtn.Click += new System.EventHandler(this.FiveBtn_Click);
             // 
             // FourBtn
             // 
-            resources.ApplyResources(this.FourBtn, "FourBtn");
             this.FourBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.FourBtn, "FourBtn");
             this.FourBtn.Name = "FourBtn";
             this.FourBtn.UseVisualStyleBackColor = false;
             this.FourBtn.Click += new System.EventHandler(this.FourBtn_Click);
@@ -156,24 +160,24 @@ namespace SecretStorage
             // 
             // NineBtn
             // 
-            resources.ApplyResources(this.NineBtn, "NineBtn");
             this.NineBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.NineBtn, "NineBtn");
             this.NineBtn.Name = "NineBtn";
             this.NineBtn.UseVisualStyleBackColor = false;
             this.NineBtn.Click += new System.EventHandler(this.NineBtn_Click);
             // 
             // EightBtn
             // 
-            resources.ApplyResources(this.EightBtn, "EightBtn");
             this.EightBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.EightBtn, "EightBtn");
             this.EightBtn.Name = "EightBtn";
             this.EightBtn.UseVisualStyleBackColor = false;
             this.EightBtn.Click += new System.EventHandler(this.EightBtn_Click);
             // 
             // SevenBtn
             // 
-            resources.ApplyResources(this.SevenBtn, "SevenBtn");
             this.SevenBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.SevenBtn, "SevenBtn");
             this.SevenBtn.Name = "SevenBtn";
             this.SevenBtn.UseVisualStyleBackColor = false;
             this.SevenBtn.Click += new System.EventHandler(this.SevenBtn_Click);
@@ -214,11 +218,47 @@ namespace SecretStorage
             this.ComputeTextBox.Click += new System.EventHandler(this.ComputeTextBox_Click);
             this.ComputeTextBox.TextChanged += new System.EventHandler(this.ComputeTextBox_TextChanged);
             // 
+            // OneOnBtn
+            // 
+            resources.ApplyResources(this.OneOnBtn, "OneOnBtn");
+            this.OneOnBtn.Name = "OneOnBtn";
+            this.OneOnBtn.UseVisualStyleBackColor = true;
+            this.OneOnBtn.Click += new System.EventHandler(this.OneOnBtn_Click);
+            // 
+            // SquareBtn
+            // 
+            this.SquareBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.SquareBtn, "SquareBtn");
+            this.SquareBtn.Name = "SquareBtn";
+            this.SquareBtn.UseVisualStyleBackColor = false;
+            this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
+            // 
+            // RightParenthese
+            // 
+            this.RightParenthese.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.RightParenthese, "RightParenthese");
+            this.RightParenthese.Name = "RightParenthese";
+            this.RightParenthese.UseVisualStyleBackColor = false;
+            this.RightParenthese.Click += new System.EventHandler(this.RightParenthese_Click);
+            // 
+            // LeftParenthese
+            // 
+            this.LeftParenthese.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.LeftParenthese, "LeftParenthese");
+            this.LeftParenthese.Name = "LeftParenthese";
+            this.LeftParenthese.UseVisualStyleBackColor = false;
+            this.LeftParenthese.Click += new System.EventHandler(this.LeftParenthese_Click);
+            // 
             // CalculatorForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.OneOnBtn);
+            this.Controls.Add(this.SquareBtn);
+            this.Controls.Add(this.RightParenthese);
+            this.Controls.Add(this.LeftParenthese);
             this.Controls.Add(this.ComputeTextBox);
             this.Controls.Add(this.DivBtn);
             this.Controls.Add(this.ModuloBtn);
@@ -271,6 +311,10 @@ namespace SecretStorage
         private System.Windows.Forms.Button EraseBtn;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.TextBox ComputeTextBox;
+        private System.Windows.Forms.Button OneOnBtn;
+        private System.Windows.Forms.Button SquareBtn;
+        private System.Windows.Forms.Button RightParenthese;
+        private System.Windows.Forms.Button LeftParenthese;
     }
 }
 

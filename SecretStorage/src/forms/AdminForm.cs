@@ -16,12 +16,18 @@ namespace SecretStorage.src.forms
         private readonly Connection connection;
 
         /// <summary>
+        /// Current authentified admin
+        /// </summary>
+        private readonly User authentifiedAdmin;
+
+        /// <summary>
         /// Init admin form
         /// </summary>
-        public AdminForm()
+        public AdminForm(User authAdmin)
         {
             InitializeComponent();
             connection = new Connection();
+            authentifiedAdmin = authAdmin;
         }
 
         /// <summary>
@@ -35,6 +41,7 @@ namespace SecretStorage.src.forms
             {
                 connection.Execute(SqlTextBox.Text);
                 SqlTextBox.Text = "";
+                AddInUsersListView();
             } 
             catch (Exception ex)
             {
@@ -49,15 +56,8 @@ namespace SecretStorage.src.forms
         /// <param name="e">System.EventArgs</param>
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            List<User> users = connection.GetAllUsers();
-
-            UserListView.View = View.Details;
-            UserListView.GridLines = true;
-
-            foreach (User user in users)
-            {
-                UserListView.Items.Add(new ListViewItem(new string[] { user.Id.ToString(), user.Name, user.Password }));
-            }
+            AddInUsersListView();
+            NameLabel.Text += authentifiedAdmin.Name;
         }
 
         /// <summary>
@@ -70,6 +70,23 @@ namespace SecretStorage.src.forms
             Hide();
             CalculatorForm calculatorForm = new CalculatorForm();
             calculatorForm.Show();
+        }
+
+        /// <summary>
+        /// Add in users listview
+        /// </summary>
+        public void AddInUsersListView()
+        {
+            List<User> users = connection.GetAllUsers();
+
+            UserListView.Items.Clear();
+            UserListView.View = View.Details;
+            UserListView.GridLines = true;
+
+            foreach (User user in users)
+            {
+                UserListView.Items.Add(new ListViewItem(new string[] { user.Id.ToString(), user.Name, user.Password }));
+            }
         }
     }
 }

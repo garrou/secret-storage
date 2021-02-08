@@ -12,12 +12,12 @@ namespace SecretStorage.src.models
         /// <summary>
         /// Connection string to database
         /// </summary>
-        private string connectionStr = "server=localhost;user=root;database=secretstorage;port=3306;password=root";
+        private readonly string connectionStr = Properties.Settings.Default.ConnectionString;
 
         /// <summary>
         /// Connection object to database
         /// </summary>
-        private MySqlConnection connection;
+        private readonly MySqlConnection connection;
 
         /// <summary>
         /// Init a new connection
@@ -64,8 +64,12 @@ namespace SecretStorage.src.models
         public void Execute(string sqlCommand)
         {
             MySqlCommand command = new MySqlCommand(sqlCommand, connection);
-            command.ExecuteNonQuery();
-            MessageBox.Show("Commande effectuée avec succés.", "Succés !", MessageBoxButtons.OK);
+            int nbRows = command.ExecuteNonQuery();
+
+            if (nbRows > 0)
+            {
+                MessageBox.Show("Commande effectuée avec succés.", "Succés !", MessageBoxButtons.OK);
+            }
         }
 
         /// <summary>

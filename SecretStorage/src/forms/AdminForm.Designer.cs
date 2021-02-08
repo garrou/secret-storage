@@ -42,6 +42,7 @@ namespace SecretStorage.src.forms
             this.NameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PasswordColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UsersLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Disconnect
@@ -67,18 +68,19 @@ namespace SecretStorage.src.forms
             // 
             // SqlTextBox
             // 
-            this.SqlTextBox.Location = new System.Drawing.Point(372, 81);
+            this.SqlTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SqlTextBox.Location = new System.Drawing.Point(420, 140);
             this.SqlTextBox.Multiline = true;
             this.SqlTextBox.Name = "SqlTextBox";
             this.SqlTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.SqlTextBox.Size = new System.Drawing.Size(600, 217);
+            this.SqlTextBox.Size = new System.Drawing.Size(552, 217);
             this.SqlTextBox.TabIndex = 3;
             // 
             // SqlLabel
             // 
             this.SqlLabel.AutoSize = true;
             this.SqlLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SqlLabel.Location = new System.Drawing.Point(596, 52);
+            this.SqlLabel.Location = new System.Drawing.Point(622, 111);
             this.SqlLabel.Name = "SqlLabel";
             this.SqlLabel.Size = new System.Drawing.Size(149, 26);
             this.SqlLabel.TabIndex = 4;
@@ -87,7 +89,7 @@ namespace SecretStorage.src.forms
             // SqlButton
             // 
             this.SqlButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SqlButton.Location = new System.Drawing.Point(847, 304);
+            this.SqlButton.Location = new System.Drawing.Point(847, 363);
             this.SqlButton.Name = "SqlButton";
             this.SqlButton.Size = new System.Drawing.Size(125, 30);
             this.SqlButton.TabIndex = 5;
@@ -103,9 +105,9 @@ namespace SecretStorage.src.forms
             this.PasswordColumn});
             this.UserListView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserListView.HideSelection = false;
-            this.UserListView.Location = new System.Drawing.Point(17, 349);
+            this.UserListView.Location = new System.Drawing.Point(17, 140);
             this.UserListView.Name = "UserListView";
-            this.UserListView.Size = new System.Drawing.Size(300, 200);
+            this.UserListView.Size = new System.Drawing.Size(384, 409);
             this.UserListView.TabIndex = 6;
             this.UserListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -125,17 +127,28 @@ namespace SecretStorage.src.forms
             // 
             this.UsersLabel.AutoSize = true;
             this.UsersLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsersLabel.Location = new System.Drawing.Point(112, 320);
+            this.UsersLabel.Location = new System.Drawing.Point(152, 111);
             this.UsersLabel.Name = "UsersLabel";
             this.UsersLabel.Size = new System.Drawing.Size(110, 26);
             this.UsersLabel.TabIndex = 7;
             this.UsersLabel.Text = "Utilisateurs";
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.Location = new System.Drawing.Point(17, 64);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(70, 26);
+            this.NameLabel.TabIndex = 8;
+            this.NameLabel.Text = "Nom : ";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.UsersLabel);
             this.Controls.Add(this.UserListView);
             this.Controls.Add(this.SqlButton);
@@ -163,5 +176,6 @@ namespace SecretStorage.src.forms
         private System.Windows.Forms.ColumnHeader IdColumn;
         private System.Windows.Forms.ColumnHeader NameColumn;
         private System.Windows.Forms.ColumnHeader PasswordColumn;
+        private System.Windows.Forms.Label NameLabel;
     }
 }

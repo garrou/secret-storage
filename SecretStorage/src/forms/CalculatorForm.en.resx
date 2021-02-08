@@ -119,52 +119,52 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="OneBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 325</value>
+    <value>4, 381</value>
   </data>
   <data name="TwoBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 325</value>
-  </data>
-  <data name="ThreeBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 325</value>
-  </data>
-  <data name="PlusBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 325</value>
-  </data>
-  <data name="NegativeBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 383</value>
-  </data>
-  <data name="ZeroBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 381</value>
   </data>
-  <data name="CommaBtn.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ThreeBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>176, 381</value>
   </data>
-  <data name="EqualBtn.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="PlusBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>262, 381</value>
   </data>
+  <data name="NegativeBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 439</value>
+  </data>
+  <data name="ZeroBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 437</value>
+  </data>
+  <data name="CommaBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 437</value>
+  </data>
+  <data name="EqualBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>262, 437</value>
+  </data>
   <data name="MinusBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 269</value>
+    <value>262, 325</value>
   </data>
   <data name="SixBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 269</value>
+    <value>176, 325</value>
   </data>
   <data name="FiveBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 269</value>
+    <value>91, 325</value>
   </data>
   <data name="FourBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 269</value>
+    <value>4, 325</value>
   </data>
   <data name="MultBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 213</value>
+    <value>262, 269</value>
   </data>
   <data name="NineBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 213</value>
+    <value>176, 269</value>
   </data>
   <data name="EightBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 213</value>
+    <value>90, 269</value>
   </data>
   <data name="SevenBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 213</value>
+    <value>4, 269</value>
   </data>
   <data name="DivBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>262, 157</value>
@@ -181,12 +181,16 @@
   <data name="ComputeTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 5</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>346, 437</value>
+    <value>354, 561</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

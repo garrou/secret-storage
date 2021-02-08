@@ -1,4 +1,9 @@
-﻿CREATE DATABASE secretstorage;
+﻿DROP DATABASE IF EXISTS secretstorage;
+
+CREATE DATABASE secretstorage;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS profiles;
 
 USE secretstorage;
 
@@ -9,4 +14,5 @@ CREATE TABLE users (
     PRIMARY KEY(id)
 );
 
-INSERT INTO users (name, password) VALUES ('admin', '123456')
+INSERT INTO users (name, password) VALUES ('admin', '123456');
+INSERT INTO users (name, password) VALUES ('adrien', '987654');

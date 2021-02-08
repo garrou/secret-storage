@@ -23,7 +23,7 @@ namespace SecretStorage
         /// <summary>
         /// MySQL connection
         /// </summary>
-        private Connection connection;
+        private readonly Connection connection;
 
         #endregion Fields
 
@@ -37,6 +37,7 @@ namespace SecretStorage
             InitializeComponent();
             connection = new Connection();
             position = -1;
+            Refresh();
         }
 
         #endregion Constructor
@@ -44,7 +45,7 @@ namespace SecretStorage
         #region Numbers events
 
         /// <summary>
-        /// When user click on the number 0
+        /// When user clicks on the button 0
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -54,7 +55,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 1
+        /// When user clicks on the button 1
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -64,7 +65,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 2
+        /// When user clicks on the button 2
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -74,7 +75,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 3
+        /// When user clicks on the button 3
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -84,7 +85,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 4
+        /// When user clicks on the button 4
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -94,7 +95,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 5
+        /// When user clicks on the button 5
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -104,7 +105,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 6
+        /// When user clicks on the button 6
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -114,7 +115,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 7
+        /// When user clicks on the button 7
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -124,7 +125,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 8
+        /// When user clicks on the button 8
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -134,7 +135,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number 9
+        /// When user clicks on the button 9
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -148,7 +149,7 @@ namespace SecretStorage
         #region Symbols events
 
         /// <summary>
-        /// When user click on the number "+/-"
+        /// When user clicks on the button "+/-"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -158,7 +159,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number ","
+        /// When user clicks on the button ","
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -168,7 +169,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "+"
+        /// When user clicks on the button "+"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -181,7 +182,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "-"
+        /// When user clicks on the button "-"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -194,7 +195,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "x"
+        /// When user clicks on the button "x"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -207,7 +208,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "/"
+        /// When user clicks on the button "/"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -220,7 +221,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "%"
+        /// When user clicks on the button "%"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -232,12 +233,70 @@ namespace SecretStorage
             }
         }
 
+        /// <summary>
+        /// When user clicks on the button "("
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void LeftParenthese_Click(object sender, EventArgs e)
+        {
+            ComputeTextBox.Text += "(";
+        }
+
+        /// <summary>
+        /// When user clicks on the button ")"
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void RightParenthese_Click(object sender, EventArgs e)
+        {
+            int nbLeftParentheses = 0;
+            int nbRightParentheses = 0;
+
+            foreach (char c in ComputeTextBox.Text)
+            {
+                if (c == '(')
+                {
+                    nbLeftParentheses++;
+                } 
+                else if (c == ')')
+                {
+                    nbRightParentheses++;
+                }
+            }
+
+            if (nbLeftParentheses > 0 && nbLeftParentheses > nbRightParentheses)
+            {
+                ComputeTextBox.Text += ")";
+            }
+        }
+
+        /// <summary>
+        /// When user clicks on the button "x²"
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void SquareBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// When user clicks on the button "1/x"
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void OneOnBtn_Click(object sender, EventArgs e)
+        {
+            ComputeTextBox.Text += "1/";
+        }
+
         #endregion Symbols regions
 
         #region Actions buttons
 
         /// <summary>
-        /// When user click on the number "CE"
+        /// When user clicks on the button "CE"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -247,7 +306,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "<"
+        /// When user clicks on the button "<"
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -266,7 +325,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the number "="
+        /// When user clicks on the button "="
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
@@ -275,16 +334,24 @@ namespace SecretStorage
             try
             {
                 string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
-                DataTable dt = new DataTable();
-                object result = dt.Compute(toCalculate, "");
-                ComputeTextBox.Text = result.ToString();
+                ComputeTextBox.Text = Compute.DoTheMath(toCalculate);
+
+                User authUser = connection.Authentification(toCalculate);
 
                 // If good authentification
-                if (connection.Authentification(toCalculate) != null)
+                if (authUser != null)
                 {
                     Hide();
-                    AdminForm adminForm = new AdminForm();
-                    adminForm.Show();
+                    if (authUser.IsAdmin)
+                    {
+                        AdminForm adminForm = new AdminForm(authUser);
+                        adminForm.Show();
+                    }
+                    else
+                    {
+                        UserForm userForm = new UserForm(authUser);
+                        userForm.Show();
+                    }
                 }
             } 
             catch (SyntaxErrorException ex)
@@ -298,8 +365,8 @@ namespace SecretStorage
         #region TextBox events
 
         /// <summary>
-        /// When a 0 is in text box and user input an other number
-        /// Consist in replacement of 0 with the clicked number
+        /// When a 0 is in text box and user input an other button
+        /// Consist in replacement of 0 with the clicked button
         /// </summary>
         /// <param name="sender">System.Windows.Forms.TextBox</param>
         /// <param name="e">System.EventArgs</param>
@@ -312,7 +379,7 @@ namespace SecretStorage
         }
 
         /// <summary>
-        /// When user click on the ComputedTextBox
+        /// When user clicks on the ComputedTextBox
         /// </summary>
         /// <param name="sender">System.Windows.Forms.TextBox</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>

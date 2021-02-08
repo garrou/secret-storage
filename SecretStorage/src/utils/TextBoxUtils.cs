@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SecretStorage.src.utils
+﻿namespace SecretStorage.src.utils
 {
     /// <summary>
     /// Utils class to apply on ComputedTextBox
