@@ -44,11 +44,14 @@ namespace SecretStorage.src.forms
             // BtnConnect
             // 
             this.BtnConnect.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConnect.Image = global::SecretStorage.Properties.Resources.enter;
+            this.BtnConnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnConnect.Location = new System.Drawing.Point(66, 378);
             this.BtnConnect.Name = "BtnConnect";
-            this.BtnConnect.Size = new System.Drawing.Size(150, 40);
+            this.BtnConnect.Size = new System.Drawing.Size(160, 35);
             this.BtnConnect.TabIndex = 0;
             this.BtnConnect.Text = "Se connecter";
+            this.BtnConnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnConnect.UseVisualStyleBackColor = true;
             this.BtnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 

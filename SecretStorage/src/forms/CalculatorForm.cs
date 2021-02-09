@@ -155,7 +155,7 @@ namespace SecretStorage
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void NegativeBtn_Click(object sender, EventArgs e)
         {
-            ComputeTextBox.Text = (-1 * Int64.Parse(ComputeTextBox.Text)).ToString();
+            ComputeTextBox.Text = (-1 * long.Parse(ComputeTextBox.Text)).ToString();
         }
 
         /// <summary>
@@ -277,8 +277,8 @@ namespace SecretStorage
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void SquareBtn_Click(object sender, EventArgs e)
-        {
-
+        { 
+            ComputeTextBox.Text += "3,1415926535897932384626433832795";      
         }
 
         /// <summary>

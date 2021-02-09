@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -92,13 +93,15 @@ namespace SecretStorage.src.models
         {
             string sql = "SELECT id, name, password FROM users";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            List<User> usersList = new List<User>();
+            List<User> usersList = null;
 
             command.ExecuteNonQuery();
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
-            {
+            { 
+                usersList = new List<User>();
+
                 while (reader.Read())
                 {
                     usersList.Add(new User(uint.Parse(reader["id"].ToString()),
@@ -193,6 +196,48 @@ namespace SecretStorage.src.models
             reader.Close();
 
             return isDefault;
+        }
+
+        /// <summary>
+        /// Update last connection of current user
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        public bool UpdateLogs(uint userId)
+        {
+            string sql = "UPDATE logs SET lastConnection=@lastConnection WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@lastConnection", DateTime.Now);
+            command.Parameters.AddWithValue("@userId", userId);
+            
+            return command.ExecuteNonQuery() > 0;
+        }
+
+        /// <summary>
+        /// Get the last connection of current useer
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        /// <returns>The last connection date hours minutes seconds</returns>
+        public string GetLogs(uint userId)
+        {
+            string sql = "SELECT lastConnection FROM logs WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            string lastConnection = string.Empty;
+
+            command.Parameters.AddWithValue("@userId", userId);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read()) 
+                {
+                    lastConnection = reader.GetString(0);
+                }
+            }
+
+            reader.Close();
+
+            return lastConnection;
         }
 
         /// <summary>

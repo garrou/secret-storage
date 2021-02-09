@@ -50,6 +50,10 @@ namespace SecretStorage.src.forms
                 ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
             }
             // else do nothing and use default image
+
+            // Get the last connection user date
+            LastConnectionLabel.Text += connection.GetLogs(authentifiedAdmin.Id);
+            
         }
 
         /// <summary>
@@ -78,7 +82,7 @@ namespace SecretStorage.src.forms
 
             foreach (User user in users)
             {
-                UserListView.Items.Add(new ListViewItem(new string[] { user.Id.ToString(), user.Name, user.Password }));
+                UserListView.Items.Add(new ListViewItem(new string[] { user.Id.ToString(), user.Name }));
             }
         }
 

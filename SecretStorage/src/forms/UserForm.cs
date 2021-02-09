@@ -45,6 +45,8 @@ namespace SecretStorage.src.forms
                 ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
             }
             // else do nothing and use default image
+
+            LastConnectionLabel.Text += connection.GetLogs(authentifiedUser.Id);
         }
 
         /// <summary>

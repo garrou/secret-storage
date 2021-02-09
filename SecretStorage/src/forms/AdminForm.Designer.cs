@@ -37,10 +37,10 @@ namespace SecretStorage.src.forms
             this.UserListView = new System.Windows.Forms.ListView();
             this.IdColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PasswordColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UsersLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.OptionsLabel = new System.Windows.Forms.Label();
+            this.EraseBtn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UpdateUserBtn = new System.Windows.Forms.Button();
@@ -49,6 +49,7 @@ namespace SecretStorage.src.forms
             this.BtnAddImage = new System.Windows.Forms.Button();
             this.ProfilePicture = new System.Windows.Forms.PictureBox();
             this.Disconnect = new System.Windows.Forms.Button();
+            this.LastConnectionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
@@ -68,33 +69,30 @@ namespace SecretStorage.src.forms
             // 
             this.UserListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IdColumn,
-            this.NameColumn,
-            this.PasswordColumn});
+            this.NameColumn});
             this.UserListView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserListView.HideSelection = false;
-            this.UserListView.Location = new System.Drawing.Point(592, 188);
+            this.UserListView.Location = new System.Drawing.Point(672, 150);
             this.UserListView.Name = "UserListView";
-            this.UserListView.Size = new System.Drawing.Size(384, 361);
+            this.UserListView.Size = new System.Drawing.Size(300, 400);
             this.UserListView.TabIndex = 6;
             this.UserListView.UseCompatibleStateImageBehavior = false;
             // 
             // IdColumn
             // 
             this.IdColumn.Text = "Id";
+            this.IdColumn.Width = 150;
             // 
             // NameColumn
             // 
             this.NameColumn.Text = "Nom";
-            // 
-            // PasswordColumn
-            // 
-            this.PasswordColumn.Text = "Mot de passe";
+            this.NameColumn.Width = 150;
             // 
             // UsersLabel
             // 
             this.UsersLabel.AutoSize = true;
             this.UsersLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsersLabel.Location = new System.Drawing.Point(753, 155);
+            this.UsersLabel.Location = new System.Drawing.Point(788, 121);
             this.UsersLabel.Name = "UsersLabel";
             this.UsersLabel.Size = new System.Drawing.Size(110, 26);
             this.UsersLabel.TabIndex = 7;
@@ -122,10 +120,23 @@ namespace SecretStorage.src.forms
             this.OptionsLabel.Text = "Options";
             this.OptionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // EraseBtn
+            // 
+            this.EraseBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EraseBtn.Image = global::SecretStorage.Properties.Resources.eraser;
+            this.EraseBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EraseBtn.Location = new System.Drawing.Point(17, 475);
+            this.EraseBtn.Name = "EraseBtn";
+            this.EraseBtn.Size = new System.Drawing.Size(160, 35);
+            this.EraseBtn.TabIndex = 17;
+            this.EraseBtn.Text = "Supprimer les logs";
+            this.EraseBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.EraseBtn.UseVisualStyleBackColor = true;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SecretStorage.Properties.Resources.users;
-            this.pictureBox2.Location = new System.Drawing.Point(723, 155);
+            this.pictureBox2.Location = new System.Drawing.Point(758, 121);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -170,7 +181,9 @@ namespace SecretStorage.src.forms
             // 
             // AddUserBtn
             // 
+            this.AddUserBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.AddUserBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddUserBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddUserBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddUserBtn.Image")));
             this.AddUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddUserBtn.Location = new System.Drawing.Point(17, 320);
@@ -179,7 +192,7 @@ namespace SecretStorage.src.forms
             this.AddUserBtn.TabIndex = 11;
             this.AddUserBtn.Text = "Ajouter utilisateur";
             this.AddUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddUserBtn.UseVisualStyleBackColor = true;
+            this.AddUserBtn.UseVisualStyleBackColor = false;
             // 
             // BtnAddImage
             // 
@@ -197,6 +210,7 @@ namespace SecretStorage.src.forms
             // 
             // ProfilePicture
             // 
+            this.ProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.Image")));
             this.ProfilePicture.InitialImage = null;
             this.ProfilePicture.Location = new System.Drawing.Point(17, 53);
             this.ProfilePicture.Name = "ProfilePicture";
@@ -207,23 +221,35 @@ namespace SecretStorage.src.forms
             // 
             // Disconnect
             // 
-            this.Disconnect.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Disconnect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Disconnect.Image = global::SecretStorage.Properties.Resources.logout;
             this.Disconnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Disconnect.Location = new System.Drawing.Point(826, 12);
             this.Disconnect.Name = "Disconnect";
-            this.Disconnect.Size = new System.Drawing.Size(150, 30);
+            this.Disconnect.Size = new System.Drawing.Size(150, 35);
             this.Disconnect.TabIndex = 0;
             this.Disconnect.Text = "Se déconnecter";
             this.Disconnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Disconnect.UseVisualStyleBackColor = true;
             this.Disconnect.Click += new System.EventHandler(this.Disconnect_Click);
             // 
+            // LastConnectionLabel
+            // 
+            this.LastConnectionLabel.AutoSize = true;
+            this.LastConnectionLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastConnectionLabel.Location = new System.Drawing.Point(183, 79);
+            this.LastConnectionLabel.Name = "LastConnectionLabel";
+            this.LastConnectionLabel.Size = new System.Drawing.Size(199, 26);
+            this.LastConnectionLabel.TabIndex = 18;
+            this.LastConnectionLabel.Text = "Dernière connexion : ";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.LastConnectionLabel);
+            this.Controls.Add(this.EraseBtn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UpdateUserBtn);
@@ -258,7 +284,6 @@ namespace SecretStorage.src.forms
         private System.Windows.Forms.Label UsersLabel;
         private System.Windows.Forms.ColumnHeader IdColumn;
         private System.Windows.Forms.ColumnHeader NameColumn;
-        private System.Windows.Forms.ColumnHeader PasswordColumn;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.PictureBox ProfilePicture;
         private System.Windows.Forms.Button BtnAddImage;
@@ -268,5 +293,7 @@ namespace SecretStorage.src.forms
         private System.Windows.Forms.Button UpdateUserBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button EraseBtn;
+        private System.Windows.Forms.Label LastConnectionLabel;
     }
 }

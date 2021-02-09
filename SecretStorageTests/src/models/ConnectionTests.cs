@@ -16,7 +16,7 @@ namespace SecretStorage.src.models.Tests
         public void AuthentificationTestUser()
         {
             Connection connection = new Connection();
-            User authUser = connection.Authentification("adrien", "987654");
+            User authUser = connection.Authentification("adrien", "adrien");
             Assert.IsNotNull(authUser);
         }
 
@@ -28,7 +28,7 @@ namespace SecretStorage.src.models.Tests
         public void AuthentificationTestAdmin()
         {
             Connection connection = new Connection();
-            User authUser = connection.Authentification("admin", "123456");
+            User authUser = connection.Authentification("admin", "admin");
             Assert.AreEqual(authUser.IsAdmin, true);
         }
 
@@ -52,7 +52,7 @@ namespace SecretStorage.src.models.Tests
         public void IsDefaultImageTestWithDefaultImage()
         {
             Connection connection = new Connection();
-            Assert.IsTrue(connection.IsDefaultImage(2));
+            Assert.IsTrue(connection.IsDefaultImage(0));
         }
 
         /// <summary>
@@ -63,7 +63,61 @@ namespace SecretStorage.src.models.Tests
         public void IsDefaultImageTestWithNoDefaultImage()
         {
             Connection connection = new Connection();
-            Assert.IsFalse(connection.IsDefaultImage(1));
+            Assert.IsFalse(connection.IsDefaultImage(2));
+        }
+
+        /// <summary>
+        /// Test CheckIfGoodPassword method
+        /// Test with a good password
+        /// </summary>
+        [TestMethod()]
+        public void CheckIfGoodPasswordTestWithGoodPass()
+        {
+            Connection connection = new Connection();
+            Assert.IsTrue(connection.CheckIfGoodPassword("123456"));
+        }
+
+        /// <summary>
+        /// Test CheckIfGoodPassword method
+        /// Test with a bad password
+        /// </summary>
+        [TestMethod()]
+        public void CheckIfGoodPasswordTestWithBadPass()
+        {
+            Connection connection = new Connection();
+            Assert.IsFalse(connection.CheckIfGoodPassword("BAD"));
+        }
+
+        /// <summary>
+        /// Test GetAllUsers method
+        /// </summary>
+        [TestMethod()]
+        public void GetAllUsersTest()
+        {
+            Connection connection = new Connection();
+            Assert.IsNotNull(connection.GetAllUsers());
+        }
+
+        /// <summary>
+        /// Test GetEncodedProfilPicture method
+        /// Test with a valid user id
+        /// </summary>
+        [TestMethod()]
+        public void GetEncodedProfilPictureTestWithValidUid()
+        {
+            Connection connection = new Connection();
+            Assert.IsNotNull(connection.GetEncodedProfilPicture(1));
+        }
+
+        /// <summary>
+        /// Test GetEncodedProfilPicture method
+        /// Test with a bad user id
+        /// </summary>
+        [TestMethod()]
+        public void GetEncodedProfilPictureTestWithBadUid()
+        {
+            Connection connection = new Connection();
+            Assert.IsNull(connection.GetEncodedProfilPicture(0));
         }
     }
 }

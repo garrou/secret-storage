@@ -39,7 +39,12 @@ namespace SecretStorage.src.forms
 
                 if (authUser != null)
                 {
+                    // Insert in logs table the current DateTime
+                    connection.UpdateLogs(authUser.Id);
+                    
+                    // Hide login form
                     Hide();
+
                     if (authUser.IsAdmin)
                     {
                         AdminForm adminForm = new AdminForm(authUser);

@@ -52,7 +52,7 @@ namespace SecretStorage
             this.ClearBtn = new System.Windows.Forms.Button();
             this.ComputeTextBox = new System.Windows.Forms.TextBox();
             this.OneOnBtn = new System.Windows.Forms.Button();
-            this.SquareBtn = new System.Windows.Forms.Button();
+            this.PiBtn = new System.Windows.Forms.Button();
             this.RightParenthese = new System.Windows.Forms.Button();
             this.LeftParenthese = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -225,13 +225,13 @@ namespace SecretStorage
             this.OneOnBtn.UseVisualStyleBackColor = true;
             this.OneOnBtn.Click += new System.EventHandler(this.OneOnBtn_Click);
             // 
-            // SquareBtn
+            // PiBtn
             // 
-            this.SquareBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.SquareBtn, "SquareBtn");
-            this.SquareBtn.Name = "SquareBtn";
-            this.SquareBtn.UseVisualStyleBackColor = false;
-            this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
+            this.PiBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.PiBtn, "PiBtn");
+            this.PiBtn.Name = "PiBtn";
+            this.PiBtn.UseVisualStyleBackColor = false;
+            this.PiBtn.Click += new System.EventHandler(this.SquareBtn_Click);
             // 
             // RightParenthese
             // 
@@ -256,7 +256,7 @@ namespace SecretStorage
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.Controls.Add(this.OneOnBtn);
-            this.Controls.Add(this.SquareBtn);
+            this.Controls.Add(this.PiBtn);
             this.Controls.Add(this.RightParenthese);
             this.Controls.Add(this.LeftParenthese);
             this.Controls.Add(this.ComputeTextBox);
@@ -312,7 +312,7 @@ namespace SecretStorage
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.TextBox ComputeTextBox;
         private System.Windows.Forms.Button OneOnBtn;
-        private System.Windows.Forms.Button SquareBtn;
+        private System.Windows.Forms.Button PiBtn;
         private System.Windows.Forms.Button RightParenthese;
         private System.Windows.Forms.Button LeftParenthese;
     }

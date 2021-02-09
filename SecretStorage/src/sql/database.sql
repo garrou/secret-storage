@@ -5,7 +5,7 @@ CREATE DATABASE secretstorage;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS images;
 DROP TABLE IF EXISTS gologin;
-DROP TABLE IF EXISTS profiles;
+DROP TABLE IF EXISTS logs;
 
 USE secretstorage;
 
@@ -28,8 +28,24 @@ CREATE TABLE gologin (
     PRIMARY KEY(id)
 );
 
-INSERT INTO users (name, password) VALUES ('admin', '123456');
-INSERT INTO users (name, password) VALUES ('adrien', '987654');
+CREATE TABLE logs (
+    userId INT UNSIGNED NOT NULL,
+    lastConnection DATETIME NOT NULL,
+    PRIMARY KEY(userId)
+);
 
-INSERT INTO images (userid, picture) VALUES ('1', 'user.png');
-INSERT INTO images (userid, picture) VALUES ('2', 'user.png');
+ALTER TABLE users AUTO_INCREMENT = 1;
+ALTER TABLE images AUTO_INCREMENT = 1;
+ALTER TABLE logs AUTO_INCREMENT = 1;
+
+INSERT INTO users (name, password) VALUES ('test', 'test');
+INSERT INTO users (name, password) VALUES ('admin', 'admin');
+INSERT INTO users (name, password) VALUES ('adrien', 'adrien');
+
+INSERT INTO images (userId, picture) VALUES ('1', 'user.png');
+INSERT INTO images (userId, picture) VALUES ('2', 'user.png');
+INSERT INTO images (userId, picture) VALUES ('3', 'user.png');
+
+INSERT INTO logs (userId, lastConnection) VALUES ('1', NOW());
+INSERT INTO logs (userId, lastConnection) VALUES ('2', NOW());
+INSERT INTO logs (userId, lastConnection) VALUES ('3', NOW());
