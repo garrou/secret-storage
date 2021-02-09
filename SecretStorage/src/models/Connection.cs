@@ -64,15 +64,8 @@ namespace SecretStorage.src.models
         public void Execute(string sqlCommand)
         {
             MySqlCommand command = new MySqlCommand(sqlCommand, connection);
-
-            if (command.ExecuteNonQuery() > 0)
-            {
-                MessageBox.Show("Commande effectuée avec succés.", "Succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Impossible d'exécuter la requête.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            command.ExecuteNonQuery();
+            MessageBox.Show("Commande effectuée avec succés.", "Succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -108,11 +101,12 @@ namespace SecretStorage.src.models
         /// </summary>
         /// <param name="userId">The user id</param>
         /// <returns>The encoded image</returns>
-        public string GetEncodedProfilPicture(uint userId)
+        public byte[] GetEncodedProfilPicture(uint userId)
         {
-            string sql = "SELECT picture FROM images WHERE userId = @userId LIMIT 1";
-            string encodedPicture = null;
+            string sql = "SELECT picture FROM images WHERE userId = @userId";
             MySqlCommand command = new MySqlCommand(sql, connection);
+            byte[] encodedPicture = null;
+            long len;
 
             command.Parameters.AddWithValue("@userId", userId);
             MySqlDataReader reader = command.ExecuteReader();
@@ -121,7 +115,9 @@ namespace SecretStorage.src.models
             {
                 while (reader.Read())
                 {
-                    encodedPicture = reader.GetString(0);
+                    len = reader.GetBytes(0, 0, null, 0, 0);
+                    encodedPicture = new byte[len];
+                    reader.GetBytes(0, 0, encodedPicture, 0, (int)len);
                 }
             }
 
@@ -133,14 +129,14 @@ namespace SecretStorage.src.models
         /// <summary>
         /// Update profile picture
         /// </summary>
-        /// <param name="encodedImage">Encoded profile photo</param>
+        /// <param name="bytes">Encoded profile photo</param>
         /// <param name="userId">User id who update his picture</param>
-        public void UpdateProfilePicture(string encodedImage, uint userId)
+        public void UpdateProfilePicture(byte[] bytes, uint userId)
         {
-            string sql = "UPDATE images SET picture = @encoded WHERE userId = @userId";
+            string sql = "UPDATE images SET picture = @bytes WHERE userId = @userId";
             MySqlCommand command = new MySqlCommand(sql, connection);
 
-            command.Parameters.AddWithValue("@encoded", encodedImage);
+            command.Parameters.AddWithValue("@bytes", bytes);
             command.Parameters.AddWithValue("@userId", userId);
 
             if (command.ExecuteNonQuery() > 0)
@@ -151,6 +147,44 @@ namespace SecretStorage.src.models
             {
                 MessageBox.Show("Impossible de modifier la photo de profil.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Check is user has a default profile picture
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        /// <returns>true if user has a default image, false else</returns>
+        public bool IsDefaultImage(uint userId)
+        {
+            string sql = "SELECT picture FROM images WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            bool isDefault = true;
+
+            command.Parameters.AddWithValue("@userId", userId);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    if (reader.GetString(0).CompareTo(Properties.Settings.Default.DefaultImage) != 0)
+                    {
+                        isDefault = false;
+                    }
+                }
+            }
+
+            reader.Close();
+
+            return isDefault;
+        }
+
+        /// <summary>
+        /// Close database connection
+        /// </summary>
+        public void Close()
+        {
+            connection.Close();
         }
     }
 }

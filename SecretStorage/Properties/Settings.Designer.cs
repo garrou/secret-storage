@@ -41,5 +41,17 @@ namespace SecretStorage.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("user.png")]
+        public string DefaultImage {
+            get {
+                return ((string)(this["DefaultImage"]));
+            }
+            set {
+                this["DefaultImage"] = value;
+            }
+        }
     }
 }

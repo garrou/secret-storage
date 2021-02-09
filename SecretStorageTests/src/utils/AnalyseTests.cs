@@ -17,11 +17,7 @@ namespace SecretStorage.src.utils.Tests
         {
             string toAnalyse = "This x is a string to test x char like xxx";
             string result = Analyse.AnalyseAndReplace(toAnalyse);
-
-            if (result.IndexOf('x') != -1)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.IndexOf('x'), -1);
         }
 
         /// <summary>
@@ -33,11 +29,7 @@ namespace SecretStorage.src.utils.Tests
         {
             string toAnalyse = "This x is a string to test x char like xxx";
             string result = Analyse.AnalyseAndReplace(toAnalyse);
-
-            if (result.CompareTo("This * is a string to test * char like ***") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("This * is a string to test * char like ***"), 0);   
         }
 
         /// <summary>
@@ -47,13 +39,9 @@ namespace SecretStorage.src.utils.Tests
         [TestMethod()]
         public void AnalyseAndReplaceTestWithIndexOfComma()
         {
-            string toAnalyse = "This x is a string to test x char like xxx";
+            string toAnalyse = "This , is a string to test , char like ,,,";
             string result = Analyse.AnalyseAndReplace(toAnalyse);
-
-            if (result.IndexOf('x') != -1)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.IndexOf(','), -1);
         }
 
         /// <summary>
@@ -65,11 +53,7 @@ namespace SecretStorage.src.utils.Tests
         {
             string toAnalyse = "This , is a string to test , char like ,,,";
             string result = Analyse.AnalyseAndReplace(toAnalyse);
-
-            if (result.CompareTo("This . is a string to test . char like ...") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("This . is a string to test . char like ..."), 0);
         }
     }
 }

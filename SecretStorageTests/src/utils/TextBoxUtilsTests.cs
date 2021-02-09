@@ -17,11 +17,7 @@ namespace SecretStorage.src.utils.Tests
         {
             int cursorPosition = 2;
             string result = TextBoxUtils.Put("Current content", ref cursorPosition, "98");
-
-            if (result.CompareTo("Cu98rrent content") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("Cu98rrent content"), 0);
         }
 
         /// <summary>
@@ -33,11 +29,7 @@ namespace SecretStorage.src.utils.Tests
         {
             int cursorPosition = 0;
             string result = TextBoxUtils.Put("Current content", ref cursorPosition, "98");
-
-            if (result.CompareTo("98Current content") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("98Current content"), 0);
         }
 
         /// <summary>
@@ -49,11 +41,7 @@ namespace SecretStorage.src.utils.Tests
         {
             int cursorPosition = 15;
             string result = TextBoxUtils.Put("Current content", ref cursorPosition, "98");
-
-            if (result.CompareTo("Current content98") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("Current content98"), 0);
         }
 
         /// <summary>
@@ -65,11 +53,7 @@ namespace SecretStorage.src.utils.Tests
         {
             int cursorPosition = 20;
             string result = TextBoxUtils.Put("Current content", ref cursorPosition, "98");
-
-            if (result.CompareTo("Current content98") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("Current content98"), 0);
         }
 
         /// <summary>
@@ -81,11 +65,7 @@ namespace SecretStorage.src.utils.Tests
         {
             int cursorPosition = -8;
             string result = TextBoxUtils.Put("Current content", ref cursorPosition, "98");
-
-            if (result.CompareTo("Current content98") != 0)
-            {
-                Assert.Fail();
-            }
+            Assert.AreEqual(result.CompareTo("Current content98"), 0);
         }
     }
 }

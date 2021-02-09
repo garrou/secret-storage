@@ -35,6 +35,16 @@ namespace SecretStorage.src.forms
         private void UserForm_Load(object sender, EventArgs e)
         {
             NameLabel.Text += authentifiedUser.Name;
+
+            if (!connection.IsDefaultImage(authentifiedUser.Id))
+            {
+                // Retrieve profile picture from database
+                byte[] image = connection.GetEncodedProfilPicture(authentifiedUser.Id);
+
+                // Set the image
+                ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
+            }
+            // else do nothing and use default image
         }
 
         /// <summary>
@@ -45,6 +55,7 @@ namespace SecretStorage.src.forms
         private void DisconnectBtn_Click(object sender, EventArgs e)
         {
             Hide();
+            connection.Close();
             CalculatorForm calculatorForm = new CalculatorForm();
             calculatorForm.Show();
         }
@@ -65,9 +76,17 @@ namespace SecretStorage.src.forms
 
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    ProfilePicture.ImageLocation = fileDialog.FileName;
-                    
-                    // connection.UpdateProfilePicture(encoded, authentifiedUser.Id);
+                    string fileName = fileDialog.FileName;
+                    byte[] bytes = ImageUtils.FromFileNameToBytes(fileName);
+
+                    // Update profile picture in database
+                    connection.UpdateProfilePicture(bytes, authentifiedUser.Id);
+
+                    // Retrieve profile picture from database
+                    byte[] image = connection.GetEncodedProfilPicture(authentifiedUser.Id);
+
+                    // Set the image
+                    ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
                 }
             }
             catch (Exception ex)

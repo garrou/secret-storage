@@ -17,7 +17,7 @@ CREATE TABLE users (
 
 CREATE TABLE images (
     userId INT UNSIGNED NOT NULL,
-    picture VARCHAR(255) NOT NULL,
+    picture BLOB(65535) NOT NULL,
     PRIMARY KEY(userId)
 );
 

@@ -12,5 +12,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=localhost;user=root;database=secretstorage;port=3306;password=root</Value>
     </Setting>
+    <Setting Name="DefaultImage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">user.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

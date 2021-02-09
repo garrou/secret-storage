@@ -5,6 +5,9 @@
     /// </summary>
     public class User
     {
+        /// <summary>
+        /// User unique id
+        /// </summary>
         public uint Id { get; }
 
         /// <summary>
