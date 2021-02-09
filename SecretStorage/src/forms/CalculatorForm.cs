@@ -356,7 +356,7 @@ namespace SecretStorage
             } 
             catch (SyntaxErrorException ex)
             {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

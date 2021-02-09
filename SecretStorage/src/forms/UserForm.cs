@@ -1,4 +1,5 @@
 ﻿using SecretStorage.src.models;
+using SecretStorage.src.utils;
 using System;
 using System.Windows.Forms;
 
@@ -14,10 +15,16 @@ namespace SecretStorage.src.forms
         /// </summary>
         private readonly User authentifiedUser;
 
+        /// <summary>
+        /// Database connection
+        /// </summary>
+        private readonly Connection connection;
+
         public UserForm(User authUser)
-        { 
+        {
             InitializeComponent();
             authentifiedUser = authUser;
+            connection = new Connection();
         }
 
         /// <summary>
@@ -40,6 +47,33 @@ namespace SecretStorage.src.forms
             Hide();
             CalculatorForm calculatorForm = new CalculatorForm();
             calculatorForm.Show();
+        }
+
+        /// <summary>
+        /// When user clicks on BtnAddImage
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void BtnAddImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog fileDialog = new OpenFileDialog
+                {
+                    Filter = "Image Files(*.bmp;*.jpg;*.gif;*png)|*.bmp;*.jpg;*.gif;*.png"
+                };
+
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ProfilePicture.ImageLocation = fileDialog.FileName;
+                    
+                    // connection.UpdateProfilePicture(encoded, authentifiedUser.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

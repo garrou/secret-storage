@@ -12,4 +12,4 @@
 
 • MySQL Connector/NET  
 
-[Link MySQL Connector](https://dev.mysql.com/downloads/connector/net/)  
+[MySQL Connector](https://dev.mysql.com/downloads/connector/net/)  

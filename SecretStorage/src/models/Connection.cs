@@ -42,14 +42,14 @@ namespace SecretStorage.src.models
             command.Parameters.AddWithValue("@password", password);
             MySqlDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
+            if (reader.HasRows)
             {
-                if (reader["id"] != null && reader["name"] != null && reader["password"] != null)
+                while (reader.Read())
                 {
-                    user = new User(uint.Parse(reader["id"].ToString()), 
-                                               reader["name"].ToString(), 
-                                               reader["password"].ToString());
-                } 
+                    user = new User(uint.Parse(reader["id"].ToString()),
+                                                   reader["name"].ToString(),
+                                                   reader["password"].ToString());
+                }
             }
 
             reader.Close();
@@ -64,11 +64,14 @@ namespace SecretStorage.src.models
         public void Execute(string sqlCommand)
         {
             MySqlCommand command = new MySqlCommand(sqlCommand, connection);
-            int nbRows = command.ExecuteNonQuery();
 
-            if (nbRows > 0)
+            if (command.ExecuteNonQuery() > 0)
             {
-                MessageBox.Show("Commande effectuée avec succés.", "Succés !", MessageBoxButtons.OK);
+                MessageBox.Show("Commande effectuée avec succés.", "Succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Impossible d'exécuter la requête.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -85,16 +88,69 @@ namespace SecretStorage.src.models
             command.ExecuteNonQuery();
             MySqlDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
+            if (reader.HasRows)
             {
-                usersList.Add(new User(uint.Parse(reader["id"].ToString()), 
-                                                  reader["name"].ToString(), 
-                                                  reader["password"].ToString()));
+                while (reader.Read())
+                {
+                    usersList.Add(new User(uint.Parse(reader["id"].ToString()),
+                                                      reader["name"].ToString(),
+                                                      reader["password"].ToString()));
+                }
             }
 
             reader.Close();
 
             return usersList;
+        }
+
+        /// <summary>
+        /// Get the current profile picture of authentified user
+        /// </summary>
+        /// <param name="userId">The user id</param>
+        /// <returns>The encoded image</returns>
+        public string GetEncodedProfilPicture(uint userId)
+        {
+            string sql = "SELECT picture FROM images WHERE userId = @userId LIMIT 1";
+            string encodedPicture = null;
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@userId", userId);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    encodedPicture = reader.GetString(0);
+                }
+            }
+
+            reader.Close();
+
+            return encodedPicture;
+        }
+
+        /// <summary>
+        /// Update profile picture
+        /// </summary>
+        /// <param name="encodedImage">Encoded profile photo</param>
+        /// <param name="userId">User id who update his picture</param>
+        public void UpdateProfilePicture(string encodedImage, uint userId)
+        {
+            string sql = "UPDATE images SET picture = @encoded WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@encoded", encodedImage);
+            command.Parameters.AddWithValue("@userId", userId);
+
+            if (command.ExecuteNonQuery() > 0)
+            {
+                MessageBox.Show("Photo de profil modifiée avec succés.", "Succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
+            else
+            {
+                MessageBox.Show("Impossible de modifier la photo de profil.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SecretStorage.src.utils;
 
 namespace SecretStorage.src.models.Tests
 {

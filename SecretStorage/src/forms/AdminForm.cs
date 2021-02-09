@@ -1,4 +1,5 @@
 ﻿using SecretStorage.src.models;
+using SecretStorage.src.utils;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -45,7 +46,7 @@ namespace SecretStorage.src.forms
             } 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erreur !", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, "Erreur !", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,6 +87,33 @@ namespace SecretStorage.src.forms
             foreach (User user in users)
             {
                 UserListView.Items.Add(new ListViewItem(new string[] { user.Id.ToString(), user.Name, user.Password }));
+            }
+        }
+
+        /// <summary>
+        /// When user clicks on BtnAddImage
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void BtnAddImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog fileDialog = new OpenFileDialog
+                {
+                    Filter = "Image Files(*.bmp;*.jpg;*.gif;*png)|*.bmp;*.jpg;*.gif;*.png"
+                };
+
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ProfilePicture.ImageLocation = fileDialog.FileName;
+                    
+                    // connection.UpdateProfilePicture(encoded, authentifiedAdmin.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
