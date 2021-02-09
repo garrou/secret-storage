@@ -16,10 +16,16 @@ namespace SecretStorage.src.utils
         /// <returns>An array with bytes</returns>
         public static byte[] FromFileNameToBytes(string fileName)
         {
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            BinaryReader binReader = new BinaryReader(stream);
-            
-            return binReader.ReadBytes((int)stream.Length);
+            byte[] encodedImage = null;
+
+            if (File.Exists(fileName))
+            {
+                FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                BinaryReader binReader = new BinaryReader(stream);
+                encodedImage = binReader.ReadBytes((int)stream.Length);
+            }
+
+            return encodedImage;
         }
 
         /// <summary>
@@ -29,8 +35,15 @@ namespace SecretStorage.src.utils
         /// <returns>An image</returns>
         public static Image FromBytesToImage(byte[] toConvert)
         {
-            MemoryStream ms = new MemoryStream(toConvert);
-            return Image.FromStream(ms);
+            Image decodedImage = null;
+
+            if (toConvert != null)
+            {
+                MemoryStream ms = new MemoryStream(toConvert);
+                decodedImage = Image.FromStream(ms);
+            }
+
+            return decodedImage;
         }
     }
 }

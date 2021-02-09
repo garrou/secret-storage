@@ -336,22 +336,13 @@ namespace SecretStorage
                 string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
                 ComputeTextBox.Text = Compute.DoTheMath(toCalculate);
 
-                User authUser = connection.Authentification(toCalculate);
+                bool isGoodPassword = connection.CheckIfGoodPassword(toCalculate);
 
-                // If good authentification
-                if (authUser != null)
+                if (isGoodPassword)
                 {
                     Hide();
-                    if (authUser.IsAdmin)
-                    {
-                        AdminForm adminForm = new AdminForm(authUser);
-                        adminForm.Show();
-                    }
-                    else
-                    {
-                        UserForm userForm = new UserForm(authUser);
-                        userForm.Show();
-                    }
+                    LoginForm loginForm = new LoginForm();
+                    loginForm.Show();
                 }
             } 
             catch (SyntaxErrorException ex)

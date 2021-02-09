@@ -4,6 +4,7 @@ CREATE DATABASE secretstorage;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS images;
+DROP TABLE IF EXISTS gologin;
 DROP TABLE IF EXISTS profiles;
 
 USE secretstorage;
@@ -19,6 +20,12 @@ CREATE TABLE images (
     userId INT UNSIGNED NOT NULL,
     picture BLOB(65535) NOT NULL,
     PRIMARY KEY(userId)
+);
+
+CREATE TABLE gologin (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    password INT NOT NULL,
+    PRIMARY KEY(id)
 );
 
 INSERT INTO users (name, password) VALUES ('admin', '123456');

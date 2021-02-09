@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 
 namespace SecretStorage.src.utils.Tests
 {
@@ -8,16 +9,55 @@ namespace SecretStorage.src.utils.Tests
     [TestClass()]
     public class ImageUtilsTests
     {
+        /// <summary>
+        /// Image path used during tests
+        /// </summary>
+        private readonly string Filename = "../../assets/cs.png";
+
+        /// <summary>
+        /// Test FromFileNameToBytes method
+        /// Test if this method return not null
+        /// if image path is valid
+        /// </summary>
         [TestMethod()]
-        public void FromFileNameToBytesTest()
+        public void FromFileNameToBytesTestWithValidFilePath()
         {
-            Assert.Fail();
+            byte[] encodedImage = ImageUtils.FromFileNameToBytes(Filename);
+            Assert.IsNotNull(encodedImage);
         }
 
+        /// <summary>
+        /// Test FromFileNameToBytes method
+        /// Test behaviour method if file path is incorrect
+        /// </summary>
         [TestMethod()]
-        public void FromBytesToImageTest()
+        public void FromFileNameToBytesTestWithInvalidFilePath()
         {
-            Assert.Fail();
+            byte[] encodedImage = ImageUtils.FromFileNameToBytes("");
+            Assert.IsNull(encodedImage);
+        }
+
+        /// <summary>
+        /// Test FromBytesToImage method
+        /// Test with a valid image
+        /// </summary>
+        [TestMethod()]
+        public void FromBytesToImageTestWithValidImage()
+        {
+            byte[] encodedImage = ImageUtils.FromFileNameToBytes(Filename);
+            Image image = ImageUtils.FromBytesToImage(encodedImage);
+            Assert.IsNotNull(image);
+        }
+
+        /// <summary>
+        /// Test FromBytesToImage method
+        /// Test with null image
+        /// </summary>
+        [TestMethod()]
+        public void FromBytesToImageTestWithNullImage()
+        {
+            Image image = ImageUtils.FromBytesToImage(null);
+            Assert.IsNull(image);
         }
     }
 }

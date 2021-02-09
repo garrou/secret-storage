@@ -31,14 +31,16 @@ namespace SecretStorage.src.models
         /// <summary>
         /// Authentificate a user
         /// </summary>
+        /// <param name="name">Name to check</param>
         /// <param name="password">Password to check</param>
         /// <returns>A new user or null</returns>
-        public User Authentification(string password)
+        public User Authentification(string name, string password)
         {
-            string sql = "SELECT id, name, password FROM users WHERE password=@password LIMIT 1";
+            string sql = "SELECT id, name, password FROM users WHERE name=@name AND password=@password";
             MySqlCommand command = new MySqlCommand(sql, connection);
             User user = null;
 
+            command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", password);
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -58,14 +60,28 @@ namespace SecretStorage.src.models
         }
 
         /// <summary>
-        /// Execute a SQL command
+        /// Check if passwordToCheck is the password 
+        /// to access at the login page
         /// </summary>
-        /// <param name="sqlCommand">SQL command to execute</param>
-        public void Execute(string sqlCommand)
+        /// <param name="passwordToCheck">Password to check</param>
+        /// <returns>true if good, false else</returns>
+        public bool CheckIfGoodPassword(string passwordToCheck)
         {
-            MySqlCommand command = new MySqlCommand(sqlCommand, connection);
-            command.ExecuteNonQuery();
-            MessageBox.Show("Commande effectuée avec succés.", "Succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string sql = "SELECT password FROM gologin WHERE password = @password";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            bool isGood = false;
+
+            command.Parameters.AddWithValue("@password", passwordToCheck);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                isGood = true;
+            }
+
+            reader.Close();
+
+            return isGood;
         }
 
         /// <summary>

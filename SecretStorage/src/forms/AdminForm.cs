@@ -32,25 +32,6 @@ namespace SecretStorage.src.forms
         }
 
         /// <summary>
-        /// When admin click to execute button
-        /// </summary>
-        /// <param name="sender">System.Windows.Forms.Button</param>
-        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void SqlButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                connection.Execute(SqlTextBox.Text);
-                SqlTextBox.Text = "";
-                AddInUsersListView();
-            } 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
         /// When admin form load
         /// </summary>
         /// <param name="sender">SecretStorage.src.forms.AdminForm</param>

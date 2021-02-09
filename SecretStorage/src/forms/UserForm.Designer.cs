@@ -39,7 +39,7 @@ namespace SecretStorage.src.forms
             // 
             // ProfilePicture
             // 
-            this.ProfilePicture.Image = global::SecretStorage.Properties.Resources.user;
+            this.ProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.Image")));
             this.ProfilePicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.InitialImage")));
             this.ProfilePicture.Location = new System.Drawing.Point(12, 12);
             this.ProfilePicture.Name = "ProfilePicture";
@@ -91,6 +91,7 @@ namespace SecretStorage.src.forms
             this.Controls.Add(this.ProfilePicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "UserForm";
             this.Text = "UserForm";
             this.Load += new System.EventHandler(this.UserForm_Load);

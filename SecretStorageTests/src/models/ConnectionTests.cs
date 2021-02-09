@@ -16,7 +16,7 @@ namespace SecretStorage.src.models.Tests
         public void AuthentificationTestUser()
         {
             Connection connection = new Connection();
-            User authUser = connection.Authentification("987654");
+            User authUser = connection.Authentification("adrien", "987654");
             Assert.IsNotNull(authUser);
         }
 
@@ -28,7 +28,7 @@ namespace SecretStorage.src.models.Tests
         public void AuthentificationTestAdmin()
         {
             Connection connection = new Connection();
-            User authUser = connection.Authentification("123456");
+            User authUser = connection.Authentification("admin", "123456");
             Assert.AreEqual(authUser.IsAdmin, true);
         }
 
@@ -40,7 +40,7 @@ namespace SecretStorage.src.models.Tests
         public void AuthentificationTestNobody()
         {
             Connection connection = new Connection();
-            User authUser = connection.Authentification("azerty");
+            User authUser = connection.Authentification("test", "azerty");
             Assert.IsNull(authUser);
         }
 
