@@ -336,7 +336,7 @@ namespace SecretStorage
                 string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
                 ComputeTextBox.Text = Compute.DoTheMath(toCalculate);
 
-                bool isGoodPassword = connection.CheckIfGoodPassword(toCalculate);
+                bool isGoodPassword = connection.CheckIfLoginPagePassword(toCalculate);
 
                 if (isGoodPassword)
                 {

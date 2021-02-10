@@ -67,25 +67,25 @@ namespace SecretStorage.src.models.Tests
         }
 
         /// <summary>
-        /// Test CheckIfGoodPassword method
+        /// Test CheckIfLoginPagePassword method
         /// Test with a good password
         /// </summary>
         [TestMethod()]
         public void CheckIfGoodPasswordTestWithGoodPass()
         {
             Connection connection = new Connection();
-            Assert.IsTrue(connection.CheckIfGoodPassword("123456"));
+            Assert.IsTrue(connection.CheckIfLoginPagePassword("123456"));
         }
 
         /// <summary>
-        /// Test CheckIfGoodPassword method
+        /// Test CheckIfLoginPagePassword method
         /// Test with a bad password
         /// </summary>
         [TestMethod()]
         public void CheckIfGoodPasswordTestWithBadPass()
         {
             Connection connection = new Connection();
-            Assert.IsFalse(connection.CheckIfGoodPassword("BAD"));
+            Assert.IsFalse(connection.CheckIfLoginPagePassword("BAD"));
         }
 
         /// <summary>

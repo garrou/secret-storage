@@ -66,7 +66,7 @@ namespace SecretStorage.src.models
         /// </summary>
         /// <param name="passwordToCheck">Password to check</param>
         /// <returns>true if good, false else</returns>
-        public bool CheckIfGoodPassword(string passwordToCheck)
+        public bool CheckIfLoginPagePassword(string passwordToCheck)
         {
             string sql = "SELECT password FROM gologin WHERE password = @password";
             MySqlCommand command = new MySqlCommand(sql, connection);

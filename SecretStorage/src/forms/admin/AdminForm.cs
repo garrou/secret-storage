@@ -2,6 +2,7 @@
 using SecretStorage.src.utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace SecretStorage.src.forms
@@ -53,20 +54,19 @@ namespace SecretStorage.src.forms
 
             // Get the last connection user date
             LastConnectionLabel.Text += connection.GetLogs(authentifiedAdmin.Id);
-            
+
         }
 
         /// <summary>
-        /// Hide the admin form and display the calculator form
+        /// When admin clicks on disconnect button
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        /// <see cref="AdminForm_Closing(object, CancelEventArgs)"/>
         private void Disconnect_Click(object sender, EventArgs e)
         {
-            Hide();
-            connection.Close();
-            CalculatorForm calculatorForm = new CalculatorForm();
-            calculatorForm.Show();
+            // Call the AdminForm_Closing method
+            Close();
         }
 
         /// <summary>
@@ -118,6 +118,27 @@ namespace SecretStorage.src.forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// When admin clicks on red cross
+        /// </summary>
+        /// <param name="sender">SecretStorage.src.forms.AdminForm</param>
+        /// <param name="e">System.Windows.Forms.FormClosingEventArgs</param>
+        private void AdminForm_Closing(object sender, CancelEventArgs e)
+        {
+            // Display a MsgBox asking the user to save changes or abort.
+            if (MessageBox.Show("Do you want quit admin page ?", "Admin",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                connection.UpdateLogs(authentifiedAdmin.Id);
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            } 
+            else
+            {
+                e.Cancel = true;
             }
         }
     }

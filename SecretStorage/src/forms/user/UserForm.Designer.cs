@@ -35,7 +35,11 @@ namespace SecretStorage.src.forms
             this.DisconnectBtn = new System.Windows.Forms.Button();
             this.BtnAddImage = new System.Windows.Forms.Button();
             this.LastConnectionLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.OptionsLabel = new System.Windows.Forms.Label();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ProfilePicture
@@ -97,11 +101,49 @@ namespace SecretStorage.src.forms
             this.LastConnectionLabel.TabIndex = 4;
             this.LastConnectionLabel.Text = "Dernière connexion : ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SecretStorage.Properties.Resources.settings;
+            this.pictureBox1.Location = new System.Drawing.Point(44, 260);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
+            // OptionsLabel
+            // 
+            this.OptionsLabel.AutoSize = true;
+            this.OptionsLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OptionsLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OptionsLabel.Location = new System.Drawing.Point(74, 265);
+            this.OptionsLabel.Name = "OptionsLabel";
+            this.OptionsLabel.Size = new System.Drawing.Size(62, 19);
+            this.OptionsLabel.TabIndex = 16;
+            this.OptionsLabel.Text = "Options";
+            this.OptionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Image = global::SecretStorage.Properties.Resources.pen;
+            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateBtn.Location = new System.Drawing.Point(13, 304);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(160, 35);
+            this.UpdateBtn.TabIndex = 18;
+            this.UpdateBtn.Text = "Modifier profil";
+            this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.UpdateBtn);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.OptionsLabel);
             this.Controls.Add(this.LastConnectionLabel);
             this.Controls.Add(this.BtnAddImage);
             this.Controls.Add(this.DisconnectBtn);
@@ -113,7 +155,9 @@ namespace SecretStorage.src.forms
             this.Name = "UserForm";
             this.Text = "UserForm";
             this.Load += new System.EventHandler(this.UserForm_Load);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.UserForm_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +170,8 @@ namespace SecretStorage.src.forms
         private System.Windows.Forms.Button DisconnectBtn;
         private System.Windows.Forms.Button BtnAddImage;
         private System.Windows.Forms.Label LastConnectionLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label OptionsLabel;
+        private System.Windows.Forms.Button UpdateBtn;
     }
 }

@@ -40,7 +40,7 @@ namespace SecretStorage.src.forms
             this.UsersLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.OptionsLabel = new System.Windows.Forms.Label();
-            this.EraseBtn = new System.Windows.Forms.Button();
+            this.LastConnectionLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UpdateUserBtn = new System.Windows.Forms.Button();
@@ -49,7 +49,6 @@ namespace SecretStorage.src.forms
             this.BtnAddImage = new System.Windows.Forms.Button();
             this.ProfilePicture = new System.Windows.Forms.PictureBox();
             this.Disconnect = new System.Windows.Forms.Button();
-            this.LastConnectionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
@@ -120,18 +119,15 @@ namespace SecretStorage.src.forms
             this.OptionsLabel.Text = "Options";
             this.OptionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // EraseBtn
+            // LastConnectionLabel
             // 
-            this.EraseBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EraseBtn.Image = global::SecretStorage.Properties.Resources.eraser;
-            this.EraseBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EraseBtn.Location = new System.Drawing.Point(17, 475);
-            this.EraseBtn.Name = "EraseBtn";
-            this.EraseBtn.Size = new System.Drawing.Size(160, 35);
-            this.EraseBtn.TabIndex = 17;
-            this.EraseBtn.Text = "Supprimer les logs";
-            this.EraseBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.EraseBtn.UseVisualStyleBackColor = true;
+            this.LastConnectionLabel.AutoSize = true;
+            this.LastConnectionLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastConnectionLabel.Location = new System.Drawing.Point(183, 79);
+            this.LastConnectionLabel.Name = "LastConnectionLabel";
+            this.LastConnectionLabel.Size = new System.Drawing.Size(199, 26);
+            this.LastConnectionLabel.TabIndex = 18;
+            this.LastConnectionLabel.Text = "Dernière connexion : ";
             // 
             // pictureBox2
             // 
@@ -233,23 +229,12 @@ namespace SecretStorage.src.forms
             this.Disconnect.UseVisualStyleBackColor = true;
             this.Disconnect.Click += new System.EventHandler(this.Disconnect_Click);
             // 
-            // LastConnectionLabel
-            // 
-            this.LastConnectionLabel.AutoSize = true;
-            this.LastConnectionLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastConnectionLabel.Location = new System.Drawing.Point(183, 79);
-            this.LastConnectionLabel.Name = "LastConnectionLabel";
-            this.LastConnectionLabel.Size = new System.Drawing.Size(199, 26);
-            this.LastConnectionLabel.TabIndex = 18;
-            this.LastConnectionLabel.Text = "Dernière connexion : ";
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.LastConnectionLabel);
-            this.Controls.Add(this.EraseBtn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UpdateUserBtn);
@@ -268,6 +253,7 @@ namespace SecretStorage.src.forms
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.AdminForm_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
@@ -293,7 +279,6 @@ namespace SecretStorage.src.forms
         private System.Windows.Forms.Button UpdateUserBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button EraseBtn;
         private System.Windows.Forms.Label LastConnectionLabel;
     }
 }

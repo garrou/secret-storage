@@ -39,9 +39,6 @@ namespace SecretStorage.src.forms
 
                 if (authUser != null)
                 {
-                    // Insert in logs table the current DateTime
-                    connection.UpdateLogs(authUser.Id);
-                    
                     // Hide login form
                     Hide();
 
@@ -72,6 +69,17 @@ namespace SecretStorage.src.forms
         {
             // Set focus on textfield name
             ActiveControl = NameTextField;
+        }
+
+        /// <summary>
+        /// When user cliks on red cross
+        /// </summary>
+        /// <param name="sender">SecretStorage.src.forms.LoginForm</param>
+        /// <param name="e">System.EventArgs</param>
+        private void LoginForm_Closed(object sender, EventArgs e)
+        {
+            CalculatorForm calculatorForm = new CalculatorForm();
+            calculatorForm.Show();
         }
     }
 }

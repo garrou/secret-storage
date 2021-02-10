@@ -1,6 +1,7 @@
 ﻿using SecretStorage.src.models;
 using SecretStorage.src.utils;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace SecretStorage.src.forms
@@ -54,12 +55,11 @@ namespace SecretStorage.src.forms
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        /// <see cref="UserForm_Closing(object, CancelEventArgs)"/>
         private void DisconnectBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            connection.Close();
-            CalculatorForm calculatorForm = new CalculatorForm();
-            calculatorForm.Show();
+            // Call the UserForm_Closing method
+            Close();
         }
 
         /// <summary>
@@ -94,6 +94,27 @@ namespace SecretStorage.src.forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// When user clicks on red cross
+        /// </summary>
+        /// <param name="sender">SecretStorage.src.forms.UserForm</param>
+        /// <param name="e">System.Windows.Forms.FormClosingEventArgs</param>
+        private void UserForm_Closing(object sender, CancelEventArgs e)
+        {
+            // Display a MsgBox asking the user to save changes or abort.
+            if (MessageBox.Show("Do you want quit page ?", "Secret storage",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                connection.UpdateLogs(authentifiedUser.Id);
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }
