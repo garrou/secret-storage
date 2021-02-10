@@ -1,5 +1,4 @@
-﻿
-namespace SecretStorage.src.forms
+﻿namespace SecretStorage.src.forms
 {
     partial class LoginForm
     {
@@ -57,16 +56,19 @@ namespace SecretStorage.src.forms
             // 
             // NameTextField
             // 
+            this.NameTextField.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameTextField.Location = new System.Drawing.Point(44, 267);
             this.NameTextField.Name = "NameTextField";
-            this.NameTextField.Size = new System.Drawing.Size(200, 20);
+            this.NameTextField.Size = new System.Drawing.Size(200, 27);
             this.NameTextField.TabIndex = 1;
             // 
             // PasswordTextField
             // 
+            this.PasswordTextField.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordTextField.Location = new System.Drawing.Point(44, 333);
             this.PasswordTextField.Name = "PasswordTextField";
-            this.PasswordTextField.Size = new System.Drawing.Size(200, 20);
+            this.PasswordTextField.PasswordChar = '*';
+            this.PasswordTextField.Size = new System.Drawing.Size(200, 27);
             this.PasswordTextField.TabIndex = 2;
             // 
             // TitleLabel

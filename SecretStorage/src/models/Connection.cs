@@ -241,6 +241,47 @@ namespace SecretStorage.src.models
         }
 
         /// <summary>
+        /// Check if name is in users table
+        /// </summary>
+        /// <param name="nameToCheck">Name to check</param>
+        /// <returns>true if a user exists, false else</returns>
+        public bool CheckIfNameIsUnique(string nameToCheck)
+        {
+            string sql = "SELECT name FROM users WHERE name = @name";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            bool isUnique = true;
+
+            command.Parameters.AddWithValue("@name", nameToCheck);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                isUnique = false;
+            }
+
+            reader.Close();
+
+            return isUnique;
+        }
+
+        /// <summary>
+        /// Insert in users table a new user
+        /// </summary>
+        /// <param name="name">User name</param>
+        /// <param name="password">User password</param>
+        /// <returns>The number of inserted row</returns>
+        public int InsertNewUser(string name, string password)
+        {
+            string sql = "INSERT INTO users (name, password) VALUES (@name, @password)";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@password", password);
+            
+            return command.ExecuteNonQuery();
+        }
+
+        /// <summary>
         /// Close database connection
         /// </summary>
         public void Close()

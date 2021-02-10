@@ -291,10 +291,6 @@ namespace SecretStorage
             ComputeTextBox.Text += "1/";
         }
 
-        #endregion Symbols regions
-
-        #region Actions buttons
-
         /// <summary>
         /// When user clicks on the button "CE"
         /// </summary>
@@ -313,16 +309,20 @@ namespace SecretStorage
         private void EraseBtn_Click(object sender, EventArgs e)
         {
             if (ComputeTextBox.TextLength > 0 && position > 0 && position <= ComputeTextBox.TextLength)
-            { 
+            {
                 ComputeTextBox.Text = ComputeTextBox.Text.Remove(position - 1, 1);
                 position--;
-            } 
+            }
             else if (ComputeTextBox.TextLength > 0)
             {
                 ComputeTextBox.Text = ComputeTextBox.Text.Remove(ComputeTextBox.TextLength - 1);
             }
 
         }
+
+        #endregion Symbols regions
+
+        #region Action button
 
         /// <summary>
         /// When user clicks on the button "="
@@ -351,7 +351,7 @@ namespace SecretStorage
             }
         }
 
-        #endregion Actions buttons
+        #endregion Action button
 
         #region TextBox events
 
@@ -380,5 +380,19 @@ namespace SecretStorage
         }
 
         #endregion TextBox events
+
+        #region Form event
+
+        /// <summary>
+        /// When user cliks on red cross
+        /// </summary>
+        /// <param name="sender">SecretStorage.src.forms.CalculatorForm</param>
+        /// <param name="e">System.EventArgs</param>
+        private void CalculatorForm_Closed(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #endregion Form event
     }
 }

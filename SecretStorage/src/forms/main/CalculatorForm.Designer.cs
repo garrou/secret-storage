@@ -283,6 +283,7 @@ namespace SecretStorage
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CalculatorForm";
+            this.Closed += new System.EventHandler(this.CalculatorForm_Closed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

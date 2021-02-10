@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using SecretStorage.src.models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SecretStorage.src.models.Tests
 {
@@ -118,6 +119,28 @@ namespace SecretStorage.src.models.Tests
         {
             Connection connection = new Connection();
             Assert.IsNull(connection.GetEncodedProfilPicture(0));
+        }
+
+        /// <summary>
+        /// Test CheckIfNameIsUnique method
+        /// Test with a non existing user
+        /// </summary>
+        [TestMethod()]
+        public void CheckIfNameIsUniqueTestWithNonExistingUser()
+        {
+            Connection connection = new Connection();
+            Assert.IsTrue(connection.CheckIfNameIsUnique("new user"));
+        }
+
+        /// <summary>
+        /// Test CheckIfNameIsUnique method
+        /// Test with an existing user
+        /// </summary>
+        [TestMethod()]
+        public void CheckIfNameIsUniqueTestWithExistingUser()
+        {
+            Connection connection = new Connection();
+            Assert.IsFalse(connection.CheckIfNameIsUnique("test"));
         }
     }
 }

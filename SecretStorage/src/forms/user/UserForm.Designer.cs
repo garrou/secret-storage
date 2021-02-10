@@ -46,9 +46,9 @@ namespace SecretStorage.src.forms
             // 
             this.ProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.Image")));
             this.ProfilePicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.InitialImage")));
-            this.ProfilePicture.Location = new System.Drawing.Point(12, 12);
+            this.ProfilePicture.Location = new System.Drawing.Point(12, 17);
             this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(160, 165);
+            this.ProfilePicture.Size = new System.Drawing.Size(160, 160);
             this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 0;
             this.ProfilePicture.TabStop = false;
@@ -95,7 +95,7 @@ namespace SecretStorage.src.forms
             // 
             this.LastConnectionLabel.AutoSize = true;
             this.LastConnectionLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastConnectionLabel.Location = new System.Drawing.Point(178, 38);
+            this.LastConnectionLabel.Location = new System.Drawing.Point(178, 47);
             this.LastConnectionLabel.Name = "LastConnectionLabel";
             this.LastConnectionLabel.Size = new System.Drawing.Size(199, 26);
             this.LastConnectionLabel.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace SecretStorage.src.forms
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SecretStorage.Properties.Resources.settings;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 260);
+            this.pictureBox1.Location = new System.Drawing.Point(48, 260);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -116,7 +116,7 @@ namespace SecretStorage.src.forms
             this.OptionsLabel.AutoSize = true;
             this.OptionsLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OptionsLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OptionsLabel.Location = new System.Drawing.Point(74, 265);
+            this.OptionsLabel.Location = new System.Drawing.Point(78, 265);
             this.OptionsLabel.Name = "OptionsLabel";
             this.OptionsLabel.Size = new System.Drawing.Size(62, 19);
             this.OptionsLabel.TabIndex = 16;
@@ -154,8 +154,8 @@ namespace SecretStorage.src.forms
             this.MaximizeBox = false;
             this.Name = "UserForm";
             this.Text = "UserForm";
-            this.Load += new System.EventHandler(this.UserForm_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.UserForm_Closing);
+            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
