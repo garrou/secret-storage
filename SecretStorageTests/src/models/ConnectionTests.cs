@@ -46,28 +46,6 @@ namespace SecretStorage.src.models.Tests
         }
 
         /// <summary>
-        /// Test IsDefaultImage method
-        /// Test a user with default image
-        /// </summary>
-        [TestMethod()]
-        public void IsDefaultImageTestWithDefaultImage()
-        {
-            Connection connection = new Connection();
-            Assert.IsTrue(connection.IsDefaultImage(0));
-        }
-
-        /// <summary>
-        /// Test IsDefaultImage method
-        /// Test a user with no default image
-        /// </summary>
-        [TestMethod()]
-        public void IsDefaultImageTestWithNoDefaultImage()
-        {
-            Connection connection = new Connection();
-            Assert.IsFalse(connection.IsDefaultImage(2));
-        }
-
-        /// <summary>
         /// Test CheckIfLoginPagePassword method
         /// Test with a good password
         /// </summary>
@@ -87,16 +65,6 @@ namespace SecretStorage.src.models.Tests
         {
             Connection connection = new Connection();
             Assert.IsFalse(connection.CheckIfLoginPagePassword("BAD"));
-        }
-
-        /// <summary>
-        /// Test GetAllUsers method
-        /// </summary>
-        [TestMethod()]
-        public void GetAllUsersTest()
-        {
-            Connection connection = new Connection();
-            Assert.IsNotNull(connection.GetAllUsers());
         }
 
         /// <summary>

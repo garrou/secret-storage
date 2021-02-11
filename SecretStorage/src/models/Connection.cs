@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using SecretStorage.src.utils;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SecretStorage.src.models
@@ -10,10 +10,6 @@ namespace SecretStorage.src.models
     /// </summary>
     public class Connection
     {
-        /// <summary>
-        /// Connection string to database
-        /// </summary>
-        private readonly string connectionStr = Properties.Settings.Default.ConnectionString;
 
         /// <summary>
         /// Connection object to database
@@ -25,7 +21,7 @@ namespace SecretStorage.src.models
         /// </summary>
         public Connection()
         {
-            connection = new MySqlConnection(connectionStr);
+            connection = new MySqlConnection(Properties.Settings.Default.ConnectionString);
             connection.Open();
         }
 
@@ -37,7 +33,12 @@ namespace SecretStorage.src.models
         /// <returns>A new user or null</returns>
         public User Authentification(string name, string password)
         {
-            string sql = "SELECT id, name, password FROM users WHERE name=@name AND password=@password";
+            string sql = "SELECT u.id, u.name, u.password, i.picture, l.lastConnection "
+                        + "FROM users AS u "
+                        + "JOIN images AS i on i.userId = u.id "
+                        + "JOIN logs AS l on u.id = l.userId "
+                        + "WHERE u.name = @name AND u.password = @password";
+
             MySqlCommand command = new MySqlCommand(sql, connection);
             User user = null;
 
@@ -49,9 +50,7 @@ namespace SecretStorage.src.models
             {
                 while (reader.Read())
                 {
-                    user = new User(uint.Parse(reader["id"].ToString()),
-                                                   reader["name"].ToString(),
-                                                   reader["password"].ToString());
+                    user = HydrateUtils.HydrateNewUser(ref reader);
                 }
             }
 
@@ -83,36 +82,6 @@ namespace SecretStorage.src.models
             reader.Close();
 
             return isGood;
-        }
-
-        /// <summary>
-        /// Get all users from database
-        /// </summary>
-        /// <returns>Returns a list of all users in database</returns>
-        public List<User> GetAllUsers()
-        {
-            string sql = "SELECT id, name, password FROM users";
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            List<User> usersList = null;
-
-            command.ExecuteNonQuery();
-            MySqlDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
-            { 
-                usersList = new List<User>();
-
-                while (reader.Read())
-                {
-                    usersList.Add(new User(uint.Parse(reader["id"].ToString()),
-                                                      reader["name"].ToString(),
-                                                      reader["password"].ToString()));
-                }
-            }
-
-            reader.Close();
-
-            return usersList;
         }
 
         /// <summary>
@@ -177,7 +146,7 @@ namespace SecretStorage.src.models
         {
             string sql = "SELECT picture FROM images WHERE userId = @userId";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            bool isDefault = true;
+            bool isDefault = false;
 
             command.Parameters.AddWithValue("@userId", userId);
             MySqlDataReader reader = command.ExecuteReader();
@@ -186,9 +155,9 @@ namespace SecretStorage.src.models
             {
                 while (reader.Read())
                 {
-                    if (reader.GetString(0).CompareTo(Properties.Settings.Default.DefaultImage) != 0)
+                    if (reader.GetString(0).CompareTo(Properties.Settings.Default.DefaultImageName) == 0)
                     {
-                        isDefault = false;
+                        isDefault = true;
                     }
                 }
             }
@@ -204,13 +173,32 @@ namespace SecretStorage.src.models
         /// <param name="userId">User unique id</param>
         public bool UpdateLogs(uint userId)
         {
-            string sql = "UPDATE logs SET lastConnection=@lastConnection WHERE userId = @userId";
+            string sql = "UPDATE logs SET lastConnection = @lastConnection WHERE userId = @userId";
             MySqlCommand command = new MySqlCommand(sql, connection);
 
             command.Parameters.AddWithValue("@lastConnection", DateTime.Now);
             command.Parameters.AddWithValue("@userId", userId);
             
-            return command.ExecuteNonQuery() > 0;
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        /// <summary>
+        /// Update user name and password
+        /// </summary>
+        /// <param name="name">New user name</param>
+        /// <param name="password">New user password</param>
+        /// <param name="userId">User unique id</param>
+        /// <returns>true if update, false else</returns>
+        public void UpdateNamePassword(string name, string password, uint userId)
+        {
+            string sql = "UPDATE users SET name = @name, password = @password WHERE id = @id";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@id", userId);
+
+            command.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -279,6 +267,34 @@ namespace SecretStorage.src.models
             command.Parameters.AddWithValue("@password", password);
             
             return command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Retrieve data of current user
+        /// </summary>
+        /// <param name="toRefresh">User to refresh</param>
+        public void RefreshCurrentUser(ref User toRefresh)
+        {
+            string sql = "SELECT u.id, u.name, u.password, i.picture, l.lastConnection "
+                        + "FROM users AS u "
+                        + "JOIN images AS i on i.userId = u.id "
+                        + "JOIN logs AS l on u.id = l.userId "
+                        + "WHERE u.id = @id";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@id", toRefresh.Id);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    HydrateUtils.HydrateCurrentUser(ref reader, ref toRefresh);
+                }
+            }
+
+            reader.Close();
         }
 
         /// <summary>

@@ -1,12 +1,12 @@
 ﻿namespace SecretStorage.src.utils
 {
     /// <summary>
-    /// Analyse class 
+    /// AnalyseUtils class 
     /// </summary>
-    public static class Analyse
+    public static class AnalyseUtils
     {
         /// <summary>
-        /// Analyse a string and replace 'x' by '*'
+        /// AnalyseUtils a string and replace 'x' by '*'
         /// and ',' by '.' to compute the result
         /// </summary>
         /// <param name="toBeAnalysed">String to be analysed</param>

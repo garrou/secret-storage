@@ -25,10 +25,10 @@ namespace SecretStorage.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
-        public string AdminName {
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public uint AdminId {
             get {
-                return ((string)(this["AdminName"]));
+                return ((uint)(this["AdminId"]));
             }
         }
         
@@ -42,15 +42,39 @@ namespace SecretStorage.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("user.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public uint NameMinSize {
+            get {
+                return ((uint)(this["NameMinSize"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public uint PassMinSize {
+            get {
+                return ((uint)(this["PassMinSize"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../assets/images/pics/user.png")]
         public string DefaultImage {
             get {
                 return ((string)(this["DefaultImage"]));
             }
-            set {
-                this["DefaultImage"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("user.png")]
+        public string DefaultImageName {
+            get {
+                return ((string)(this["DefaultImageName"]));
             }
         }
     }

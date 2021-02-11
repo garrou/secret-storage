@@ -102,7 +102,7 @@ namespace SecretStorage.src.forms.admin
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(260, 9);
+            this.TitleLabel.Location = new System.Drawing.Point(207, 9);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(266, 42);
             this.TitleLabel.TabIndex = 22;
@@ -124,9 +124,11 @@ namespace SecretStorage.src.forms.admin
             // 
             // ProfilePicture
             // 
+            this.ProfilePicture.Image = global::SecretStorage.Properties.Resources.user;
             this.ProfilePicture.Location = new System.Drawing.Point(458, 102);
             this.ProfilePicture.Name = "ProfilePicture";
             this.ProfilePicture.Size = new System.Drawing.Size(160, 160);
+            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 21;
             this.ProfilePicture.TabStop = false;
             // 
@@ -135,19 +137,20 @@ namespace SecretStorage.src.forms.admin
             this.UpdateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.Image = global::SecretStorage.Properties.Resources.save;
             this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateBtn.Location = new System.Drawing.Point(340, 349);
+            this.UpdateBtn.Location = new System.Drawing.Point(286, 364);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(110, 35);
             this.UpdateBtn.TabIndex = 16;
             this.UpdateBtn.Text = "Modifier";
             this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // UpdateAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.ClientSize = new System.Drawing.Size(684, 411);
             this.Controls.Add(this.UpdateProfilePictureBtn);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.ProfilePicture);
@@ -160,6 +163,8 @@ namespace SecretStorage.src.forms.admin
             this.Controls.Add(this.NameLabel);
             this.Name = "UpdateAdminForm";
             this.Text = "UpdateAdminForm";
+            this.Closed += new System.EventHandler(this.UpdateAdminForm_Closed);
+            this.Load += new System.EventHandler(this.UpdateAdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

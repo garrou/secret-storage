@@ -44,7 +44,7 @@ namespace SecretStorage.src.forms
             // 
             // ProfilePicture
             // 
-            this.ProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.Image")));
+            this.ProfilePicture.Image = global::SecretStorage.Properties.Resources.user;
             this.ProfilePicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture.InitialImage")));
             this.ProfilePicture.Location = new System.Drawing.Point(12, 17);
             this.ProfilePicture.Name = "ProfilePicture";

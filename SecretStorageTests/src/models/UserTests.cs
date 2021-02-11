@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Drawing;
 
 namespace SecretStorage.src.models.Tests
 {
@@ -15,7 +17,7 @@ namespace SecretStorage.src.models.Tests
         [TestMethod()]
         public void UserTestIsNotNull()
         {
-            User created = new User(1, "test", "test");
+            User created = new User(1, "test", "test", DateTime.Now.ToString(), new Bitmap("../../assets/cs.png"));
             Assert.IsNotNull(created);
         }
 
@@ -26,7 +28,7 @@ namespace SecretStorage.src.models.Tests
         [TestMethod()]
         public void UserTestIsAdmin()
         {
-            User created = new User(1, "admin", "test");
+            User created = new User(2, "admin", "admin", DateTime.Now.ToString(), new Bitmap("../../assets/cs.png"));
             Assert.IsTrue(created.IsAdmin);
         }
 
@@ -37,7 +39,7 @@ namespace SecretStorage.src.models.Tests
         [TestMethod()]
         public void UserTestIsNotAdmin()
         {
-            User created = new User(1, "administrator", "test");
+            User created = new User(1, "admin", "admin", DateTime.Now.ToString(), new Bitmap("../../assets/cs.png"));
             Assert.IsFalse(created.IsAdmin);
         }
     }

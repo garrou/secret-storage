@@ -30,13 +30,12 @@ namespace SecretStorage.src.forms.admin
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            const int NameMinSize = 2;
-            const int PassMinSize = 3;
             string name = NameTextBox.Text;
             string password = PasswordTextBox.Text;
             string confPassword = ConfirmPassTextBox.Text;            
 
-            if (name.Length > NameMinSize && password.Length > PassMinSize)
+            if (name.Length > Properties.Settings.Default.NameMinSize 
+                && password.Length > Properties.Settings.Default.PassMinSize)
             {
                 if (password.CompareTo(confPassword) == 0)
                 {
@@ -67,8 +66,8 @@ namespace SecretStorage.src.forms.admin
             } 
             else
             {
-                MessageBox.Show($"Le nom d'utilisateur doit contenir plus de {NameMinSize} caractères"
-                                + $", le mot de passe doit contenir plus de {PassMinSize} caractères.",
+                MessageBox.Show($"Le nom d'utilisateur doit contenir plus de {Properties.Settings.Default.NameMinSize} caractères"
+                                + $", le mot de passe doit contenir plus de {Properties.Settings.Default.PassMinSize} caractères.",
                                 "Erreur",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);

@@ -46,6 +46,8 @@ INSERT INTO images (userId, picture) VALUES ('1', 'user.png');
 INSERT INTO images (userId, picture) VALUES ('2', 'user.png');
 INSERT INTO images (userId, picture) VALUES ('3', 'user.png');
 
+INSERT INTO gologin (password) VALUES ('123456');
+
 INSERT INTO logs (userId, lastConnection) VALUES ('1', NOW());
 INSERT INTO logs (userId, lastConnection) VALUES ('2', NOW());
 INSERT INTO logs (userId, lastConnection) VALUES ('3', NOW());

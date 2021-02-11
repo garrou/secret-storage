@@ -3,7 +3,7 @@
 namespace SecretStorage.src.utils.Tests
 {
     /// <summary>
-    /// Test Analyse class
+    /// Test AnalyseUtils class
     /// </summary>
     [TestClass()]
     public class AnalyseTests
@@ -16,7 +16,7 @@ namespace SecretStorage.src.utils.Tests
         public void AnalyseAndReplaceTestWithIndexOfX()
         {
             string toAnalyse = "This x is a string to test x char like xxx";
-            string result = Analyse.AnalyseAndReplace(toAnalyse);
+            string result = AnalyseUtils.AnalyseAndReplace(toAnalyse);
             Assert.AreEqual(result.IndexOf('x'), -1);
         }
 
@@ -28,7 +28,7 @@ namespace SecretStorage.src.utils.Tests
         public void AnalyseAndReplaceTestWithCompareToX()
         {
             string toAnalyse = "This x is a string to test x char like xxx";
-            string result = Analyse.AnalyseAndReplace(toAnalyse);
+            string result = AnalyseUtils.AnalyseAndReplace(toAnalyse);
             Assert.AreEqual(result.CompareTo("This * is a string to test * char like ***"), 0);   
         }
 
@@ -40,7 +40,7 @@ namespace SecretStorage.src.utils.Tests
         public void AnalyseAndReplaceTestWithIndexOfComma()
         {
             string toAnalyse = "This , is a string to test , char like ,,,";
-            string result = Analyse.AnalyseAndReplace(toAnalyse);
+            string result = AnalyseUtils.AnalyseAndReplace(toAnalyse);
             Assert.AreEqual(result.IndexOf(','), -1);
         }
 
@@ -52,7 +52,7 @@ namespace SecretStorage.src.utils.Tests
         public void AnalyseAndReplaceTestWithCompareToComma()
         {
             string toAnalyse = "This , is a string to test , char like ,,,";
-            string result = Analyse.AnalyseAndReplace(toAnalyse);
+            string result = AnalyseUtils.AnalyseAndReplace(toAnalyse);
             Assert.AreEqual(result.CompareTo("This . is a string to test . char like ..."), 0);
         }
     }

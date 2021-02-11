@@ -1,8 +1,6 @@
 ﻿using SecretStorage.src.forms.admin;
 using SecretStorage.src.models;
-using SecretStorage.src.utils;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -21,12 +19,12 @@ namespace SecretStorage.src.forms
         /// <summary>
         /// Current authentified admin
         /// </summary>
-        private readonly User authentifiedAdmin;
+        private User authentifiedAdmin;
 
         /// <summary>
         /// Init admin form
         /// </summary>
-        public AdminForm(User authAdmin)
+        public AdminForm(ref User authAdmin)
         {
             InitializeComponent();
             connection = new Connection();
@@ -40,22 +38,15 @@ namespace SecretStorage.src.forms
         /// <param name="e">System.EventArgs</param>
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            AddInUsersListView();
+            // Put user informations on admin page
             NameLabel.Text += authentifiedAdmin.Name;
 
-            if (!connection.IsDefaultImage(authentifiedAdmin.Id))
+            if (authentifiedAdmin.ProfilePicture != null)
             {
-                // Retrieve profile picture from database
-                byte[] image = connection.GetEncodedProfilPicture(authentifiedAdmin.Id);
-
-                // Set the image
-                ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
+                ProfilePicture.Image = authentifiedAdmin.ProfilePicture;
             }
-            // else do nothing and use default image
-
-            // Get the last connection user date
-            LastConnectionLabel.Text += connection.GetLogs(authentifiedAdmin.Id);
-
+            
+            LastConnectionLabel.Text = authentifiedAdmin.Logs;
         }
 
         /// <summary>
@@ -68,23 +59,6 @@ namespace SecretStorage.src.forms
         {
             // Call the AdminForm_Closing method
             Close();
-        }
-
-        /// <summary>
-        /// Add in users listview
-        /// </summary>
-        public void AddInUsersListView()
-        {
-            List<User> users = connection.GetAllUsers();
-
-            UserListView.Items.Clear();
-            UserListView.View = View.Details;
-            UserListView.GridLines = true;
-
-            foreach (User user in users)
-            {
-                UserListView.Items.Add(new ListViewItem(new string[] { user.Id.ToString(), user.Name }));
-            }
         }
 
         /// <summary>
@@ -126,9 +100,9 @@ namespace SecretStorage.src.forms
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdatProfileBtn_Click(object sender, EventArgs e)
         {
-            UpdateAdminForm updateAdminForm = new UpdateAdminForm(authentifiedAdmin);
+            Hide();
+            UpdateAdminForm updateAdminForm = new UpdateAdminForm(ref authentifiedAdmin);
             updateAdminForm.Show();
-
         }
     }
 }

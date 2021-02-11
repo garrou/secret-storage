@@ -333,8 +333,8 @@ namespace SecretStorage
         {
             try
             {
-                string toCalculate = Analyse.AnalyseAndReplace(ComputeTextBox.Text);
-                ComputeTextBox.Text = Compute.DoTheMath(toCalculate);
+                string toCalculate = AnalyseUtils.AnalyseAndReplace(ComputeTextBox.Text);
+                ComputeTextBox.Text = ComputeUtils.DoTheMath(toCalculate);
 
                 bool isGoodPassword = connection.CheckIfLoginPagePassword(toCalculate);
 

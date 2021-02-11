@@ -5,7 +5,7 @@ namespace SecretStorage.src.utils
     /// <summary>
     /// Class to make calculation
     /// </summary>
-    public class Compute
+    public class ComputeUtils
     {
         /// <summary>
         /// Make the calculation

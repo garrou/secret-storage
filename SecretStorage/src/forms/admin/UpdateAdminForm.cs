@@ -5,14 +5,26 @@ using System.Windows.Forms;
 
 namespace SecretStorage.src.forms.admin
 {
+    /// <summary>
+    /// Form to update admin
+    /// </summary>
     public partial class UpdateAdminForm : Form
     {
-
+        /// <summary>
+        /// Connection to database
+        /// </summary>
         private readonly Connection connection;
 
-        private readonly User authentifiedAdmin;
+        /// <summary>
+        /// Current admin
+        /// </summary>
+        private User authentifiedAdmin;
 
-        public UpdateAdminForm(User admin)
+        /// <summary>
+        /// Init UpdateAdminForm 
+        /// </summary>
+        /// <param name="admin">User admin</param>
+        public UpdateAdminForm(ref User admin)
         {
             InitializeComponent();
             connection = new Connection();
@@ -26,32 +38,68 @@ namespace SecretStorage.src.forms.admin
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdateProfileBtn_Click(object sender, EventArgs e)
         {
-            try
+            UpdateUtils.UpdateProfilePicture(ProfilePicture, 
+                                             connection, 
+                                             authentifiedAdmin.Id);
+            Close();
+        }
+
+        /// <summary>
+        /// When admin save modifications
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (UpdateUtils.UpdateNamePassword(NameTextBox.Text,
+                                               PasswordTextBox.Text,
+                                               ConfirmPassTextBox.Text,
+                                               authentifiedAdmin.Id,
+                                               connection))
             {
-                OpenFileDialog fileDialog = new OpenFileDialog
-                {
-                    Filter = "Image Files(*.bmp;*.jpg;*.gif;*png)|*.bmp;*.jpg;*.gif;*.png"
-                };
-
-                if (fileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string fileName = fileDialog.FileName;
-                    byte[] bytes = ImageUtils.FromFileNameToBytes(fileName);
-
-                    // Update profile picture in database
-                    connection.UpdateProfilePicture(bytes, authentifiedAdmin.Id);
-
-                    // Retrieve profile picture from database
-                    byte[] image = connection.GetEncodedProfilPicture(authentifiedAdmin.Id);
-
-                    // Set the image
-                    ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
-                }
+                MessageBox.Show("Profil modifié correctement.",
+                                "Profil modifié.",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Impossible de modifier le profil.",
+                                "Erreur",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
+
+            PasswordTextBox.Text = "";
+            ConfirmPassTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// When form load
+        /// </summary>
+        /// <param name="sender">AdminForm</param>
+        /// <param name="e">System.EventArgs</param>
+        private void UpdateAdminForm_Load(object sender, EventArgs e)
+        {
+            NameTextBox.Text = authentifiedAdmin.Name;
+
+            if (authentifiedAdmin.ProfilePicture != null)
+            {
+                ProfilePicture.Image = authentifiedAdmin.ProfilePicture;
+            }
+        }
+
+        /// <summary>
+        /// When form closed
+        /// </summary>
+        /// <param name="sender">AdminForm</param>
+        /// <param name="e">System.EventArgs</param>
+        private void UpdateAdminForm_Closed(object sender, EventArgs e)
+        {
+            // Refresh the admin
+            connection.RefreshCurrentUser(ref authentifiedAdmin);
+            AdminForm adminForm = new AdminForm(ref authentifiedAdmin);
+            adminForm.Show();
         }
     }
 }

@@ -39,12 +39,11 @@ namespace SecretStorage.src.forms
 
                 if (authUser != null)
                 {
-                    // Hide login form
                     Hide();
 
                     if (authUser.IsAdmin)
                     {
-                        AdminForm adminForm = new AdminForm(authUser);
+                        AdminForm adminForm = new AdminForm(ref authUser);
                         adminForm.Show();
                     }
                     else
