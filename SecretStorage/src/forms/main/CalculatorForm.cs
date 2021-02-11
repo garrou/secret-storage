@@ -345,9 +345,9 @@ namespace SecretStorage
                     loginForm.Show();
                 }
             } 
-            catch (SyntaxErrorException ex)
+            catch (SyntaxErrorException)
             {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erreur de syntaxe.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

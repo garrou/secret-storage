@@ -34,40 +34,25 @@ namespace SecretStorage.src.forms.admin
             string password = PasswordTextBox.Text;
             string confPassword = ConfirmPassTextBox.Text;            
 
-            if (name.Length > Properties.Settings.Default.NameMinSize 
-                && password.Length > Properties.Settings.Default.PassMinSize)
+            if (name.Length > Properties.Settings.Default.AuthMinSize 
+                && password.Length > Properties.Settings.Default.AuthMinSize
+                && password.CompareTo(confPassword) == 0 
+                && connection.CheckIfNameIsUnique(name)
+                && connection.InsertNewUser(name, password) == 1
+                && connection.InsertNewImage(name, password) == 1
+                && connection.InsertNewLog(name, password) == 1) 
             {
-                if (password.CompareTo(confPassword) == 0)
-                {
-                    bool isUnique = connection.CheckIfNameIsUnique(name);
-
-                    if (isUnique && connection.InsertNewUser(name, password) == 1)
-                    {
-                        MessageBox.Show("L'utilisateur correctement ajouté.",
-                                        "Utilisateur créé",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Le nom d'utilisateur doit être unique.",
-                                    "Erreur",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Les mots de passe ne correspondent pas.",
-                                    "Erreur",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            } 
+                MessageBox.Show("L'utilisateur correctement ajouté.",
+                                "Utilisateur créé",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Information);
+            }
             else
             {
-                MessageBox.Show($"Le nom d'utilisateur doit contenir plus de {Properties.Settings.Default.NameMinSize} caractères"
-                                + $", le mot de passe doit contenir plus de {Properties.Settings.Default.PassMinSize} caractères.",
+                MessageBox.Show("Impossible de créer l'utilisateur.\n"
+                                + "Le nom doit être unique, le nom et le mot de passe "
+                                + "doivent contenir plus de " 
+                                + Properties.Settings.Default.AuthMinSize,
                                 "Erreur",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);

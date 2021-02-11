@@ -1,7 +1,7 @@
 ﻿
-namespace SecretStorage.src.forms.admin
+namespace SecretStorage.src.forms.user
 {
-    partial class UpdateAdminForm
+    partial class NewUserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace SecretStorage.src.forms.admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateAdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewUserForm));
             this.ConfirmPassTextBox = new System.Windows.Forms.TextBox();
             this.ConfirmPassLabel = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
@@ -37,16 +37,13 @@ namespace SecretStorage.src.forms.admin
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.UpdateProfilePictureBtn = new System.Windows.Forms.Button();
-            this.ProfilePicture = new System.Windows.Forms.PictureBox();
-            this.UpdateBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
+            this.CreateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ConfirmPassTextBox
             // 
             this.ConfirmPassTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmPassTextBox.Location = new System.Drawing.Point(58, 276);
+            this.ConfirmPassTextBox.Location = new System.Drawing.Point(81, 258);
             this.ConfirmPassTextBox.Name = "ConfirmPassTextBox";
             this.ConfirmPassTextBox.PasswordChar = '*';
             this.ConfirmPassTextBox.Size = new System.Drawing.Size(324, 27);
@@ -56,16 +53,16 @@ namespace SecretStorage.src.forms.admin
             // 
             this.ConfirmPassLabel.AutoSize = true;
             this.ConfirmPassLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmPassLabel.Location = new System.Drawing.Point(53, 247);
+            this.ConfirmPassLabel.Location = new System.Drawing.Point(76, 229);
             this.ConfirmPassLabel.Name = "ConfirmPassLabel";
             this.ConfirmPassLabel.Size = new System.Drawing.Size(240, 26);
-            this.ConfirmPassLabel.TabIndex = 19;
+            this.ConfirmPassLabel.TabIndex = 20;
             this.ConfirmPassLabel.Text = "Confirmer le mot de passe";
             // 
             // PasswordTextBox
             // 
             this.PasswordTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextBox.Location = new System.Drawing.Point(58, 186);
+            this.PasswordTextBox.Location = new System.Drawing.Point(81, 175);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(324, 27);
@@ -74,9 +71,8 @@ namespace SecretStorage.src.forms.admin
             // NameTextBox
             // 
             this.NameTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameTextBox.Location = new System.Drawing.Point(58, 102);
+            this.NameTextBox.Location = new System.Drawing.Point(81, 104);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.ReadOnly = true;
             this.NameTextBox.Size = new System.Drawing.Size(324, 27);
             this.NameTextBox.TabIndex = 1;
             // 
@@ -84,91 +80,64 @@ namespace SecretStorage.src.forms.admin
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(53, 157);
+            this.PasswordLabel.Location = new System.Drawing.Point(76, 146);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(128, 26);
-            this.PasswordLabel.TabIndex = 15;
+            this.PasswordLabel.TabIndex = 16;
             this.PasswordLabel.Text = "Mot de passe";
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLabel.Location = new System.Drawing.Point(53, 73);
+            this.NameLabel.Location = new System.Drawing.Point(76, 75);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(54, 26);
-            this.NameLabel.TabIndex = 14;
+            this.NameLabel.TabIndex = 15;
             this.NameLabel.Text = "Nom";
             // 
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(207, 9);
+            this.TitleLabel.Location = new System.Drawing.Point(116, 12);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(266, 42);
-            this.TitleLabel.TabIndex = 22;
-            this.TitleLabel.Text = "Modifier le profil";
+            this.TitleLabel.Size = new System.Drawing.Size(262, 42);
+            this.TitleLabel.TabIndex = 14;
+            this.TitleLabel.Text = "Créer un compte";
             // 
-            // UpdateProfilePictureBtn
+            // CreateBtn
             // 
-            this.UpdateProfilePictureBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateProfilePictureBtn.Image = global::SecretStorage.Properties.Resources.pen;
-            this.UpdateProfilePictureBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateProfilePictureBtn.Location = new System.Drawing.Point(458, 268);
-            this.UpdateProfilePictureBtn.Name = "UpdateProfilePictureBtn";
-            this.UpdateProfilePictureBtn.Size = new System.Drawing.Size(160, 35);
-            this.UpdateProfilePictureBtn.TabIndex = 4;
-            this.UpdateProfilePictureBtn.Text = "Modifier photo";
-            this.UpdateProfilePictureBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateProfilePictureBtn.UseVisualStyleBackColor = true;
-            this.UpdateProfilePictureBtn.Click += new System.EventHandler(this.UpdateProfileBtn_Click);
+            this.CreateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateBtn.Image = global::SecretStorage.Properties.Resources.save;
+            this.CreateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CreateBtn.Location = new System.Drawing.Point(154, 314);
+            this.CreateBtn.Name = "CreateBtn";
+            this.CreateBtn.Size = new System.Drawing.Size(162, 35);
+            this.CreateBtn.TabIndex = 4;
+            this.CreateBtn.Text = "Créer un compte";
+            this.CreateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CreateBtn.UseVisualStyleBackColor = true;
+            this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
             // 
-            // ProfilePicture
-            // 
-            this.ProfilePicture.Image = global::SecretStorage.Properties.Resources.user;
-            this.ProfilePicture.Location = new System.Drawing.Point(458, 102);
-            this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Size = new System.Drawing.Size(160, 160);
-            this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ProfilePicture.TabIndex = 21;
-            this.ProfilePicture.TabStop = false;
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Image = global::SecretStorage.Properties.Resources.save;
-            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateBtn.Location = new System.Drawing.Point(286, 364);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(110, 35);
-            this.UpdateBtn.TabIndex = 5;
-            this.UpdateBtn.Text = "Modifier";
-            this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
-            // 
-            // UpdateAdminForm
+            // NewUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 411);
-            this.Controls.Add(this.UpdateProfilePictureBtn);
-            this.Controls.Add(this.TitleLabel);
-            this.Controls.Add(this.ProfilePicture);
+            this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.ConfirmPassTextBox);
             this.Controls.Add(this.ConfirmPassLabel);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.NameTextBox);
-            this.Controls.Add(this.UpdateBtn);
+            this.Controls.Add(this.CreateBtn);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.TitleLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "UpdateAdminForm";
-            this.Text = "Modifier le profil administrateur";
-            this.Closed += new System.EventHandler(this.UpdateAdminForm_Closed);
-            this.Load += new System.EventHandler(this.UpdateAdminForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
+            this.Name = "NewUserForm";
+            this.Text = "Ajouter un utilisateur";
+            this.Closed += new System.EventHandler(this.NewUserForm_Closed);
+            this.Load += new System.EventHandler(this.NewUserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,11 +149,9 @@ namespace SecretStorage.src.forms.admin
         private System.Windows.Forms.Label ConfirmPassLabel;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.Button CreateBtn;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.PictureBox ProfilePicture;
         private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.Button UpdateProfilePictureBtn;
     }
 }

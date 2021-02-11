@@ -137,7 +137,7 @@ namespace SecretStorage.src.forms
             this.UpdateProfileBtn.Location = new System.Drawing.Point(17, 236);
             this.UpdateProfileBtn.Name = "UpdateProfileBtn";
             this.UpdateProfileBtn.Size = new System.Drawing.Size(160, 35);
-            this.UpdateProfileBtn.TabIndex = 19;
+            this.UpdateProfileBtn.TabIndex = 1;
             this.UpdateProfileBtn.Text = "Modifier profil";
             this.UpdateProfileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.UpdateProfileBtn.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@ namespace SecretStorage.src.forms
             this.AddUserBtn.Location = new System.Drawing.Point(17, 337);
             this.AddUserBtn.Name = "AddUserBtn";
             this.AddUserBtn.Size = new System.Drawing.Size(160, 35);
-            this.AddUserBtn.TabIndex = 11;
+            this.AddUserBtn.TabIndex = 2;
             this.AddUserBtn.Text = "Ajouter utilisateur";
             this.AddUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddUserBtn.UseVisualStyleBackColor = false;
@@ -224,7 +224,7 @@ namespace SecretStorage.src.forms
             this.Disconnect.Location = new System.Drawing.Point(826, 12);
             this.Disconnect.Name = "Disconnect";
             this.Disconnect.Size = new System.Drawing.Size(150, 35);
-            this.Disconnect.TabIndex = 0;
+            this.Disconnect.TabIndex = 3;
             this.Disconnect.Text = "Se déconnecter";
             this.Disconnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Disconnect.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@ namespace SecretStorage.src.forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AdminForm";
-            this.Text = "AdminForm";
+            this.Text = "Administrateur";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.AdminForm_Closing);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -9,8 +9,7 @@ namespace SecretStorage.src.models
     /// Class to connect to MySQL database
     /// </summary>
     public class Connection
-    {
-
+    { 
         /// <summary>
         /// Connection object to database
         /// </summary>
@@ -127,14 +126,7 @@ namespace SecretStorage.src.models
             command.Parameters.AddWithValue("@bytes", bytes);
             command.Parameters.AddWithValue("@userId", userId);
 
-            if (command.ExecuteNonQuery() > 0)
-            {
-                MessageBox.Show("Photo de profil modifiée avec succés.", "Succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
-            else
-            {
-                MessageBox.Show("Impossible de modifier la photo de profil.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            command.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -185,16 +177,14 @@ namespace SecretStorage.src.models
         /// <summary>
         /// Update user name and password
         /// </summary>
-        /// <param name="name">New user name</param>
         /// <param name="password">New user password</param>
         /// <param name="userId">User unique id</param>
         /// <returns>true if update, false else</returns>
-        public void UpdateNamePassword(string name, string password, uint userId)
+        public void UpdatePassword(string password, uint userId)
         {
-            string sql = "UPDATE users SET name = @name, password = @password WHERE id = @id";
+            string sql = "UPDATE users SET password = @password WHERE id = @id";
             MySqlCommand command = new MySqlCommand(sql, connection);
 
-            command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", password);
             command.Parameters.AddWithValue("@id", userId);
 
@@ -266,6 +256,50 @@ namespace SecretStorage.src.models
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", password);
             
+            return command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Insert an image in database
+        /// with user name and user password
+        /// </summary>
+        /// <param name="name">User name</param>
+        /// <param name="password">User password</param>
+        /// <returns>The number of inserted row</returns>
+        public int InsertNewImage(string name, string password)
+        {
+            string sql = "INSERT INTO images (userId, picture) "
+                         + "SELECT id, 'user.png' " 
+                         + "FROM users "
+                         + "WHERE name = @name AND password = @password";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@password", password);
+
+            return command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Insert new logs in database
+        /// with user name in user password
+        /// </summary>
+        /// <param name="name">User name</param>
+        /// <param name="password">User password</param>
+        /// <returns>The number of inserted row</returns>
+        public int InsertNewLog(string name, string password)
+        {
+            string sql = "INSERT INTO logs (userId, lastConnection) "
+                         + "SELECT id, NOW() "
+                         + "FROM users "
+                         + "WHERE name = @name AND password = @password";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@password", password);
+
             return command.ExecuteNonQuery();
         }
 

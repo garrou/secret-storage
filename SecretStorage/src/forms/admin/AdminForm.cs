@@ -69,7 +69,7 @@ namespace SecretStorage.src.forms
         private void AdminForm_Closing(object sender, CancelEventArgs e)
         {
             // Display a MsgBox asking the user to save changes or abort.
-            if (MessageBox.Show("Do you want quit admin page ?", "Admin",
+            if (MessageBox.Show("Voulez-vous quitter la page administrateur ?", "Quitter ?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 connection.UpdateLogs(authentifiedAdmin.Id);

@@ -29,6 +29,7 @@ namespace SecretStorage.src.forms.admin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserForm));
             this.TitleLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
@@ -89,7 +90,7 @@ namespace SecretStorage.src.forms.admin
             this.NameTextBox.Location = new System.Drawing.Point(82, 103);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(324, 27);
-            this.NameTextBox.TabIndex = 5;
+            this.NameTextBox.TabIndex = 1;
             // 
             // PasswordTextBox
             // 
@@ -98,7 +99,7 @@ namespace SecretStorage.src.forms.admin
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(324, 27);
-            this.PasswordTextBox.TabIndex = 6;
+            this.PasswordTextBox.TabIndex = 2;
             // 
             // ConfirmPassTextBox
             // 
@@ -107,7 +108,7 @@ namespace SecretStorage.src.forms.admin
             this.ConfirmPassTextBox.Name = "ConfirmPassTextBox";
             this.ConfirmPassTextBox.PasswordChar = '*';
             this.ConfirmPassTextBox.Size = new System.Drawing.Size(324, 27);
-            this.ConfirmPassTextBox.TabIndex = 13;
+            this.ConfirmPassTextBox.TabIndex = 3;
             // 
             // ConfirmPassLabel
             // 
@@ -132,8 +133,9 @@ namespace SecretStorage.src.forms.admin
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.TitleLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddUserForm";
-            this.Text = "AddUser";
+            this.Text = "Ajouter un utilsateur";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -45,5 +45,17 @@ namespace SecretStorage.src.utils
 
             return decodedImage;
         }
+
+        /// <summary>
+        /// Convert an image to a bytes array
+        /// </summary>
+        /// <param name="toEncode">Image to encode</param>
+        /// <returns>An array of bytes</returns>
+        public static byte[] FromImageToBytes(Image toEncode)
+        {
+            MemoryStream ms = new MemoryStream();
+            toEncode.Save(ms, toEncode.RawFormat);
+            return ms.ToArray();
+        }
     }
 }

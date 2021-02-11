@@ -1,10 +1,12 @@
 # SecretStorage
 
-## Status
-
-**Work in progress**  
+Hidden application in a functional calculator.  
 
 ## Requirements
+
+• Visual Studio
+
+[Visual Studio](https://visualstudio.microsoft.com/fr/)  
 
 • MySQL Server  
 
@@ -13,3 +15,9 @@
 • MySQL Connector/NET  
 
 [MySQL Connector](https://dev.mysql.com/downloads/connector/net/)  
+
+## Launching requirements
+
+• To pass the units tests 
+
+**Execute SQL script :** SecretStorage\SecretStorage\src\sql\database.sql  

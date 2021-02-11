@@ -1,4 +1,5 @@
-﻿using SecretStorage.src.models;
+﻿using SecretStorage.src.forms.user;
+using SecretStorage.src.models;
 using SecretStorage.src.utils;
 using System;
 using System.ComponentModel;
@@ -14,14 +15,14 @@ namespace SecretStorage.src.forms
         /// <summary>
         /// The current authenfied user
         /// </summary>
-        private readonly User authentifiedUser;
+        private User authentifiedUser;
 
         /// <summary>
         /// Database connection
         /// </summary>
         private readonly Connection connection;
 
-        public UserForm(User authUser)
+        public UserForm(ref User authUser)
         {
             InitializeComponent();
             authentifiedUser = authUser;
@@ -67,34 +68,11 @@ namespace SecretStorage.src.forms
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void BtnAddImage_Click(object sender, EventArgs e)
+        private void BtnUpdateProfile_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OpenFileDialog fileDialog = new OpenFileDialog
-                {
-                    Filter = "Image Files(*.bmp;*.jpg;*.gif;*png)|*.bmp;*.jpg;*.gif;*.png"
-                };
-
-                if (fileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string fileName = fileDialog.FileName;
-                    byte[] bytes = ImageUtils.FromFileNameToBytes(fileName);
-
-                    // Update profile picture in database
-                    connection.UpdateProfilePicture(bytes, authentifiedUser.Id);
-
-                    // Retrieve profile picture from database
-                    byte[] image = connection.GetEncodedProfilPicture(authentifiedUser.Id);
-
-                    // Set the image
-                    ProfilePicture.Image = ImageUtils.FromBytesToImage(image);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Hide();
+            UpdateUserForm updateUserForm = new UpdateUserForm(ref authentifiedUser);
+            updateUserForm.Show();
         }
 
         /// <summary>
@@ -104,8 +82,7 @@ namespace SecretStorage.src.forms
         /// <param name="e">System.Windows.Forms.FormClosingEventArgs</param>
         private void UserForm_Closing(object sender, CancelEventArgs e)
         {
-            // Display a MsgBox asking the user to save changes or abort.
-            if (MessageBox.Show("Do you want quit page ?", "Secret storage",
+            if (MessageBox.Show("Voulez-vous quitter la page ?", "Quitter ?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 connection.UpdateLogs(authentifiedUser.Id);

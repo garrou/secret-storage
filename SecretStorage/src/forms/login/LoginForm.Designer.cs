@@ -29,30 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.BtnConnect = new System.Windows.Forms.Button();
             this.NameTextField = new System.Windows.Forms.TextBox();
             this.PasswordTextField = new System.Windows.Forms.TextBox();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.NomLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ErrorLabel = new System.Windows.Forms.Label();
+            this.NewUserBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnConnect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BtnConnect
-            // 
-            this.BtnConnect.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConnect.Image = global::SecretStorage.Properties.Resources.enter;
-            this.BtnConnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnConnect.Location = new System.Drawing.Point(66, 378);
-            this.BtnConnect.Name = "BtnConnect";
-            this.BtnConnect.Size = new System.Drawing.Size(160, 35);
-            this.BtnConnect.TabIndex = 0;
-            this.BtnConnect.Text = "Se connecter";
-            this.BtnConnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnConnect.UseVisualStyleBackColor = true;
-            this.BtnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
             // NameTextField
             // 
@@ -65,7 +52,7 @@
             // PasswordTextField
             // 
             this.PasswordTextField.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextField.Location = new System.Drawing.Point(44, 333);
+            this.PasswordTextField.Location = new System.Drawing.Point(44, 330);
             this.PasswordTextField.Name = "PasswordTextField";
             this.PasswordTextField.PasswordChar = '*';
             this.PasswordTextField.Size = new System.Drawing.Size(200, 27);
@@ -75,7 +62,7 @@
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(51, 162);
+            this.TitleLabel.Location = new System.Drawing.Point(51, 156);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(176, 33);
             this.TitleLabel.TabIndex = 3;
@@ -95,11 +82,38 @@
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(43, 307);
+            this.PasswordLabel.Location = new System.Drawing.Point(43, 304);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(121, 23);
             this.PasswordLabel.TabIndex = 5;
             this.PasswordLabel.Text = "Mot de passe ";
+            // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.AutoSize = true;
+            this.ErrorLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(54, 208);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(182, 15);
+            this.ErrorLabel.TabIndex = 7;
+            this.ErrorLabel.Text = "Nom ou mot de passe incorrect.";
+            this.ErrorLabel.Visible = false;
+            // 
+            // NewUserBtn
+            // 
+            this.NewUserBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewUserBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.NewUserBtn.Image = global::SecretStorage.Properties.Resources.add_user;
+            this.NewUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NewUserBtn.Location = new System.Drawing.Point(66, 416);
+            this.NewUserBtn.Name = "NewUserBtn";
+            this.NewUserBtn.Size = new System.Drawing.Size(160, 35);
+            this.NewUserBtn.TabIndex = 4;
+            this.NewUserBtn.Text = "Créer un compte";
+            this.NewUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NewUserBtn.UseVisualStyleBackColor = true;
+            this.NewUserBtn.Click += new System.EventHandler(this.NewUserBtn_Click);
             // 
             // pictureBox1
             // 
@@ -111,23 +125,26 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // ErrorLabel
+            // BtnConnect
             // 
-            this.ErrorLabel.AutoSize = true;
-            this.ErrorLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLabel.Location = new System.Drawing.Point(54, 214);
-            this.ErrorLabel.Name = "ErrorLabel";
-            this.ErrorLabel.Size = new System.Drawing.Size(182, 15);
-            this.ErrorLabel.TabIndex = 7;
-            this.ErrorLabel.Text = "Nom ou mot de passe incorrect.";
-            this.ErrorLabel.Visible = false;
+            this.BtnConnect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConnect.Image = global::SecretStorage.Properties.Resources.enter;
+            this.BtnConnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnConnect.Location = new System.Drawing.Point(66, 372);
+            this.BtnConnect.Name = "BtnConnect";
+            this.BtnConnect.Size = new System.Drawing.Size(160, 35);
+            this.BtnConnect.TabIndex = 3;
+            this.BtnConnect.Text = "Se connecter";
+            this.BtnConnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnConnect.UseVisualStyleBackColor = true;
+            this.BtnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 461);
+            this.Controls.Add(this.NewUserBtn);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PasswordLabel);
@@ -139,7 +156,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
-            this.Text = "Login";
+            this.Text = "Se connecter";
             this.Closed += new System.EventHandler(this.LoginForm_Closed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -158,5 +175,6 @@
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.Button NewUserBtn;
     }
 }

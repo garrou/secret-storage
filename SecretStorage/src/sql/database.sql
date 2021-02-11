@@ -2,11 +2,6 @@
 
 CREATE DATABASE secretstorage;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS images;
-DROP TABLE IF EXISTS gologin;
-DROP TABLE IF EXISTS logs;
-
 USE secretstorage;
 
 CREATE TABLE users (
@@ -34,6 +29,8 @@ CREATE TABLE logs (
     PRIMARY KEY(userId)
 );
 
+INSERT INTO gologin (password) VALUES ('123456');
+
 ALTER TABLE users AUTO_INCREMENT = 1;
 ALTER TABLE images AUTO_INCREMENT = 1;
 ALTER TABLE logs AUTO_INCREMENT = 1;
@@ -45,8 +42,6 @@ INSERT INTO users (name, password) VALUES ('adrien', 'adrien');
 INSERT INTO images (userId, picture) VALUES ('1', 'user.png');
 INSERT INTO images (userId, picture) VALUES ('2', 'user.png');
 INSERT INTO images (userId, picture) VALUES ('3', 'user.png');
-
-INSERT INTO gologin (password) VALUES ('123456');
 
 INSERT INTO logs (userId, lastConnection) VALUES ('1', NOW());
 INSERT INTO logs (userId, lastConnection) VALUES ('2', NOW());

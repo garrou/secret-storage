@@ -3,56 +3,55 @@ using SecretStorage.src.utils;
 using System;
 using System.Windows.Forms;
 
-namespace SecretStorage.src.forms.admin
+namespace SecretStorage.src.forms.user
 {
     /// <summary>
-    /// Form to update admin
+    /// UpdateUserForm controller
     /// </summary>
-    public partial class UpdateAdminForm : Form
+    public partial class UpdateUserForm : Form
     {
         /// <summary>
-        /// Connection to database
+        /// Database connection
         /// </summary>
         private readonly Connection connection;
 
         /// <summary>
-        /// Current admin
+        /// Authentified user
         /// </summary>
-        private User authentifiedAdmin;
+        private User authentifiedUser;
 
         /// <summary>
-        /// Init UpdateAdminForm 
+        /// Init an UpdateUserForm
         /// </summary>
-        /// <param name="admin">User admin</param>
-        public UpdateAdminForm(ref User admin)
+        public UpdateUserForm(ref User user)
         {
             InitializeComponent();
             connection = new Connection();
-            authentifiedAdmin = admin;
+            authentifiedUser = user;
         }
 
         /// <summary>
-        /// When user clicks on BtnAddImage
+        /// When user clicks on update profil picture
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void UpdateProfileBtn_Click(object sender, EventArgs e)
+        private void UpdateProfilePictureBtn_Click(object sender, EventArgs e)
         {
             UpdateUtils.UpdateProfilePicture(ProfilePicture);
         }
 
         /// <summary>
-        /// When admin save modifications
+        /// When user clicks on update profile button
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (UpdateUtils.UpdateProfile(PasswordTextBox.Text,
-                                          ConfirmPassTextBox.Text,
-                                          ref authentifiedAdmin,
-                                          ProfilePicture,
-                                          connection))
+                                           ConfirmPassTextBox.Text,
+                                           ref authentifiedUser,
+                                           ProfilePicture,
+                                           connection))
             {
                 MessageBox.Show("Profil modifié correctement.",
                                 "Profil modifié.",
@@ -75,31 +74,31 @@ namespace SecretStorage.src.forms.admin
         /// <summary>
         /// When form load
         /// </summary>
-        /// <param name="sender">AdminForm</param>
+        /// <param name="sender">UpdateUserForm</param>
         /// <param name="e">System.EventArgs</param>
-        private void UpdateAdminForm_Load(object sender, EventArgs e)
+        private void UpdateUserForm_Load(object sender, EventArgs e)
         {
-            NameTextBox.Text = authentifiedAdmin.Name;
-            PasswordTextBox.Text = authentifiedAdmin.Password;
-            ConfirmPassTextBox.Text = authentifiedAdmin.Password;
+            NameTextBox.Text = authentifiedUser.Name;
+            PasswordTextBox.Text = authentifiedUser.Password;
+            ConfirmPassTextBox.Text = authentifiedUser.Password;
 
-            if (authentifiedAdmin.ProfilePicture != null)
+            if (authentifiedUser.ProfilePicture != null)
             {
-                ProfilePicture.Image = authentifiedAdmin.ProfilePicture;
+                ProfilePicture.Image = authentifiedUser.ProfilePicture;
             }
         }
 
         /// <summary>
         /// When form closed
         /// </summary>
-        /// <param name="sender">UpdateAdminForm</param>
+        /// <param name="sender">UpdateUserForm</param>
         /// <param name="e">System.EventArgs</param>
-        private void UpdateAdminForm_Closed(object sender, EventArgs e)
+        private void UpdateUserForm_Closed(object sender, EventArgs e)
         {
-            // Refresh the admin
-            connection.RefreshCurrentUser(ref authentifiedAdmin);
-            AdminForm adminForm = new AdminForm(ref authentifiedAdmin);
-            adminForm.Show();
+            // Refresh the user
+            connection.RefreshCurrentUser(ref authentifiedUser);
+            UserForm userForm = new UserForm(ref authentifiedUser);
+            userForm.Show();
         }
     }
 }

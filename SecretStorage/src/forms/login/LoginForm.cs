@@ -1,4 +1,5 @@
-﻿using SecretStorage.src.models;
+﻿using SecretStorage.src.forms.user;
+using SecretStorage.src.models;
 using System;
 using System.Windows.Forms;
 
@@ -48,13 +49,14 @@ namespace SecretStorage.src.forms
                     }
                     else
                     {
-                        UserForm userForm = new UserForm(authUser);
+                        UserForm userForm = new UserForm(ref authUser);
                         userForm.Show();
                     }
                 }
                 else
                 {
                     ErrorLabel.Visible = true;
+                    PasswordTextField.Text = "";
                 }
             }
         }
@@ -62,7 +64,7 @@ namespace SecretStorage.src.forms
         /// <summary>
         /// When login form load
         /// </summary>
-        /// <param name="sender">SecretStorage.src.forms.LoginForm</param>
+        /// <param name="sender">LoginForm</param>
         /// <param name="e">System.EventArgs</param>
         private void LoginForm_Load(object sender, EventArgs e)
         {
@@ -73,12 +75,24 @@ namespace SecretStorage.src.forms
         /// <summary>
         /// When user cliks on red cross
         /// </summary>
-        /// <param name="sender">SecretStorage.src.forms.LoginForm</param>
+        /// <param name="sender">LoginForm</param>
         /// <param name="e">System.EventArgs</param>
         private void LoginForm_Closed(object sender, EventArgs e)
         {
             CalculatorForm calculatorForm = new CalculatorForm();
             calculatorForm.Show();
+        }
+
+        /// <summary>
+        /// When user clicks on create an account
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void NewUserBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            NewUserForm newUserForm = new NewUserForm();
+            newUserForm.Show();
         }
     }
 }

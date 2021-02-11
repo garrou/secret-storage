@@ -45,18 +45,9 @@ namespace SecretStorage.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public uint NameMinSize {
+        public uint AuthMinSize {
             get {
-                return ((uint)(this["NameMinSize"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public uint PassMinSize {
-            get {
-                return ((uint)(this["PassMinSize"]));
+                return ((uint)(this["AuthMinSize"]));
             }
         }
         
