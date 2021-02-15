@@ -1,6 +1,7 @@
 ﻿using SecretStorage.src.forms.admin;
 using SecretStorage.src.models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -46,7 +47,9 @@ namespace SecretStorage.src.forms
                 ProfilePicture.Image = authentifiedAdmin.ProfilePicture;
             }
             
-            LastConnectionLabel.Text = authentifiedAdmin.Logs;
+            LastConnectionLabel.Text += authentifiedAdmin.Logs;
+
+            AddUsersInListView();
         }
 
         /// <summary>
@@ -103,6 +106,20 @@ namespace SecretStorage.src.forms
             Hide();
             UpdateAdminForm updateAdminForm = new UpdateAdminForm(ref authentifiedAdmin);
             updateAdminForm.Show();
+        }
+
+        /// <summary>
+        /// Add users in user list view
+        /// </summary>
+        private void AddUsersInListView()
+        {
+            List<User> users = connection.GetUsers();
+            UserListView.View = View.Details;
+
+            foreach (User user in users)
+            {
+                UserListView.Items.Add(new ListViewItem(new[] { user.Id.ToString(), user.Name }));
+            }
         }
     }
 }

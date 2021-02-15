@@ -110,5 +110,16 @@ namespace SecretStorage.src.models.Tests
             Connection connection = new Connection();
             Assert.IsFalse(connection.CheckIfNameIsUnique("test"));
         }
+
+        /// <summary>
+        /// Test GetUsers
+        /// Test if users are in database
+        /// </summary>
+        [TestMethod()]
+        public void GetUsersTest()
+        {
+            Connection connection = new Connection();
+            Assert.IsNotNull(connection.GetUsers());
+        }
     }
 }

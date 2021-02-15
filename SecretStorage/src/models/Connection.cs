@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using SecretStorage.src.utils;
 using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SecretStorage.src.models
 {
@@ -329,6 +329,34 @@ namespace SecretStorage.src.models
             }
 
             reader.Close();
+        }
+
+        /// <summary>
+        /// Get database users
+        /// </summary>
+        /// <returns>Users in database</returns>
+        public List<User> GetUsers()
+        {
+            string sql = "SELECT * FROM users";
+            List<User> users = null;
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                users = new List<User>();
+
+                while (reader.Read())
+                {
+                    users.Add(new User(uint.Parse(reader["id"].ToString()), 
+                                       reader["name"].ToString()));
+                }
+            }
+
+            reader.Close();
+
+            return users;
         }
 
         /// <summary>

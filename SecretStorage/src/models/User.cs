@@ -40,6 +40,20 @@ namespace SecretStorage.src.models
         /// <summary>
         /// Init a new User
         /// </summary>
+        /// <param name="id">Unique user id</param>
+        /// <param name="name">User name</param>
+        public User(uint id, string name)
+        {
+            Id = id;
+            Name = name;
+            Password = null;
+            ProfilePicture = null;
+            Logs = null;
+        }
+
+        /// <summary>
+        /// Init a new User
+        /// </summary>
         /// <param name="id">User unique id</param>
         /// <param name="name">User name</param>
         /// <param name="password">User password</param>

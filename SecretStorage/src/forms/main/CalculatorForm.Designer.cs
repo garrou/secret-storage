@@ -231,7 +231,7 @@ namespace SecretStorage
             resources.ApplyResources(this.PiBtn, "PiBtn");
             this.PiBtn.Name = "PiBtn";
             this.PiBtn.UseVisualStyleBackColor = false;
-            this.PiBtn.Click += new System.EventHandler(this.SquareBtn_Click);
+            this.PiBtn.Click += new System.EventHandler(this.PiBtn_Click);
             // 
             // RightParenthese
             // 

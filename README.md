@@ -4,17 +4,11 @@ Hidden application in a functional calculator.
 
 ## Requirements
 
-• Visual Studio
+• [Visual Studio](https://visualstudio.microsoft.com/fr/)  
 
-[Visual Studio](https://visualstudio.microsoft.com/fr/)  
+• [MySQL Server](https://dev.mysql.com/downloads/mysql/)  
 
-• MySQL Server  
-
-[MySQL Server](https://dev.mysql.com/downloads/mysql/)  
-
-• MySQL Connector/NET  
-
-[MySQL Connector](https://dev.mysql.com/downloads/connector/net/)  
+• [MySQL Connector/NET](https://dev.mysql.com/downloads/connector/net/)  
 
 ## Launching requirements
 

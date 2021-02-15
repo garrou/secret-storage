@@ -276,9 +276,9 @@ namespace SecretStorage
         /// </summary>
         /// <param name="sender">System.Windows.Forms.Button</param>
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void SquareBtn_Click(object sender, EventArgs e)
-        { 
-            ComputeTextBox.Text += "3,1415926535897932384626433832795";      
+        private void PiBtn_Click(object sender, EventArgs e)
+        {
+            ComputeTextBox.Text += "3,1415926535897932384626433832795";   
         }
 
         /// <summary>
