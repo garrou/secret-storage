@@ -46,7 +46,7 @@ namespace SecretStorage.src.forms
             {
                 ProfilePicture.Image = authentifiedAdmin.ProfilePicture;
             }
-            
+
             LastConnectionLabel.Text += authentifiedAdmin.Logs;
 
             AddUsersInListView();

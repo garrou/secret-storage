@@ -19,7 +19,7 @@ CREATE TABLE images (
 
 CREATE TABLE gologin (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    password INT NOT NULL,
+    password VARCHAR(255) NOT NULL,
     PRIMARY KEY(id)
 );
 
@@ -29,20 +29,23 @@ CREATE TABLE logs (
     PRIMARY KEY(userId)
 );
 
-INSERT INTO gologin (password) VALUES ('123456');
+INSERT INTO gologin (password) VALUES ('????n????:b??????]Z?????:?l?');
 
 ALTER TABLE users AUTO_INCREMENT = 1;
 ALTER TABLE images AUTO_INCREMENT = 1;
 ALTER TABLE logs AUTO_INCREMENT = 1;
 
+/* 
+
+FOR TESTS
+
 INSERT INTO users (name, password) VALUES ('test', 'test');
 INSERT INTO users (name, password) VALUES ('admin', 'admin');
-INSERT INTO users (name, password) VALUES ('adrien', 'adrien');
 
 INSERT INTO images (userId, picture) VALUES ('1', 'user.png');
 INSERT INTO images (userId, picture) VALUES ('2', 'user.png');
-INSERT INTO images (userId, picture) VALUES ('3', 'user.png');
 
 INSERT INTO logs (userId, lastConnection) VALUES ('1', NOW());
 INSERT INTO logs (userId, lastConnection) VALUES ('2', NOW());
-INSERT INTO logs (userId, lastConnection) VALUES ('3', NOW());
+
+*/

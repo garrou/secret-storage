@@ -17,7 +17,7 @@ namespace SecretStorage.src.models.Tests
         public void AuthentificationTestUser()
         {
             Connection connection = new Connection();
-            User authUser = connection.Authentification("adrien", "adrien");
+            User authUser = connection.Authentification("test", "test");
             Assert.IsNotNull(authUser);
         }
 

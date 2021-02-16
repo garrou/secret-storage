@@ -40,9 +40,10 @@ namespace SecretStorage.src.models
 
             MySqlCommand command = new MySqlCommand(sql, connection);
             User user = null;
+            string encrypted = EncryptUtils.Encrypt(password);
 
             command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@password", encrypted);
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -68,9 +69,10 @@ namespace SecretStorage.src.models
         {
             string sql = "SELECT password FROM gologin WHERE password = @password";
             MySqlCommand command = new MySqlCommand(sql, connection);
+            string encrypted = EncryptUtils.Encrypt(passwordToCheck);
             bool isGood = false;
 
-            command.Parameters.AddWithValue("@password", passwordToCheck);
+            command.Parameters.AddWithValue("@password", encrypted);
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -184,8 +186,9 @@ namespace SecretStorage.src.models
         {
             string sql = "UPDATE users SET password = @password WHERE id = @id";
             MySqlCommand command = new MySqlCommand(sql, connection);
+            string encypted = EncryptUtils.Encrypt(password);
 
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@password", encypted);
             command.Parameters.AddWithValue("@id", userId);
 
             command.ExecuteNonQuery();
@@ -252,9 +255,10 @@ namespace SecretStorage.src.models
         {
             string sql = "INSERT INTO users (name, password) VALUES (@name, @password)";
             MySqlCommand command = new MySqlCommand(sql, connection);
+            string encypted = EncryptUtils.Encrypt(password);
 
             command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@password", encypted);
             
             return command.ExecuteNonQuery();
         }
@@ -272,11 +276,11 @@ namespace SecretStorage.src.models
                          + "SELECT id, 'user.png' " 
                          + "FROM users "
                          + "WHERE name = @name AND password = @password";
-
             MySqlCommand command = new MySqlCommand(sql, connection);
+            string encypted = EncryptUtils.Encrypt(password);
 
             command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@password", encypted);
 
             return command.ExecuteNonQuery();
         }
@@ -294,11 +298,11 @@ namespace SecretStorage.src.models
                          + "SELECT id, NOW() "
                          + "FROM users "
                          + "WHERE name = @name AND password = @password";
-
             MySqlCommand command = new MySqlCommand(sql, connection);
+            string encrypted = EncryptUtils.Encrypt(password);
 
             command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@password", encrypted);
 
             return command.ExecuteNonQuery();
         }
@@ -314,7 +318,6 @@ namespace SecretStorage.src.models
                         + "JOIN images AS i on i.userId = u.id "
                         + "JOIN logs AS l on u.id = l.userId "
                         + "WHERE u.id = @id";
-
             MySqlCommand command = new MySqlCommand(sql, connection);
 
             command.Parameters.AddWithValue("@id", toRefresh.Id);
@@ -339,7 +342,6 @@ namespace SecretStorage.src.models
         {
             string sql = "SELECT * FROM users";
             List<User> users = null;
-
             MySqlCommand command = new MySqlCommand(sql, connection);
             MySqlDataReader reader = command.ExecuteReader();
 
