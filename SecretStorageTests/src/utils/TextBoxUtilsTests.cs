@@ -5,14 +5,14 @@ namespace SecretStorage.src.utils.Tests
     /// <summary>
     /// Test TextBoxUtils class
     /// </summary>
-    [TestClass()]
+    [TestClass]
     public class TextBoxUtilsTests
     {
         /// <summary>
         /// Test Put method
         /// Add content in the string
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void PutTestAdd()
         {
             int cursorPosition = 2;
@@ -24,7 +24,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test Put method
         /// Add content at begin
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void PutTestAddAtBegin()
         {
             int cursorPosition = 0;
@@ -36,7 +36,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test Put method
         /// Add content at the end 
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void PutTestAddAtEnd()
         {
             int cursorPosition = 15;
@@ -48,7 +48,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test Put method
         /// Add content outside
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void PutTestAddOutside()
         {
             int cursorPosition = 20;
@@ -60,7 +60,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test Put method
         /// Add at negative position
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void PutTestAddAtNegativePosition()
         {
             int cursorPosition = -8;

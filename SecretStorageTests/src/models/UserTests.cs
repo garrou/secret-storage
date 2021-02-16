@@ -7,14 +7,14 @@ namespace SecretStorage.src.models.Tests
     /// <summary>
     /// Tests User class
     /// </summary>
-    [TestClass()]
+    [TestClass]
     public class UserTests
     {
         /// <summary>
         /// Test constructor
         /// Test if user is not null
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void UserTestIsNotNull()
         {
             User created = new User(1, "test", "test", DateTime.Now.ToString(), new Bitmap("../../assets/cs.png"));
@@ -25,7 +25,7 @@ namespace SecretStorage.src.models.Tests
         /// Test constructor
         /// Test if user is admin
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void UserTestIsAdmin()
         {
             User created = new User(2, "admin", "admin", DateTime.Now.ToString(), new Bitmap("../../assets/cs.png"));
@@ -36,7 +36,7 @@ namespace SecretStorage.src.models.Tests
         /// Test constructor
         /// Test if user is not admin
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void UserTestIsNotAdmin()
         {
             User created = new User(1, "admin", "admin", DateTime.Now.ToString(), new Bitmap("../../assets/cs.png"));

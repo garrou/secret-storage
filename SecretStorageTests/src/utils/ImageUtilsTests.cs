@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using SecretStorage.src.utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 
 namespace SecretStorage.src.utils.Tests
@@ -6,7 +7,7 @@ namespace SecretStorage.src.utils.Tests
     /// <summary>
     /// Test ImageUtils class
     /// </summary>
-    [TestClass()]
+    [TestClass]
     public class ImageUtilsTests
     {
         /// <summary>
@@ -19,7 +20,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test if this method return not null
         /// if image path is valid
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void FromFileNameToBytesTestWithValidFilePath()
         {
             byte[] encodedImage = ImageUtils.FromFileNameToBytes(Filename);
@@ -30,7 +31,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test FromFileNameToBytes method
         /// Test behaviour method if file path is incorrect
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void FromFileNameToBytesTestWithInvalidFilePath()
         {
             byte[] encodedImage = ImageUtils.FromFileNameToBytes("");
@@ -41,7 +42,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test FromBytesToImage method
         /// Test with a valid image
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void FromBytesToImageTestWithValidImage()
         {
             byte[] encodedImage = ImageUtils.FromFileNameToBytes(Filename);
@@ -53,11 +54,33 @@ namespace SecretStorage.src.utils.Tests
         /// Test FromBytesToImage method
         /// Test with null image
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void FromBytesToImageTestWithNullImage()
         {
             Image image = ImageUtils.FromBytesToImage(null);
             Assert.IsNull(image);
+        }
+
+        /// <summary>
+        /// Test FromImageBytes method
+        /// Test with null image
+        /// </summary>
+        [TestMethod]
+        public void FromImageToBytesTestImageNull()
+        {
+            byte[] bytes = ImageUtils.FromImageToBytes(null);
+            Assert.IsNull(bytes);
+        }
+
+        /// <summary>
+        /// Test FromImageBytes method
+        /// Test with an existing image
+        /// </summary>
+        [TestMethod]
+        public void FromImageToBytesTestImageExists()
+        {
+            byte[] bytes = ImageUtils.FromImageToBytes(new Bitmap("../../assets/cs.png"));
+            Assert.IsNotNull(bytes);
         }
     }
 }

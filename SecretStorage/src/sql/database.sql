@@ -29,15 +29,24 @@ CREATE TABLE logs (
     PRIMARY KEY(userId)
 );
 
+CREATE TABLE passwords (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    userId INT UNSIGNED NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    FOREIGN KEY (userId) REFERENCES users(id),
+    PRIMARY KEY(id)
+);
+
 INSERT INTO gologin (password) VALUES ('????n????:b??????]Z?????:?l?');
+
+/* 
+
+---- FOR TESTS ----
 
 ALTER TABLE users AUTO_INCREMENT = 1;
 ALTER TABLE images AUTO_INCREMENT = 1;
 ALTER TABLE logs AUTO_INCREMENT = 1;
-
-/* 
-
-FOR TESTS
 
 INSERT INTO users (name, password) VALUES ('test', 'test');
 INSERT INTO users (name, password) VALUES ('admin', 'admin');

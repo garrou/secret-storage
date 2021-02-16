@@ -53,9 +53,16 @@ namespace SecretStorage.src.utils
         /// <returns>An array of bytes</returns>
         public static byte[] FromImageToBytes(Image toEncode)
         {
-            MemoryStream ms = new MemoryStream();
-            toEncode.Save(ms, toEncode.RawFormat);
-            return ms.ToArray();
+            byte[] bytes = null;
+
+            if (toEncode != null)
+            {
+                MemoryStream ms = new MemoryStream();
+                toEncode.Save(ms, toEncode.RawFormat);
+                bytes = ms.ToArray();
+            }
+
+            return bytes;
         }
     }
 }

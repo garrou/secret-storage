@@ -40,7 +40,7 @@ namespace SecretStorage.src.models
 
             MySqlCommand command = new MySqlCommand(sql, connection);
             User user = null;
-            string encrypted = EncryptUtils.Encrypt(password);
+            string encrypted = EncryptUtils.Encrypt(password.Trim());
 
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", encrypted);
@@ -69,7 +69,7 @@ namespace SecretStorage.src.models
         {
             string sql = "SELECT password FROM gologin WHERE password = @password";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            string encrypted = EncryptUtils.Encrypt(passwordToCheck);
+            string encrypted = EncryptUtils.Encrypt(passwordToCheck.Trim());
             bool isGood = false;
 
             command.Parameters.AddWithValue("@password", encrypted);
@@ -186,7 +186,7 @@ namespace SecretStorage.src.models
         {
             string sql = "UPDATE users SET password = @password WHERE id = @id";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            string encypted = EncryptUtils.Encrypt(password);
+            string encypted = EncryptUtils.Encrypt(password.Trim());
 
             command.Parameters.AddWithValue("@password", encypted);
             command.Parameters.AddWithValue("@id", userId);
@@ -255,7 +255,7 @@ namespace SecretStorage.src.models
         {
             string sql = "INSERT INTO users (name, password) VALUES (@name, @password)";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            string encypted = EncryptUtils.Encrypt(password);
+            string encypted = EncryptUtils.Encrypt(password.Trim());
 
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", encypted);
@@ -277,7 +277,7 @@ namespace SecretStorage.src.models
                          + "FROM users "
                          + "WHERE name = @name AND password = @password";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            string encypted = EncryptUtils.Encrypt(password);
+            string encypted = EncryptUtils.Encrypt(password.Trim());
 
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", encypted);
@@ -299,7 +299,7 @@ namespace SecretStorage.src.models
                          + "FROM users "
                          + "WHERE name = @name AND password = @password";
             MySqlCommand command = new MySqlCommand(sql, connection);
-            string encrypted = EncryptUtils.Encrypt(password);
+            string encrypted = EncryptUtils.Encrypt(password.Trim());
 
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@password", encrypted);
@@ -359,6 +359,46 @@ namespace SecretStorage.src.models
             reader.Close();
 
             return users;
+        }
+
+        /// <summary>
+        /// Count the number of users
+        /// </summary>
+        /// <returns>The number of users</returns>
+        public int CountUsers()
+        {
+            string sql = "SELECT COUNT(*) AS nb_users FROM users";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            int nbUsers = 0;
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    nbUsers = int.Parse(reader["nb_users"].ToString());
+                }
+            }
+
+            reader.Close();
+
+            return nbUsers;
+        }
+
+        /// <summary>
+        /// Update login password
+        /// </summary>
+        /// <param name="password">Input password by user</param>
+        /// <returns>True if one line is edited</returns>
+        public bool UpdateLoginPassword(string password)
+        {
+            string sql = "UPDATE gologin SET password = @password WHERE id = 1";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            string encypted = EncryptUtils.Encrypt(password.Trim());
+
+            command.Parameters.AddWithValue("@password", encypted);
+
+            return command.ExecuteNonQuery() == 1;
         }
 
         /// <summary>

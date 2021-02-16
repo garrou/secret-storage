@@ -48,6 +48,7 @@ namespace SecretStorage.src.forms
             }
 
             LastConnectionLabel.Text += authentifiedAdmin.Logs;
+            UsersLabel.Text += connection.CountUsers();
 
             AddUsersInListView();
         }
@@ -120,6 +121,17 @@ namespace SecretStorage.src.forms
             {
                 UserListView.Items.Add(new ListViewItem(new[] { user.Id.ToString(), user.Name }));
             }
+        }
+
+        /// <summary>
+        /// When admin clicks on update login page
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void UpdateLoginPageBtn_Click(object sender, EventArgs e)
+        {
+            UpdateLoginForm updateLoginForm = new UpdateLoginForm();
+            updateLoginForm.Show();
         }
     }
 }

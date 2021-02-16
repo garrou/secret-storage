@@ -5,14 +5,14 @@ namespace SecretStorage.src.utils.Tests
     /// <summary>
     /// Test AnalyseUtils class
     /// </summary>
-    [TestClass()]
+    [TestClass]
     public class AnalyseTests
     {
         /// <summary>
         /// Test AnalyseAndReplace method with 'x'
         /// Uses IndexOf
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void AnalyseAndReplaceTestWithIndexOfX()
         {
             string toAnalyse = "This x is a string to test x char like xxx";
@@ -24,7 +24,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test AnalyseAndReplace method with 'x'
         /// Uses CompareTo
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void AnalyseAndReplaceTestWithCompareToX()
         {
             string toAnalyse = "This x is a string to test x char like xxx";
@@ -36,7 +36,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test AnalyseAndReplace method with ','
         /// Uses IndexOf
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void AnalyseAndReplaceTestWithIndexOfComma()
         {
             string toAnalyse = "This , is a string to test , char like ,,,";
@@ -48,7 +48,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test AnalyseAndReplace method with ','
         /// Uses CompareTo
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void AnalyseAndReplaceTestWithCompareToComma()
         {
             string toAnalyse = "This , is a string to test , char like ,,,";

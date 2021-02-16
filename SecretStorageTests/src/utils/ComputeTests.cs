@@ -5,14 +5,14 @@ namespace SecretStorage.src.utils.Tests
     /// <summary>
     /// Test class ComputeUtils
     /// </summary>
-    [TestClass()]
+    [TestClass]
     public class ComputeTests
     {
         /// <summary>
         /// Test of DoTheMath method
         /// Test with parentheses
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void DoTheMathTestWithParentheses()
         {
             string result = ComputeUtils.DoTheMath("( 5 + 8 ) * 2 + 3 - 2");
@@ -23,7 +23,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test of DoTheMath method
         /// Test without parentheses
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void DoTheMathWithoutParentheses()
         {
             string result = ComputeUtils.DoTheMath("5 + 8 * 2 + 3 - 2");
@@ -34,7 +34,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test of DoTheMath method
         /// Test with divide
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void DoTheMathAndDivide()
         {
             string result = ComputeUtils.DoTheMath("5 / 5 * 2 + 3 - 2");
@@ -45,7 +45,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test of DoTheMath method
         /// Test with square
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void DoTheMathAndSquare()
         {
             string result = ComputeUtils.DoTheMath("5 * 5 + 3");
@@ -56,7 +56,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test of DoTheMath method
         /// Test with divide double
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void DoTheMathAndDivideDouble()
         {
             string result = ComputeUtils.DoTheMath("1 / 10 + 1 / 10");
@@ -67,7 +67,7 @@ namespace SecretStorage.src.utils.Tests
         /// Test of DoTheMath method
         /// Test with multiplication numbers
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void DoTheMathAndMultDouble()
         {
             string result = ComputeUtils.DoTheMath("1.5 * 10 + 2.5 * 10");
