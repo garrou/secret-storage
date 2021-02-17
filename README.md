@@ -1,7 +1,7 @@
 # SecretStorage
 
-![Alt text](git-img/cs_logo.png?raw=true "C#")  
-![Alt text](git-img/mysql_logo.png?raw=true "MySQL")  
+![Alt text](git-img/cs.png?raw=true "C#")  
+![Alt text](git-img/mysql.png?raw=true "MySQL")  
 
 Hidden application in a functional calculator.  
 If calculator user input the correct password (by default "123456") and click on "=", the application close calculator and open login form.  
