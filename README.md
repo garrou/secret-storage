@@ -1,7 +1,7 @@
 # SecretStorage
 
-![Alt text](git-img/cs.png?raw=true "C#")  
-![Alt text](git-img/mysql.png?raw=true "MySQL")  
+![Alt text](git-img/cs_logo.png?raw=true "C#")  
+![Alt text](git-img/mysql_logo.png?raw=true "MySQL")  
 
 Hidden application in a functional calculator.  
 If calculator user input the correct password (by default "123456") and click on "=", the application close calculator and open login form.  
@@ -12,7 +12,7 @@ If user is loged as admin, he can see all users, add a user, delete users.
 Data are stored in MySQL database.  
 All users password are crypted with SHA256 algorithm.  
 
-![Alt text](https://docs.microsoft.com/fr-fr/dotnet/api/system.security.cryptography.sha256managed?view=net-5.0)  
+• [Microsoft SHA256](https://docs.microsoft.com/fr-fr/dotnet/api/system.security.cryptography.sha256managed?view=net-5.0)  
 
 ![Alt text](git-img/encrypted.PNG?raw=true "Encrypted")  
 
