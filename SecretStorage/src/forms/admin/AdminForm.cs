@@ -77,6 +77,7 @@ namespace SecretStorage.src.forms
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 connection.UpdateLogs(authentifiedAdmin.Id);
+                connection.Close();
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
             } 

@@ -2,6 +2,7 @@
 using SecretStorage.src.models;
 using SecretStorage.src.utils;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -49,6 +50,22 @@ namespace SecretStorage.src.forms
             // else do nothing and use default image
 
             LastConnectionLabel.Text += connection.GetLogs(authentifiedUser.Id);
+
+            AddPasswordsInListView();
+        }
+
+        /// <summary>
+        /// Add users in user list view
+        /// </summary>
+        private void AddPasswordsInListView()
+        {
+            List<Secret> secretPass = connection.GetAllUserSecretPasswords(authentifiedUser.Id);
+            PasswordListView.View = View.Details;
+
+            foreach (Secret secret in secretPass)
+            {
+                PasswordListView.Items.Add(new ListViewItem(new[] { secret.Name, secret.Password }));
+            }
         }
 
         /// <summary>
@@ -86,6 +103,7 @@ namespace SecretStorage.src.forms
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 connection.UpdateLogs(authentifiedUser.Id);
+                connection.Close();
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
             }
@@ -93,6 +111,18 @@ namespace SecretStorage.src.forms
             {
                 e.Cancel = true;
             }
+        }
+
+        /// <summary>
+        /// When user clicks on button add secret
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void BtnAddPassword_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AddPasswordForm addPasswordForm = new AddPasswordForm(authentifiedUser);
+            addPasswordForm.Show();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SecretStorage.src.forms.admin
         /// <summary>
         /// Connection to database
         /// </summary>
-        private readonly Connection connection;
+        private Connection connection;
 
         /// <summary>
         /// Current admin
@@ -38,7 +38,7 @@ namespace SecretStorage.src.forms.admin
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdateProfileBtn_Click(object sender, EventArgs e)
         {
-            UpdateUtils.UpdateProfilePicture(ProfilePicture);
+            UpdateUtils.DialogPicture(ProfilePicture);
         }
 
         /// <summary>
@@ -48,28 +48,16 @@ namespace SecretStorage.src.forms.admin
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (UpdateUtils.UpdateProfile(PasswordTextBox.Text,
-                                          ConfirmPassTextBox.Text,
-                                          ref authentifiedAdmin,
-                                          ProfilePicture,
-                                          connection))
+            if (UpdateUtils.Updater(PasswordTextBox.Text, ConfirmPassTextBox.Text, ref authentifiedAdmin, ProfilePicture, ref connection))
             {
-                MessageBox.Show("Profil modifié correctement.",
-                                "Profil modifié.",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                // Call form closed method
                 Close();
             }
             else
             {
-                MessageBox.Show("Impossible de modifier le profil.",
-                                "Erreur",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                PasswordTextBox.Text = "";
+                ConfirmPassTextBox.Text = "";
             }
-
-            PasswordTextBox.Text = "";
-            ConfirmPassTextBox.Text = "";
         }
 
         /// <summary>
@@ -80,8 +68,6 @@ namespace SecretStorage.src.forms.admin
         private void UpdateAdminForm_Load(object sender, EventArgs e)
         {
             NameTextBox.Text = authentifiedAdmin.Name;
-            PasswordTextBox.Text = authentifiedAdmin.Password;
-            ConfirmPassTextBox.Text = authentifiedAdmin.Password;
 
             if (authentifiedAdmin.ProfilePicture != null)
             {
@@ -98,6 +84,7 @@ namespace SecretStorage.src.forms.admin
         {
             // Refresh the admin
             connection.RefreshCurrentUser(ref authentifiedAdmin);
+            connection.Close();
             AdminForm adminForm = new AdminForm(ref authentifiedAdmin);
             adminForm.Show();
         }

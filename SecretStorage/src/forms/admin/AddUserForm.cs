@@ -1,4 +1,5 @@
 ﻿using SecretStorage.src.models;
+using SecretStorage.src.utils;
 using System;
 using System.Windows.Forms;
 
@@ -12,7 +13,7 @@ namespace SecretStorage.src.forms.admin
         /// <summary>
         /// Connection to database
         /// </summary>
-        private readonly Connection connection;
+        private Connection connection;
 
         /// <summary>
         /// Init a new AddUserForm
@@ -30,17 +31,10 @@ namespace SecretStorage.src.forms.admin
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            string name = NameTextBox.Text;
-            string password = PasswordTextBox.Text;
-            string confPassword = ConfirmPassTextBox.Text;            
-
-            if (name.Length > Properties.Settings.Default.AuthMinSize 
-                && password.Length > Properties.Settings.Default.AuthMinSize
-                && password.CompareTo(confPassword) == 0 
-                && connection.CheckIfNameIsUnique(name)
-                && connection.InsertNewUser(name, password) == 1
-                && connection.InsertNewImage(name, password) == 1
-                && connection.InsertNewLog(name, password) == 1) 
+            if (ValidatorUtils.IsValidToAddNew(NameTextBox.Text, PasswordTextBox.Text, ConfirmPassTextBox.Text, ref connection)
+                && connection.InsertNewUser(NameTextBox.Text, PasswordTextBox.Text) == 1
+                && connection.InsertNewImage(NameTextBox.Text, PasswordTextBox.Text) == 1
+                && connection.InsertNewLog(NameTextBox.Text, PasswordTextBox.Text) == 1) 
             {
                 MessageBox.Show("L'utilisateur correctement ajouté.",
                                 "Utilisateur créé",

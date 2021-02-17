@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 
 namespace SecretStorage.src.utils
 {
@@ -15,7 +16,7 @@ namespace SecretStorage.src.utils
         public static string Encrypt(string toEncrypt)
         {
             byte[] data = Encoding.ASCII.GetBytes(toEncrypt);
-            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            data = new SHA256Managed().ComputeHash(data);
             return Encoding.ASCII.GetString(data);
         }
     }

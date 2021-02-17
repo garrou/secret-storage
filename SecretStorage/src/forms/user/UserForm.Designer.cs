@@ -32,12 +32,14 @@ namespace SecretStorage.src.forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.NameLabel = new System.Windows.Forms.Label();
             this.LastConnectionLabel = new System.Windows.Forms.Label();
-            this.OptionsLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PasswordListView = new System.Windows.Forms.ListView();
+            this.SavedPasswordLabel = new System.Windows.Forms.Label();
+            this.BtnAddPassword = new System.Windows.Forms.Button();
             this.BtnUpdateProfile = new System.Windows.Forms.Button();
             this.DisconnectBtn = new System.Windows.Forms.Button();
             this.ProfilePicture = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SecretName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SecretPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,27 +63,43 @@ namespace SecretStorage.src.forms
             this.LastConnectionLabel.TabIndex = 4;
             this.LastConnectionLabel.Text = "Dernière connexion : ";
             // 
-            // OptionsLabel
+            // PasswordListView
             // 
-            this.OptionsLabel.AutoSize = true;
-            this.OptionsLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OptionsLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OptionsLabel.Location = new System.Drawing.Point(78, 265);
-            this.OptionsLabel.Name = "OptionsLabel";
-            this.OptionsLabel.Size = new System.Drawing.Size(62, 19);
-            this.OptionsLabel.TabIndex = 16;
-            this.OptionsLabel.Text = "Options";
-            this.OptionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PasswordListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SecretName,
+            this.SecretPassword});
+            this.PasswordListView.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordListView.GridLines = true;
+            this.PasswordListView.HideSelection = false;
+            this.PasswordListView.Location = new System.Drawing.Point(183, 279);
+            this.PasswordListView.Name = "PasswordListView";
+            this.PasswordListView.Size = new System.Drawing.Size(790, 270);
+            this.PasswordListView.TabIndex = 5;
+            this.PasswordListView.UseCompatibleStateImageBehavior = false;
             // 
-            // pictureBox1
+            // SavedPasswordLabel
             // 
-            this.pictureBox1.Image = global::SecretStorage.Properties.Resources.settings;
-            this.pictureBox1.Location = new System.Drawing.Point(48, 260);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.SavedPasswordLabel.AutoSize = true;
+            this.SavedPasswordLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SavedPasswordLabel.Location = new System.Drawing.Point(465, 239);
+            this.SavedPasswordLabel.Name = "SavedPasswordLabel";
+            this.SavedPasswordLabel.Size = new System.Drawing.Size(237, 26);
+            this.SavedPasswordLabel.TabIndex = 6;
+            this.SavedPasswordLabel.Text = "Mots de passe enregistrés";
+            // 
+            // BtnAddPassword
+            // 
+            this.BtnAddPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddPassword.Image = global::SecretStorage.Properties.Resources.add;
+            this.BtnAddPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAddPassword.Location = new System.Drawing.Point(12, 230);
+            this.BtnAddPassword.Name = "BtnAddPassword";
+            this.BtnAddPassword.Size = new System.Drawing.Size(160, 35);
+            this.BtnAddPassword.TabIndex = 7;
+            this.BtnAddPassword.Text = "Ajouter un secret";
+            this.BtnAddPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAddPassword.UseVisualStyleBackColor = true;
+            this.BtnAddPassword.Click += new System.EventHandler(this.BtnAddPassword_Click);
             // 
             // BtnUpdateProfile
             // 
@@ -122,13 +140,24 @@ namespace SecretStorage.src.forms
             this.ProfilePicture.TabIndex = 0;
             this.ProfilePicture.TabStop = false;
             // 
+            // SecretName
+            // 
+            this.SecretName.Text = "Nom du secret";
+            this.SecretName.Width = 390;
+            // 
+            // SecretPassword
+            // 
+            this.SecretPassword.Text = "Mot de passe du secret";
+            this.SecretPassword.Width = 390;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.OptionsLabel);
+            this.Controls.Add(this.BtnAddPassword);
+            this.Controls.Add(this.SavedPasswordLabel);
+            this.Controls.Add(this.PasswordListView);
             this.Controls.Add(this.LastConnectionLabel);
             this.Controls.Add(this.BtnUpdateProfile);
             this.Controls.Add(this.DisconnectBtn);
@@ -141,7 +170,6 @@ namespace SecretStorage.src.forms
             this.Text = "Utilisateur";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.UserForm_Closing);
             this.Load += new System.EventHandler(this.UserForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,7 +183,10 @@ namespace SecretStorage.src.forms
         private System.Windows.Forms.Button DisconnectBtn;
         private System.Windows.Forms.Button BtnUpdateProfile;
         private System.Windows.Forms.Label LastConnectionLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label OptionsLabel;
+        private System.Windows.Forms.ListView PasswordListView;
+        private System.Windows.Forms.Label SavedPasswordLabel;
+        private System.Windows.Forms.Button BtnAddPassword;
+        private System.Windows.Forms.ColumnHeader SecretName;
+        private System.Windows.Forms.ColumnHeader SecretPassword;
     }
 }

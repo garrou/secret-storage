@@ -13,7 +13,7 @@ namespace SecretStorage.src.utils
         /// Update profile picture of user
         /// </summary>
         /// <param name="imageContainer">PictureBox who contains image</param>
-        public static void UpdateProfilePicture(PictureBox imageContainer)
+        public static void DialogPicture(PictureBox imageContainer)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace SecretStorage.src.utils
             }
             catch (Exception)
             {
-                MessageBox.Show("Impossible de modifier la photo de profil.", 
+                MessageBox.Show("Impossible d'afficher les images.", 
                                 "Erreur", 
                                 MessageBoxButtons.OK, 
                                 MessageBoxIcon.Error);
@@ -44,23 +44,19 @@ namespace SecretStorage.src.utils
         /// <param name="confPass">User confirmation password</param>
         /// <param name="userId">User unique id</param>
         /// <param name="connection">Database connection</param>
-        public static bool UpdateProfile(string password, 
-                                         string confPass, 
-                                         ref User user,
-                                         PictureBox container,
-                                         Connection connection) 
+        private static bool UpdateProfile(string password, string confPass, ref User user, PictureBox imageContainer, ref Connection connection)
         {
             bool isUpdated = false;
             byte[] bytes;
 
             if (password.Length > Properties.Settings.Default.AuthMinSize
                 && password.CompareTo(confPass) == 0) {
-
-                bytes = ImageUtils.FromFileNameToBytes(container.ImageLocation);
-
-                // If user don't update his profile picture
+                
+                bytes = ImageUtils.FromFileNameToBytes(imageContainer.ImageLocation);
+                
                 if (bytes == null)
                 {
+                    // Get the current profile picture
                     bytes = ImageUtils.FromImageToBytes(user.ProfilePicture);
                 }
 
@@ -70,6 +66,75 @@ namespace SecretStorage.src.utils
             }
 
             return isUpdated;
+        }
+
+        /// <summary>
+        /// Update user profile picture
+        /// </summary>
+        /// <param name="container">Image container</param>
+        /// <param name="user">User to ask to update</param>
+        private static void UpdateOnlyImage(PictureBox imageContainer, ref User user)
+        {
+            Connection connection = new Connection();
+            byte[] bytes = ImageUtils.FromFileNameToBytes(imageContainer.ImageLocation);
+
+            // If user don't update his profile picture
+            if (bytes == null)
+            {
+                bytes = ImageUtils.FromImageToBytes(user.ProfilePicture);
+            }
+
+            connection.UpdateProfilePicture(bytes, user.Id);
+        }
+
+        /// <summary>
+        /// Update user
+        /// </summary>
+        /// <param name="password">Password to set</param>
+        /// <param name="confPass">Confirmation pasword</param>
+        /// <param name="user">User to update</param>
+        /// <param name="imageContainer">PictureBox to display image</param>
+        /// <param name="connection">Database connection</param>
+        public static bool Updater(string password, string confPass, ref User user, PictureBox imageContainer, ref Connection connection)
+        {
+            bool updated = false;
+
+            if (ValidatorUtils.IsValidToUpdateProfile(password, confPass, imageContainer))
+            {
+                UpdateProfile(password, confPass, ref user, imageContainer, ref connection);
+                updated = true;
+                MessageBox.Show("Profil modifié avec succés.",
+                                "Profil modifié",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else if (ValidatorUtils.IsValidToUpdatePassword(password, confPass))
+            {
+                connection.UpdatePassword(password, user.Id);
+                updated = true;
+                MessageBox.Show("Mot de passe modifié avec succés.",
+                                "Mot de passe modifié",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else if (imageContainer.ImageLocation != null)
+            {
+                UpdateOnlyImage(imageContainer, ref user);
+                updated = true;
+                MessageBox.Show("Photo de profil modifiée avec succés.",
+                                "Photo de profil modifiée",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Impossible de modifier le profil.",
+                                "Erreur",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+
+            return updated;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SecretStorage.src.forms.user
         /// <summary>
         /// Database connection
         /// </summary>
-        private readonly Connection connection;
+        private Connection connection;
 
         /// <summary>
         /// Authentified user
@@ -37,7 +37,7 @@ namespace SecretStorage.src.forms.user
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdateProfilePictureBtn_Click(object sender, EventArgs e)
         {
-            UpdateUtils.UpdateProfilePicture(ProfilePicture);
+            UpdateUtils.DialogPicture(ProfilePicture);
         }
 
         /// <summary>
@@ -47,28 +47,16 @@ namespace SecretStorage.src.forms.user
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (UpdateUtils.UpdateProfile(PasswordTextBox.Text,
-                                           ConfirmPassTextBox.Text,
-                                           ref authentifiedUser,
-                                           ProfilePicture,
-                                           connection))
+            if (UpdateUtils.Updater(PasswordTextBox.Text, ConfirmPassTextBox.Text, ref authentifiedUser, ProfilePicture, ref connection))
             {
-                MessageBox.Show("Profil modifié correctement.",
-                                "Profil modifié.",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                // Call form closed method
                 Close();
             }
             else
             {
-                MessageBox.Show("Impossible de modifier le profil.",
-                                "Erreur",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                PasswordTextBox.Text = "";
+                ConfirmPassTextBox.Text = "";
             }
-
-            PasswordTextBox.Text = "";
-            ConfirmPassTextBox.Text = "";
         }
 
         /// <summary>
@@ -79,8 +67,6 @@ namespace SecretStorage.src.forms.user
         private void UpdateUserForm_Load(object sender, EventArgs e)
         {
             NameTextBox.Text = authentifiedUser.Name;
-            PasswordTextBox.Text = authentifiedUser.Password;
-            ConfirmPassTextBox.Text = authentifiedUser.Password;
 
             if (authentifiedUser.ProfilePicture != null)
             {
@@ -97,6 +83,7 @@ namespace SecretStorage.src.forms.user
         {
             // Refresh the user
             connection.RefreshCurrentUser(ref authentifiedUser);
+            connection.Close();
             UserForm userForm = new UserForm(ref authentifiedUser);
             userForm.Show();
         }

@@ -42,7 +42,7 @@ namespace SecretStorage.src.models
             User user = null;
             string encrypted = EncryptUtils.Encrypt(password.Trim());
 
-            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@name", name.Trim());
             command.Parameters.AddWithValue("@password", encrypted);
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -232,7 +232,7 @@ namespace SecretStorage.src.models
             MySqlCommand command = new MySqlCommand(sql, connection);
             bool isUnique = true;
 
-            command.Parameters.AddWithValue("@name", nameToCheck);
+            command.Parameters.AddWithValue("@name", nameToCheck.Trim());
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -257,7 +257,7 @@ namespace SecretStorage.src.models
             MySqlCommand command = new MySqlCommand(sql, connection);
             string encypted = EncryptUtils.Encrypt(password.Trim());
 
-            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@name", name.Trim());
             command.Parameters.AddWithValue("@password", encypted);
             
             return command.ExecuteNonQuery();
@@ -279,7 +279,7 @@ namespace SecretStorage.src.models
             MySqlCommand command = new MySqlCommand(sql, connection);
             string encypted = EncryptUtils.Encrypt(password.Trim());
 
-            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@name", name.Trim());
             command.Parameters.AddWithValue("@password", encypted);
 
             return command.ExecuteNonQuery();
@@ -301,7 +301,7 @@ namespace SecretStorage.src.models
             MySqlCommand command = new MySqlCommand(sql, connection);
             string encrypted = EncryptUtils.Encrypt(password.Trim());
 
-            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@name", name.Trim());
             command.Parameters.AddWithValue("@password", encrypted);
 
             return command.ExecuteNonQuery();
@@ -399,6 +399,54 @@ namespace SecretStorage.src.models
             command.Parameters.AddWithValue("@password", encypted);
 
             return command.ExecuteNonQuery() == 1;
+        }
+
+        /// <summary>
+        /// Add a secret password in table passwords
+        /// </summary>
+        /// <param name="userId">Unique user id</param>
+        /// <param name="name">Name of secret password</param>
+        /// <param name="password">Secret password</param>
+        /// <returns></returns>
+        public bool AddNewSecretPassword(uint userId, string name, string password)
+        {
+            string sql = "INSERT INTO passwords (userId, name, password) VALUES (@userId, @name, @password)";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            command.Parameters.AddWithValue("@name", name.Trim());
+            command.Parameters.AddWithValue("@password", password.Trim());
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        /// <summary>
+        /// Get all secret password of current user
+        /// </summary>
+        /// <param name="userId">Unique user id</param>
+        /// <returns>A list of user secrets passwords</returns>
+        public List<Secret> GetAllUserSecretPasswords(uint userId)
+        {
+            string sql = "SELECT * FROM passwords WHERE userId = @userId";
+            List<Secret> secretPasswords = null;
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                secretPasswords = new List<Secret>();
+
+                while (reader.Read())
+                {
+                    secretPasswords.Add(new Secret(reader["name"].ToString(),
+                                       reader["password"].ToString()));
+                }
+            }
+
+            reader.Close();
+
+            return secretPasswords;
         }
 
         /// <summary>

@@ -73,6 +73,7 @@ namespace SecretStorage.src.forms.user
         /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
         private void NewUserForm_Closed(object sender, EventArgs e)
         {
+            connection.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }

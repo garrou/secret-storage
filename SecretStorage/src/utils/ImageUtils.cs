@@ -29,7 +29,7 @@ namespace SecretStorage.src.utils
         }
 
         /// <summary>
-        /// COnvert an array of bytes to an image
+        /// Convert an array of bytes to an image
         /// </summary>
         /// <param name="toConvert">Bytes array to convert</param>
         /// <returns>An image</returns>

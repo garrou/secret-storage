@@ -70,6 +70,7 @@ namespace SecretStorage.src.forms
             this.IdColumn,
             this.NameColumn});
             this.UserListView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserListView.GridLines = true;
             this.UserListView.HideSelection = false;
             this.UserListView.Location = new System.Drawing.Point(672, 150);
             this.UserListView.Name = "UserListView";
