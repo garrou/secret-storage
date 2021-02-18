@@ -32,7 +32,7 @@ All users password are crypted with **SHA256**.
 
 • Admin form  
 
-![Alt text](git-img/calcadminulator.PNG?raw=true "Admin")  
+![Alt text](git-img/admin.PNG?raw=true "Admin")  
 
 ## Requirements
 
