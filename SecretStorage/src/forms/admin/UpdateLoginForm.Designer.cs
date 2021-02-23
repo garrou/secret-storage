@@ -68,16 +68,18 @@ namespace SecretStorage.src.forms.admin
             // 
             // UpdateBtn
             // 
+            this.UpdateBtn.BackColor = System.Drawing.Color.LimeGreen;
             this.UpdateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateBtn.Image = global::SecretStorage.Properties.Resources.save;
             this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateBtn.Location = new System.Drawing.Point(191, 250);
             this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(100, 35);
+            this.UpdateBtn.Size = new System.Drawing.Size(100, 40);
             this.UpdateBtn.TabIndex = 16;
             this.UpdateBtn.Text = "Modifier";
             this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.UseVisualStyleBackColor = false;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // PasswordLabel

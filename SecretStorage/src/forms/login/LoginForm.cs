@@ -10,11 +10,17 @@ namespace SecretStorage.src.forms
     /// </summary>
     public partial class LoginForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Connection to database
         /// </summary>
         private readonly Connection connection;
-        
+
+        #endregion Properties
+
+        #region Constructor
+
         /// <summary>
         /// Init login form
         /// </summary>
@@ -23,6 +29,10 @@ namespace SecretStorage.src.forms
             InitializeComponent();
             connection = new Connection();
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When user clicks on connection button
@@ -94,5 +104,7 @@ namespace SecretStorage.src.forms
             NewUserForm newUserForm = new NewUserForm();
             newUserForm.Show();
         }
+
+        #endregion Events
     }
 }

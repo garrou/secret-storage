@@ -102,8 +102,9 @@
             // 
             // NewUserBtn
             // 
+            this.NewUserBtn.BackColor = System.Drawing.Color.Gray;
             this.NewUserBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewUserBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.NewUserBtn.ForeColor = System.Drawing.Color.White;
             this.NewUserBtn.Image = global::SecretStorage.Properties.Resources.add_user;
             this.NewUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.NewUserBtn.Location = new System.Drawing.Point(66, 416);
@@ -112,7 +113,7 @@
             this.NewUserBtn.TabIndex = 4;
             this.NewUserBtn.Text = "Créer un compte";
             this.NewUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NewUserBtn.UseVisualStyleBackColor = true;
+            this.NewUserBtn.UseVisualStyleBackColor = false;
             this.NewUserBtn.Click += new System.EventHandler(this.NewUserBtn_Click);
             // 
             // pictureBox1
@@ -127,7 +128,9 @@
             // 
             // BtnConnect
             // 
+            this.BtnConnect.BackColor = System.Drawing.Color.Gray;
             this.BtnConnect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConnect.ForeColor = System.Drawing.Color.White;
             this.BtnConnect.Image = global::SecretStorage.Properties.Resources.enter;
             this.BtnConnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnConnect.Location = new System.Drawing.Point(66, 372);
@@ -136,7 +139,7 @@
             this.BtnConnect.TabIndex = 3;
             this.BtnConnect.Text = "Se connecter";
             this.BtnConnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnConnect.UseVisualStyleBackColor = true;
+            this.BtnConnect.UseVisualStyleBackColor = false;
             this.BtnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
             // LoginForm

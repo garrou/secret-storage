@@ -9,11 +9,17 @@ namespace SecretStorage.src.forms.admin
     /// </summary>
     public partial class UpdateLoginForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Database connection
         /// </summary>
         private readonly Connection connection;
-        
+
+        #endregion Properties
+
+        #region Constructor
+
         /// <summary>
         /// Init form
         /// </summary>
@@ -22,6 +28,10 @@ namespace SecretStorage.src.forms.admin
             InitializeComponent();
             connection = new Connection();
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When user clicks on update button
@@ -59,5 +69,7 @@ namespace SecretStorage.src.forms.admin
                                 MessageBoxIcon.Error);
             }
         }
+
+        #endregion Events
     }
 }

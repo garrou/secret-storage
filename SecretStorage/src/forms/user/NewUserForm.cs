@@ -9,10 +9,16 @@ namespace SecretStorage.src.forms.user
     /// </summary>
     public partial class NewUserForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Database connection
         /// </summary>
         private readonly Connection connection;
+
+        #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// Init a new form
@@ -22,6 +28,10 @@ namespace SecretStorage.src.forms.user
             InitializeComponent();
             connection = new Connection();
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When user clicks on create account
@@ -88,5 +98,7 @@ namespace SecretStorage.src.forms.user
             // Set focus on textfield name
             ActiveControl = NameTextBox;
         }
+
+        #endregion Events
     }
 }

@@ -9,11 +9,17 @@ namespace SecretStorage.src.models
     /// Class to connect to MySQL database
     /// </summary>
     public class Connection
-    { 
+    {
+        #region Properties
+
         /// <summary>
         /// Connection object to database
         /// </summary>
         private readonly MySqlConnection connection;
+
+        #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// Init a new connection
@@ -23,6 +29,10 @@ namespace SecretStorage.src.models
             connection = new MySqlConnection(Properties.Settings.Default.ConnectionString);
             connection.Open();
         }
+
+        #endregion Constructor
+
+        #region Public methods
 
         /// <summary>
         /// Authentificate a user
@@ -450,11 +460,88 @@ namespace SecretStorage.src.models
         }
 
         /// <summary>
+        /// Get users id
+        /// </summary>
+        /// <returns>A list of users id</returns>
+        public List<string> GetUsersId()
+        {
+            string sql = "SELECT id FROM users";
+            List<string> usersId = null;
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                usersId = new List<string>();
+
+                while (reader.Read())
+                {
+                    usersId.Add(reader["id"].ToString());
+                }
+            }
+
+            reader.Close();
+
+            return usersId;
+        }
+
+        /// <summary>
+        /// Delete user with user id
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        public bool DeleteUser(string userId)
+        {
+            string sql = "DELETE FROM users WHERE id = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        /// <summary>
+        /// Delete user image with user id
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        public bool DeleteUserImage(string userId)
+        {
+            string sql = "DELETE FROM images WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        /// <summary>
+        /// Delete user logs with user id
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        public bool DeleteUserLogs(string userId)
+        {
+            string sql = "DELETE FROM logs WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        /// <summary>
+        /// Delete user passwords with user id
+        /// </summary>
+        /// <param name="userId">User unique id</param>
+        public bool DeleteUserPasswords(string userId)
+        {
+            string sql = "DELETE FROM passwords WHERE userId = @userId";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            return command.ExecuteNonQuery() >= 0;
+        }
+
+        /// <summary>
         /// Close database connection
         /// </summary>
         public void Close()
         {
             connection.Close();
         }
+
+        #endregion Public methods
     }
 }

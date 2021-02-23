@@ -12,6 +12,8 @@ namespace SecretStorage.src.forms
     /// </summary>
     public partial class AdminForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Database connection
         /// </summary>
@@ -21,6 +23,10 @@ namespace SecretStorage.src.forms
         /// Current authentified admin
         /// </summary>
         private User authentifiedAdmin;
+
+        #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// Init admin form
@@ -32,10 +38,14 @@ namespace SecretStorage.src.forms
             authentifiedAdmin = authAdmin;
         }
 
+        #endregion Constructor
+
+        #region Events
+
         /// <summary>
         /// When admin form load
         /// </summary>
-        /// <param name="sender">SecretStorage.src.forms.AdminForm</param>
+        /// <param name="sender">AdminForm</param>
         /// <param name="e">System.EventArgs</param>
         private void AdminForm_Load(object sender, EventArgs e)
         {
@@ -111,6 +121,32 @@ namespace SecretStorage.src.forms
         }
 
         /// <summary>
+        /// When admin clicks on update login page
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void UpdateLoginPageBtn_Click(object sender, EventArgs e)
+        {
+            UpdateLoginForm updateLoginForm = new UpdateLoginForm();
+            updateLoginForm.Show();
+        }
+
+        /// <summary>
+        /// When admins click on update users page
+        /// </summary>
+        /// <param name="sender">System.Windows.Forms.Button</param>
+        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
+        private void UpdateUserBtn_Click(object sender, EventArgs e)
+        {
+            UpdateUserForm updateUserForm = new UpdateUserForm();
+            updateUserForm.Show();
+        }
+
+        #endregion Events
+
+        #region Methods
+
+        /// <summary>
         /// Add users in user list view
         /// </summary>
         private void AddUsersInListView()
@@ -124,15 +160,6 @@ namespace SecretStorage.src.forms
             }
         }
 
-        /// <summary>
-        /// When admin clicks on update login page
-        /// </summary>
-        /// <param name="sender">System.Windows.Forms.Button</param>
-        /// <param name="e">System.Windows.Forms.MouseEventArgs</param>
-        private void UpdateLoginPageBtn_Click(object sender, EventArgs e)
-        {
-            UpdateLoginForm updateLoginForm = new UpdateLoginForm();
-            updateLoginForm.Show();
-        }
+        #endregion Methods
     }
 }

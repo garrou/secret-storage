@@ -108,7 +108,9 @@ namespace SecretStorage.src.forms.user
             // 
             // CreateBtn
             // 
+            this.CreateBtn.BackColor = System.Drawing.Color.LimeGreen;
             this.CreateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateBtn.ForeColor = System.Drawing.Color.White;
             this.CreateBtn.Image = global::SecretStorage.Properties.Resources.save;
             this.CreateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CreateBtn.Location = new System.Drawing.Point(154, 314);
@@ -117,7 +119,7 @@ namespace SecretStorage.src.forms.user
             this.CreateBtn.TabIndex = 4;
             this.CreateBtn.Text = "Créer un compte";
             this.CreateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CreateBtn.UseVisualStyleBackColor = true;
+            this.CreateBtn.UseVisualStyleBackColor = false;
             this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
             // 
             // NewUserForm

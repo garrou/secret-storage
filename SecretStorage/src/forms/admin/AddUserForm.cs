@@ -10,10 +10,16 @@ namespace SecretStorage.src.forms.admin
     /// </summary>
     public partial class AddUserForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Connection to database
         /// </summary>
         private Connection connection;
+
+        #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// Init a new AddUserForm
@@ -23,6 +29,10 @@ namespace SecretStorage.src.forms.admin
             InitializeComponent();
             connection = new Connection();
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When admin clicks on add button
@@ -53,4 +63,6 @@ namespace SecretStorage.src.forms.admin
             }
         }
     }
+
+    #endregion Events
 }

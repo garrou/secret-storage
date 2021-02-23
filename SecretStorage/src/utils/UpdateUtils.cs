@@ -136,5 +136,50 @@ namespace SecretStorage.src.utils
 
             return updated;
         }
+
+        /// <summary>
+        /// When user delete user
+        /// </summary>
+        /// <param name="id">User unique id</param>
+        /// <param name="connection">Database connection</param>
+        public static void DeleteUser(string id, ref Connection connection)
+        {
+            bool result = true;
+
+            if (ValidatorUtils.IsValidToUpdateUser(id))
+            {
+                result &= connection.DeleteUser(id)
+                        && connection.DeleteUserImage(id)
+                        && connection.DeleteUserLogs(id)
+                        && connection.DeleteUserPasswords(id);
+            }
+
+            if (result)
+            {
+                MessageBox.Show("Utilisateur supprimé avec succés.", "Utilisateur supprimé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erreur ! Impossible de supprimer l'utilisateur.", "Erreur durant la suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Update user name and password
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="connection"></param>
+        public static void UpdatePassword(string id, string pass, string confPass, ref Connection connection)
+        {
+            if (ValidatorUtils.IsValidToUpdatePassword(pass, confPass))
+            {
+                connection.UpdatePassword(pass, uint.Parse(id));
+                MessageBox.Show("Mot de passe modifié avec succés.", "Mot de passe modifié", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
+            else
+            {
+                MessageBox.Show("Erreur ! Impossible de modifier le mot de passe.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

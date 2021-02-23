@@ -10,6 +10,8 @@ namespace SecretStorage.src.forms.user
     /// </summary>
     public partial class AddPasswordForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Database connection
         /// </summary>
@@ -20,6 +22,10 @@ namespace SecretStorage.src.forms.user
         /// </summary>
         private User authentifiedUser;
 
+        #endregion Properties
+
+        #region Constructor
+
         /// <summary>
         /// Init a AddPasswordForm
         /// </summary>
@@ -29,6 +35,10 @@ namespace SecretStorage.src.forms.user
             connection = new Connection();
             authentifiedUser = user;
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When user clicks on save secret
@@ -63,5 +73,7 @@ namespace SecretStorage.src.forms.user
             UserForm userForm = new UserForm(ref authentifiedUser);
             userForm.Show();
         }
+
+        #endregion Events
     }
 }

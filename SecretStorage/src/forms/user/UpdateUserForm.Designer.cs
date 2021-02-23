@@ -112,7 +112,9 @@ namespace SecretStorage.src.forms.user
             // 
             // UpdateProfilePictureBtn
             // 
+            this.UpdateProfilePictureBtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.UpdateProfilePictureBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateProfilePictureBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateProfilePictureBtn.Image = global::SecretStorage.Properties.Resources.pen;
             this.UpdateProfilePictureBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateProfilePictureBtn.Location = new System.Drawing.Point(456, 269);
@@ -121,7 +123,7 @@ namespace SecretStorage.src.forms.user
             this.UpdateProfilePictureBtn.TabIndex = 4;
             this.UpdateProfilePictureBtn.Text = "Modifier photo";
             this.UpdateProfilePictureBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateProfilePictureBtn.UseVisualStyleBackColor = true;
+            this.UpdateProfilePictureBtn.UseVisualStyleBackColor = false;
             this.UpdateProfilePictureBtn.Click += new System.EventHandler(this.UpdateProfilePictureBtn_Click);
             // 
             // ProfilePicture
@@ -136,7 +138,9 @@ namespace SecretStorage.src.forms.user
             // 
             // UpdateBtn
             // 
+            this.UpdateBtn.BackColor = System.Drawing.Color.LimeGreen;
             this.UpdateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateBtn.Image = global::SecretStorage.Properties.Resources.save;
             this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateBtn.Location = new System.Drawing.Point(284, 365);
@@ -145,7 +149,7 @@ namespace SecretStorage.src.forms.user
             this.UpdateBtn.TabIndex = 5;
             this.UpdateBtn.Text = "Modifier";
             this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.UseVisualStyleBackColor = false;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // UpdateUserForm

@@ -33,13 +33,13 @@ namespace SecretStorage.src.forms
             this.NameLabel = new System.Windows.Forms.Label();
             this.LastConnectionLabel = new System.Windows.Forms.Label();
             this.PasswordListView = new System.Windows.Forms.ListView();
+            this.SecretName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SecretPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SavedPasswordLabel = new System.Windows.Forms.Label();
             this.BtnAddPassword = new System.Windows.Forms.Button();
             this.BtnUpdateProfile = new System.Windows.Forms.Button();
             this.DisconnectBtn = new System.Windows.Forms.Button();
             this.ProfilePicture = new System.Windows.Forms.PictureBox();
-            this.SecretName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SecretPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +77,16 @@ namespace SecretStorage.src.forms
             this.PasswordListView.TabIndex = 5;
             this.PasswordListView.UseCompatibleStateImageBehavior = false;
             // 
+            // SecretName
+            // 
+            this.SecretName.Text = "Nom du secret";
+            this.SecretName.Width = 390;
+            // 
+            // SecretPassword
+            // 
+            this.SecretPassword.Text = "Mot de passe du secret";
+            this.SecretPassword.Width = 390;
+            // 
             // SavedPasswordLabel
             // 
             this.SavedPasswordLabel.AutoSize = true;
@@ -89,7 +99,9 @@ namespace SecretStorage.src.forms
             // 
             // BtnAddPassword
             // 
+            this.BtnAddPassword.BackColor = System.Drawing.Color.LimeGreen;
             this.BtnAddPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddPassword.ForeColor = System.Drawing.Color.White;
             this.BtnAddPassword.Image = global::SecretStorage.Properties.Resources.add;
             this.BtnAddPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnAddPassword.Location = new System.Drawing.Point(12, 230);
@@ -98,12 +110,14 @@ namespace SecretStorage.src.forms
             this.BtnAddPassword.TabIndex = 7;
             this.BtnAddPassword.Text = "Ajouter un secret";
             this.BtnAddPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnAddPassword.UseVisualStyleBackColor = true;
+            this.BtnAddPassword.UseVisualStyleBackColor = false;
             this.BtnAddPassword.Click += new System.EventHandler(this.BtnAddPassword_Click);
             // 
             // BtnUpdateProfile
             // 
+            this.BtnUpdateProfile.BackColor = System.Drawing.Color.Gray;
             this.BtnUpdateProfile.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUpdateProfile.ForeColor = System.Drawing.Color.White;
             this.BtnUpdateProfile.Image = global::SecretStorage.Properties.Resources.pen;
             this.BtnUpdateProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnUpdateProfile.Location = new System.Drawing.Point(12, 183);
@@ -112,12 +126,14 @@ namespace SecretStorage.src.forms
             this.BtnUpdateProfile.TabIndex = 1;
             this.BtnUpdateProfile.Text = "Modifier le profil";
             this.BtnUpdateProfile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnUpdateProfile.UseVisualStyleBackColor = true;
+            this.BtnUpdateProfile.UseVisualStyleBackColor = false;
             this.BtnUpdateProfile.Click += new System.EventHandler(this.BtnUpdateProfile_Click);
             // 
             // DisconnectBtn
             // 
+            this.DisconnectBtn.BackColor = System.Drawing.Color.Gray;
             this.DisconnectBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectBtn.ForeColor = System.Drawing.Color.White;
             this.DisconnectBtn.Image = global::SecretStorage.Properties.Resources.logout;
             this.DisconnectBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.DisconnectBtn.Location = new System.Drawing.Point(812, 12);
@@ -126,7 +142,7 @@ namespace SecretStorage.src.forms
             this.DisconnectBtn.TabIndex = 2;
             this.DisconnectBtn.Text = "Se déconnecter";
             this.DisconnectBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DisconnectBtn.UseVisualStyleBackColor = true;
+            this.DisconnectBtn.UseVisualStyleBackColor = false;
             this.DisconnectBtn.Click += new System.EventHandler(this.DisconnectBtn_Click);
             // 
             // ProfilePicture
@@ -139,16 +155,6 @@ namespace SecretStorage.src.forms
             this.ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProfilePicture.TabIndex = 0;
             this.ProfilePicture.TabStop = false;
-            // 
-            // SecretName
-            // 
-            this.SecretName.Text = "Nom du secret";
-            this.SecretName.Width = 390;
-            // 
-            // SecretPassword
-            // 
-            this.SecretPassword.Text = "Mot de passe du secret";
-            this.SecretPassword.Width = 390;
             // 
             // UserForm
             // 

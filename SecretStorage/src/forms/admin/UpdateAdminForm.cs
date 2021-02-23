@@ -10,6 +10,8 @@ namespace SecretStorage.src.forms.admin
     /// </summary>
     public partial class UpdateAdminForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// Connection to database
         /// </summary>
@@ -19,6 +21,10 @@ namespace SecretStorage.src.forms.admin
         /// Current admin
         /// </summary>
         private User authentifiedAdmin;
+
+        #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// Init UpdateAdminForm 
@@ -30,6 +36,10 @@ namespace SecretStorage.src.forms.admin
             connection = new Connection();
             authentifiedAdmin = admin;
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When user clicks on BtnAddImage
@@ -88,5 +98,7 @@ namespace SecretStorage.src.forms.admin
             AdminForm adminForm = new AdminForm(ref authentifiedAdmin);
             adminForm.Show();
         }
+
+        #endregion Events
     }
 }

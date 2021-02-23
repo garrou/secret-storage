@@ -5,6 +5,8 @@
     /// </summary>
     public class Secret
     {
+        #region Properties
+
         /// <summary>
         /// Name of secret
         /// </summary>
@@ -14,6 +16,10 @@
         /// Password of secret
         /// </summary>
         public string Password { get; set; }
+
+        #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// Init a secret
@@ -25,5 +31,7 @@
             Name = name;
             Password = password;
         }
+
+        #endregion Constructor
     }
 }

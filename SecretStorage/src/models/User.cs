@@ -7,6 +7,8 @@ namespace SecretStorage.src.models
     /// </summary>
     public class User
     {
+        #region Properties
+     
         /// <summary>
         /// User unique id
         /// </summary>
@@ -36,6 +38,10 @@ namespace SecretStorage.src.models
         /// Define if a user is admin
         /// </summary>
         public bool IsAdmin { get; set; }
+
+        #endregion Properties
+
+        #region Constructors
 
         /// <summary>
         /// Init a new User
@@ -67,6 +73,10 @@ namespace SecretStorage.src.models
             MakeAdmin();
         }
 
+        #endregion Constructors
+
+        #region Private methods
+
         /// <summary>
         /// Make a user admin
         /// </summary>
@@ -77,5 +87,7 @@ namespace SecretStorage.src.models
                 IsAdmin = true;
             }
         }
+
+        #endregion Private methods
     }
 }

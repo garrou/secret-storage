@@ -53,5 +53,15 @@ namespace SecretStorage.src.utils
                     && IsValidToUpdatePassword(password, confPassword)
                     && connection.CheckIfNameIsUnique(name.Trim());
         }
+
+        /// <summary>
+        /// Check if id is not empty
+        /// </summary>
+        /// <param name="id">Id to check</param>
+        /// <returns>true if id is not empty, false else</returns>
+        public static bool IsValidToUpdateUser(string id)
+        {
+            return !string.IsNullOrEmpty(id) && uint.TryParse(id, out uint number) && number > 0;
+        }
     }
 }

@@ -132,16 +132,18 @@ namespace SecretStorage.src.forms
             // 
             // UpdateProfileBtn
             // 
+            this.UpdateProfileBtn.BackColor = System.Drawing.Color.Gray;
             this.UpdateProfileBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateProfileBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateProfileBtn.Image = global::SecretStorage.Properties.Resources.pen;
             this.UpdateProfileBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateProfileBtn.Location = new System.Drawing.Point(17, 273);
             this.UpdateProfileBtn.Name = "UpdateProfileBtn";
-            this.UpdateProfileBtn.Size = new System.Drawing.Size(196, 35);
+            this.UpdateProfileBtn.Size = new System.Drawing.Size(196, 40);
             this.UpdateProfileBtn.TabIndex = 1;
             this.UpdateProfileBtn.Text = "Modifier le profil";
             this.UpdateProfileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateProfileBtn.UseVisualStyleBackColor = true;
+            this.UpdateProfileBtn.UseVisualStyleBackColor = false;
             this.UpdateProfileBtn.Click += new System.EventHandler(this.UpdatProfileBtn_Click);
             // 
             // pictureBox2
@@ -166,41 +168,46 @@ namespace SecretStorage.src.forms
             // 
             // UpdateUserBtn
             // 
+            this.UpdateUserBtn.BackColor = System.Drawing.Color.Gray;
             this.UpdateUserBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateUserBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateUserBtn.Image = global::SecretStorage.Properties.Resources.pen;
             this.UpdateUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateUserBtn.Location = new System.Drawing.Point(17, 412);
             this.UpdateUserBtn.Name = "UpdateUserBtn";
-            this.UpdateUserBtn.Size = new System.Drawing.Size(196, 35);
+            this.UpdateUserBtn.Size = new System.Drawing.Size(196, 40);
             this.UpdateUserBtn.TabIndex = 14;
             this.UpdateUserBtn.Text = "Modifier des utilisateurs";
             this.UpdateUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateUserBtn.UseVisualStyleBackColor = true;
+            this.UpdateUserBtn.UseVisualStyleBackColor = false;
+            this.UpdateUserBtn.Click += new System.EventHandler(this.UpdateUserBtn_Click);
             // 
             // UpdateLoginPageBtn
             // 
+            this.UpdateLoginPageBtn.BackColor = System.Drawing.Color.Gray;
             this.UpdateLoginPageBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateLoginPageBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateLoginPageBtn.Image = global::SecretStorage.Properties.Resources.padlock;
             this.UpdateLoginPageBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateLoginPageBtn.Location = new System.Drawing.Point(17, 453);
             this.UpdateLoginPageBtn.Name = "UpdateLoginPageBtn";
-            this.UpdateLoginPageBtn.Size = new System.Drawing.Size(196, 35);
+            this.UpdateLoginPageBtn.Size = new System.Drawing.Size(196, 40);
             this.UpdateLoginPageBtn.TabIndex = 13;
             this.UpdateLoginPageBtn.Text = "Modifier page de connexion";
             this.UpdateLoginPageBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateLoginPageBtn.UseVisualStyleBackColor = true;
+            this.UpdateLoginPageBtn.UseVisualStyleBackColor = false;
             this.UpdateLoginPageBtn.Click += new System.EventHandler(this.UpdateLoginPageBtn_Click);
             // 
             // AddUserBtn
             // 
-            this.AddUserBtn.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.AddUserBtn.BackColor = System.Drawing.Color.Gray;
             this.AddUserBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddUserBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AddUserBtn.ForeColor = System.Drawing.Color.White;
             this.AddUserBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddUserBtn.Image")));
             this.AddUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddUserBtn.Location = new System.Drawing.Point(17, 371);
             this.AddUserBtn.Name = "AddUserBtn";
-            this.AddUserBtn.Size = new System.Drawing.Size(196, 35);
+            this.AddUserBtn.Size = new System.Drawing.Size(196, 40);
             this.AddUserBtn.TabIndex = 2;
             this.AddUserBtn.Text = "Ajouter des utilisateurs";
             this.AddUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -220,16 +227,18 @@ namespace SecretStorage.src.forms
             // 
             // Disconnect
             // 
+            this.Disconnect.BackColor = System.Drawing.Color.Gray;
             this.Disconnect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Disconnect.ForeColor = System.Drawing.Color.White;
             this.Disconnect.Image = global::SecretStorage.Properties.Resources.logout;
             this.Disconnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Disconnect.Location = new System.Drawing.Point(812, 12);
             this.Disconnect.Name = "Disconnect";
-            this.Disconnect.Size = new System.Drawing.Size(160, 35);
+            this.Disconnect.Size = new System.Drawing.Size(160, 40);
             this.Disconnect.TabIndex = 3;
             this.Disconnect.Text = "Se déconnecter";
             this.Disconnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Disconnect.UseVisualStyleBackColor = true;
+            this.Disconnect.UseVisualStyleBackColor = false;
             this.Disconnect.Click += new System.EventHandler(this.Disconnect_Click);
             // 
             // AdminForm

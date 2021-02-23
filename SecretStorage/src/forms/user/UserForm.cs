@@ -13,6 +13,8 @@ namespace SecretStorage.src.forms
     /// </summary>
     public partial class UserForm : Form
     {
+        #region Properties
+
         /// <summary>
         /// The current authenfied user
         /// </summary>
@@ -23,12 +25,20 @@ namespace SecretStorage.src.forms
         /// </summary>
         private readonly Connection connection;
 
+        #endregion Properties
+
+        #region Constructor
+
         public UserForm(ref User authUser)
         {
             InitializeComponent();
             authentifiedUser = authUser;
             connection = new Connection();
         }
+
+        #endregion Constructor
+
+        #region Events
 
         /// <summary>
         /// When UserForm loaded
@@ -52,20 +62,6 @@ namespace SecretStorage.src.forms
             LastConnectionLabel.Text += connection.GetLogs(authentifiedUser.Id);
 
             AddPasswordsInListView();
-        }
-
-        /// <summary>
-        /// Add users in user list view
-        /// </summary>
-        private void AddPasswordsInListView()
-        {
-            List<Secret> secretPass = connection.GetAllUserSecretPasswords(authentifiedUser.Id);
-            PasswordListView.View = View.Details;
-
-            foreach (Secret secret in secretPass)
-            {
-                PasswordListView.Items.Add(new ListViewItem(new[] { secret.Name, secret.Password }));
-            }
         }
 
         /// <summary>
@@ -124,5 +120,25 @@ namespace SecretStorage.src.forms
             AddPasswordForm addPasswordForm = new AddPasswordForm(authentifiedUser);
             addPasswordForm.Show();
         }
+
+        #endregion Events
+
+        #region Methods
+
+        /// <summary>
+        /// Add users in user list view
+        /// </summary>
+        private void AddPasswordsInListView()
+        {
+            List<Secret> secretPass = connection.GetAllUserSecretPasswords(authentifiedUser.Id);
+            PasswordListView.View = View.Details;
+
+            foreach (Secret secret in secretPass)
+            {
+                PasswordListView.Items.Add(new ListViewItem(new[] { secret.Name, secret.Password }));
+            }
+        }
+
+        #endregion Methods
     }
 }

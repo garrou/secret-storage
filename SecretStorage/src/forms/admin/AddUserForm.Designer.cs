@@ -72,16 +72,18 @@ namespace SecretStorage.src.forms.admin
             // 
             // AddBtn
             // 
+            this.AddBtn.BackColor = System.Drawing.Color.LimeGreen;
             this.AddBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Image = global::SecretStorage.Properties.Resources.add;
             this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddBtn.Location = new System.Drawing.Point(190, 314);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(100, 35);
+            this.AddBtn.Size = new System.Drawing.Size(100, 40);
             this.AddBtn.TabIndex = 4;
             this.AddBtn.Text = "Ajouter";
             this.AddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // NameTextBox
