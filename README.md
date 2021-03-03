@@ -1,4 +1,4 @@
-# SecretStorage
+# secret-storage
 
 Hidden application in a functional calculator.  
 If calculator user input the correct password (by default "123456") and click on "=", the application close calculator and open login form.  
