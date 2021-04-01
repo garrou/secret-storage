@@ -8,31 +8,31 @@ If user is loged as admin, he can see all users, add a user, delete users.
 
 Data are stored in **MySQL** database.  
 
-![Alt text](git-img/mysql.png?raw=true "MySQL")  
+![Alt text](assets/mysql.png?raw=true "MySQL")  
 
 All users password are crypted with **SHA256**.  
 
 • [Microsoft SHA256](https://docs.microsoft.com/fr-fr/dotnet/api/system.security.cryptography.sha256managed?view=net-5.0)  
 
-![Alt text](git-img/encrypted.PNG?raw=true "Encrypted")  
+![Alt text](assets/encrypted.PNG?raw=true "Encrypted")  
 
 ## Demo
 
 • Calculator form (Home)  
 
-![Alt text](git-img/calculator.PNG?raw=true "Calculator")  
+![Alt text](assets/calculator.PNG?raw=true "Calculator")  
 
 • Login form  
 
-![Alt text](git-img/login.PNG?raw=true "Login")  
+![Alt text](assets/login.PNG?raw=true "Login")  
 
 • User form  
 
-![Alt text](git-img/user.PNG?raw=true "User")  
+![Alt text](assets/user.PNG?raw=true "User")  
 
 • Admin form  
 
-![Alt text](git-img/admin.PNG?raw=true "Admin")  
+![Alt text](assets/admin.PNG?raw=true "Admin")  
 
 ## Requirements
 
